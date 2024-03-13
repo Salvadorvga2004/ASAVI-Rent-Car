@@ -4,7 +4,6 @@ const app = express();
 
 const raizR = require('./routes/index');
 const usuR = require('./routes/usuarios');
-const cars = require('./routes/cars');
 
 app.set('port',process.env.PORT || 3000);
 app.engine('html', require('ejs').renderFile);
