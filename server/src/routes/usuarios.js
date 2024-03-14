@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const mongojs = require('mongojs');
 const db = mongojs('ASAVI',['Usuario']);
+const { ObjectId } = require('mongojs');
 
 router.get('/Usuario',(req ,res ,next) =>{
     db.Usuario.find((err,Usuarios) => {
@@ -17,13 +18,13 @@ router.get('/Usuario/:id',(req ,res ,next) =>{
 });
 
 router.post('/Usuario', (req, res, next) => {
-    const Usuario = req.body;
-    if(!Usuario.correo || !Usuario.contrasena){
+    const UsuarioIs = req.body;
+    if(!UsuarioIs.Nombre || !UsuarioIs.ApPaterno || !UsuarioIs.ApMaterno || !UsuarioIs.Telefono || !UsuarioIs.Usuario || !UsuarioIs.Contrasenia){
         res.status(400).json({
-            error: 'Bad data'
+            error: 'No insertado :('
         });
     }else{
-        db.Usuarios.save(usuarios,(err,Usuarios) => {
+        db.Usuario.save(UsuarioIs,(err,Usuarios) => {
             if (err) return next(err);
             res.json(Usuarios);
         });
