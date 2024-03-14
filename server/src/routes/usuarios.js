@@ -1,63 +1,74 @@
 const router = require('express').Router();
 const mongojs = require('mongojs');
-const db = mongojs('reclutamiento',['usuarios']);
+const db = mongojs('ASAVI',['Usuario']);
 
-router.get('/usuario',(req ,res ,next) =>{
-    db.usuarios.find((err,usuarios) => {
+router.get('/Usuario',(req ,res ,next) =>{
+    db.Usuario.find((err,Usuarios) => {
         if (err) return next(err);
-        res.json(usuarios);
+        res.json(Usuarios);
     });
 });
 
-router.get('/usuario/:id',(req ,res ,next) =>{
-    db.usuarios.findOne({_id: mongojs.ObjectID(req.params.id)},(err,usuarios) => {
+router.get('/Usuario/:id',(req ,res ,next) =>{
+    db.Usuario.findOne({_id: mongojs.ObjectID(req.params.id)},(err,Usuarios) => {
         if (err) return next(err);
-        res.json(usuarios);
+        res.json(Usuarios);
     });
 });
 
-router.post('/usuario', (req, res, next) => {
-    const usuario = req.body;
-    if(!usuario.correo || !usuario.contrasena){
+router.post('/Usuario', (req, res, next) => {
+    const Usuario = req.body;
+    if(!Usuario.correo || !Usuario.contrasena){
         res.status(400).json({
             error: 'Bad data'
         });
     }else{
-        db.usuarios.save(usuarios,(err,usuarios) => {
+        db.Usuarios.save(usuarios,(err,Usuarios) => {
             if (err) return next(err);
-            res.json(usuarios);
+            res.json(Usuarios);
         });
     }
 });
 
-router.delete('/usuarios/:id', (req, res, next) => {
+router.delete('/Usuario/:id', (req, res, next) => {
     db.tasks.remove({_id: mongojs.ObjectID(req.params.id)},(err,result) => {
         if (err) return next(err);
-        res.json(usuarios);
+        res.json(Usuarios);
     });
 })
 
-router.put('/usuarios/:id', (req, res, next) => {
-    const usuario = req.body;
-    const updUsu = {};
+router.put('/Usuario/:id', (req, res, next) => {
+    const UsuarioId = req.params.id;
+    const { Nombre, ApPaterno, ApMaterno, Telefono, Usuario, Contrasenia} = req.body;
 
-    if (usuario.correo){
-        updUsu.correo = usuarios.correo
+    if (!ObjectId.isValid(UsuarioId)) {
+        return res.status(400).json({ error: 'Invalid Usuario ID' });
     }
 
-    if (usuario.contrasena){
-        updUsu.contrasena = usuarios.contrasena
-    }
+    const query = { _id: ObjectId(UsuarioId) };
+    const update = {
+        $set: {
+            Nombre, 
+            ApPaterno, 
+            ApMaterno, 
+            Telefono, 
+            Usuario, 
+            Contrasenia
+        }
+    };
 
-    if (!updUsu){
-        res.status(400).json({
-            error: 'Bad data'
-        });
-    }else{
-        db.tasks.update({_id: mongojs.ObjectID(req.params.id)},(err,usuario) => {
-            if (err) return next(err);
-            res.json(usuario);
-        });
-    }
-})
+    db.Usuario.updateOne(query, update, (err, result) => {
+        if (err) return next(err);
+
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ error: 'Usuario not found' });
+        }
+
+        if (result.modifiedCount === 0) {
+            return res.status(304).json({ message: 'No changes made' });
+        }
+
+        res.json({ message: 'Usuario updated successfully' });
+    });
+});
 module.exports = router;
