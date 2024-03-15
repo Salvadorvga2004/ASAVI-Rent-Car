@@ -11,8 +11,13 @@ router.get('/Usuario',(req ,res ,next) =>{
 });
 
 router.get('/Usuario/:id',(req ,res ,next) =>{
-    db.Usuario.findOne({_id: mongojs.ObjectID(req.params.id)},(err,Usuarios) => {
+    db.Usuario.findOne({ _id: ObjectId(req.params.id)},(err,Usuarios) => {
         if (err) return next(err);
+
+        if (!Usuarios) {
+            return res.status(404).json({ error: 'Usuario no encontrado :(' });
+        }
+
         res.json(Usuarios);
     });
 });
@@ -26,27 +31,38 @@ router.post('/Usuario', (req, res, next) => {
     }else{
         db.Usuario.save(UsuarioIs,(err,Usuarios) => {
             if (err) return next(err);
-            res.json(Usuarios);
+            res.json({message: 'Usuario insertado'});
         });
     }
 });
 
 router.delete('/Usuario/:id', (req, res, next) => {
-    db.tasks.remove({_id: mongojs.ObjectID(req.params.id)},(err,result) => {
-        if (err) return next(err);
-        res.json(Usuarios);
-    });
-})
+    const UsuarioR = req.params.id;
 
-router.put('/Usuario/:id', (req, res, next) => {
-    const UsuarioId = req.params.id;
-    const { Nombre, ApPaterno, ApMaterno, Telefono, Usuario, Contrasenia} = req.body;
-
-    if (!ObjectId.isValid(UsuarioId)) {
-        return res.status(400).json({ error: 'Invalid Usuario ID' });
+    if (!ObjectId.isValid(UsuarioR)) {
+        return res.status(400).json({ error: 'Usuario no existente :(' });
     }
 
-    const query = { _id: ObjectId(UsuarioId) };
+    db.Usuario.remove({ _id: ObjectId(UsuarioR) }, (err, result) => {
+        if (err) return next(err);
+
+        if (result.n === 0) {
+            return res.status(404).json({ error: 'Usuario no existente :(' });
+        }
+
+        res.json({ message: 'Usuario eliminado' });
+    });
+});
+
+router.put('/Usuario/:id', (req, res, next) => {
+    const UsuarioA = req.params.id;
+    const { Nombre, ApPaterno, ApMaterno, Telefono, Usuario, Contrasenia} = req.body;
+
+    if (!ObjectId.isValid(UsuarioA)) {
+        return res.status(400).json({ error: 'Usuario no existente :(' });
+    }
+
+    const query = { _id: ObjectId(UsuarioA) };
     const update = {
         $set: {
             Nombre, 
@@ -62,14 +78,14 @@ router.put('/Usuario/:id', (req, res, next) => {
         if (err) return next(err);
 
         if (result.matchedCount === 0) {
-            return res.status(404).json({ error: 'Usuario not found' });
+            return res.status(404).json({ error: 'Usuario no encontrado :(' });
         }
 
         if (result.modifiedCount === 0) {
-            return res.status(304).json({ message: 'No changes made' });
+            return res.status(304).json({ message: 'Error de cambios' });
         }
 
-        res.json({ message: 'Usuario updated successfully' });
+        res.json({ message: 'Usuario actualizado' });
     });
 });
 module.exports = router;
