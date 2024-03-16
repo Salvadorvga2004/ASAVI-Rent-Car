@@ -43,7 +43,7 @@ router.delete('/Auto/:id', (req, res, next) => {
         return res.status(400).json({ error: 'Auto no existente :(' });
     }
 
-    db.Auto.remove({ _id: ObjectId(AutoR) }, (err, result) => {
+    db.Auto.remove({ _id: ObjectId(AutoD) }, (err, result) => {
         if (err) return next(err);
 
         if (result.n === 0) {
