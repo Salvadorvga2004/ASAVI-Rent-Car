@@ -3,6 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()
