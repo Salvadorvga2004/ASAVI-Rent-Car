@@ -21,21 +21,21 @@ export class AutosService {
   }
 
   addAutos (newAuto : Autos){
-    return this.http.post(`${this.ApiUri}/api/auto`, newAuto)
+    return this.http.post<Autos>(`${this.ApiUri}/api/auto`, newAuto)
       .pipe(
         map(res => res)
       )
   }
 
-  deleteAuto(id:string){
-    return this.http.delete(`${this.ApiUri}/api/auto/${id}`)
+  deleteAuto(_id:String){
+    return this.http.delete(`${this.ApiUri}/api/auto/${_id}`)
     .pipe(
       map(res=>res)
     )
   }
 
   updateAuto(newAuto : Autos){
-    return this.http.put(`${this.ApiUri}/api/auto/${newAuto.id}`, newAuto)
+    return this.http.put(`${this.ApiUri}/api/auto/${newAuto._id}`, newAuto)
     .pipe(
       map (res=> res)
     )
