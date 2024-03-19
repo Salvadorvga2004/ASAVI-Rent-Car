@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutosService } from '../../service/autos.service';
 import { Autos } from '../../modelos/autos';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-autos',
@@ -9,6 +10,7 @@ import { Autos } from '../../modelos/autos';
 })
 export class AutosComponent implements OnInit {
   autos: Autos[] = [];
+  autoForm: FormGroup;
 
   Modelo!: string;
   Tipo!: string;
@@ -23,7 +25,25 @@ export class AutosComponent implements OnInit {
   CantidadAutos!: number;
   ClaveReserva!: string;
 
-  constructor(private autoservice: AutosService) { }
+  constructor(private autoservice: AutosService,
+              private fb: FormBuilder) {
+                this.autoForm = this.fb.group({
+                  _id: [null],
+                  Modelo: ['', Validators.required],
+                  Tipo: ['', Validators.required],
+                  Marca: ['', Validators.required],
+                  Transmision: ['', Validators.required],
+                  NumPasajeros: [0, Validators.required],
+                  NumMaletas: [0, Validators.required],
+                  AireAcondicionado: ['', Validators.required],
+                  Radio: ['', Validators.required],
+                  PagoPorDia: [0, Validators.required],
+                  UrlImagen: ['', Validators.required],
+                  CantidadAutos: [0, Validators.required],
+                  ClaveReserva: ['', Validators.required],
+                });
+              }
+              
 
   ngOnInit(): void {
     this.cargarAutos();
@@ -86,5 +106,24 @@ export class AutosComponent implements OnInit {
     }
 
     return ;
+  }
+
+   editarAuto(auto: Autos) {
+    this.autoForm.patchValue(auto);
+    console.log(auto)
+  }
+
+  updateAuto() {
+    if (this.autoForm.valid) {
+      this.autoservice.updateAuto(this.autoForm.value).subscribe(
+        () => {
+          this.cargarAutos();
+          this.autoForm.reset();
+        },
+        error => {
+          console.error('Error al actualizar estado:', error);
+        }
+      );
+    }
   }
 }  
