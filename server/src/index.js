@@ -4,6 +4,8 @@ const app = express();
 
 const raizR = require('./routes/index');
 const usuR = require('./routes/usuarios');
+const AutR = require('./routes/autos');
+
 
 app.set('port',process.env.PORT || 3000);
 app.engine('html', require('ejs').renderFile);
@@ -15,6 +17,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(raizR);
 app.use('/api',usuR);
+app.use('/api',AutR);
 
 app.listen(app.get('port'),() => {
     console.log('server on port',app.get('port'));
