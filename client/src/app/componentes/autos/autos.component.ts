@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AutosComponent implements OnInit {
   autos: Autos[] = [];
   autoForm: FormGroup;
+  auto: Autos | any = {};
+  modoEdicion: boolean = false;
 
   Modelo!: string;
   Tipo!: string;
@@ -60,33 +62,22 @@ export class AutosComponent implements OnInit {
     );
   }
 
-  addAutos(event: Event) {
-    event.preventDefault();
-    const newAuto: Autos = {
-      Modelo: this.Modelo,
-      Tipo: this.Tipo,
-      Marca: this.Marca,
-      Transmision: this.Transmision,
-      NumPasajeros: this.NumPasajeros,
-      NumMaletas: this.NumMaletas,
-      AireAcondicionado: this.AireAcondicionado,
-      Radio: this.Radio,
-      PagoPorDia: this.PagoPorDia,
-      UrlImagen: this.UrlImagen,
-      CantidadAutos: this.CantidadAutos,
-      ClaveReserva: this.ClaveReserva,
-    };
-  
-    this.autoservice.addAutos(newAuto).subscribe(
-      auto => {
-        this.autos.push(auto);
+  addAutos() {
+    if (this.modoEdicion) {
+
+      this.autoservice.updateAuto(this.auto).subscribe(() => {
+        this.resetForm();
         this.cargarAutos();
-      },
-      error => {
-        console.error('Error al añadir auto:', error);
-      }
-    );
+      });
+    } else {
+      this.autoservice.addAutos(this.auto).subscribe(() => {
+        this.resetForm();
+        this.cargarAutos();
+      });
+    }
   }
+
+
 
   deleteAuto(_id?: String) {
     const conf = confirm('Estas seguro de eliminar este auto?')
@@ -108,9 +99,14 @@ export class AutosComponent implements OnInit {
     return ;
   }
 
-   editarAuto(auto: Autos) {
-    this.autoForm.patchValue(auto);
-    console.log(auto)
+  editarAuto(auto: Autos) {
+    this.modoEdicion = true;
+    this.auto = { ...auto };
+  }
+
+  resetForm() {
+    this.auto = {};
+    this.modoEdicion = false;
   }
 
   updateAuto() {

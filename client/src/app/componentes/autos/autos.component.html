@@ -1,24 +1,22 @@
 <div class="card">
     <div class="card-body">
-        <form (submit)="addAutos($event)">
+        <form class="form" #autoForm="ngForm" (ngSubmit)="addAutos()">
+            <input type="hidden" name="id" [(ngModel)]="auto.id">
             <div class="input-group">
-                <input type="text" name="Modelo" [(ngModel)]="Modelo" placeholder="Modelo" class="form-control">
-                <input type="text" name="Tipo" [(ngModel)]="Tipo" placeholder="Tipo" class="form-control">
-                <input type="text" name="Marca" [(ngModel)]="Marca" placeholder="Marca" class="form-control">
-                <input type="text" name="Transmision" [(ngModel)]="Transmision" placeholder="Transmision" class="form-control">
-                <input type="text" name="NumPasajeros" [(ngModel)]="NumPasajeros" placeholder="NumPasajeros" class="form-control">
-                <input type="text" name="NumMaletas" [(ngModel)]="NumMaletas" placeholder="NumMaletas" class="form-control">
-                <input type="text" name="AireAcondicionado" [(ngModel)]="AireAcondicionado" placeholder="AireAcondicionado" class="form-control">
-                <input type="text" name="Radio" [(ngModel)]="Radio" placeholder="Radio" class="form-control">
-                <input type="text" name="PagoPorDia" [(ngModel)]="PagoPorDia" placeholder="PagoPorDia" class="form-control">
-                <input type="text" name="UrlImagen" [(ngModel)]="UrlImagen" placeholder="UrlImagen" class="form-control">
-                <input type="text" name="CantidadAutos" [(ngModel)]="CantidadAutos" placeholder="CantidadAutos" class="form-control">
-                <input type="text" name="ClaveReserva" [(ngModel)]="ClaveReserva" placeholder="ClaveReserva" class="form-control">
+                <input type="text" name="Modelo" [(ngModel)]="auto.Modelo" placeholder="Modelo" class="form-control">
+                <input type="text" name="Tipo" [(ngModel)]="auto.Tipo" placeholder="Tipo" class="form-control">
+                <input type="text" name="Marca" [(ngModel)]="auto.Marca" placeholder="Marca" class="form-control">
+                <input type="text" name="Transmision" [(ngModel)]="auto.Transmision" placeholder="Transmision" class="form-control">
+                <input type="text" name="NumPasajeros" [(ngModel)]="auto.NumPasajeros" placeholder="NumPasajeros" class="form-control">
+                <input type="text" name="NumMaletas" [(ngModel)]="auto.NumMaletas" placeholder="NumMaletas" class="form-control">
+                <input type="text" name="AireAcondicionado" [(ngModel)]="auto.AireAcondicionado" placeholder="AireAcondicionado" class="form-control">
+                <input type="text" name="Radio" [(ngModel)]="auto.Radio" placeholder="Radio" class="form-control">
+                <input type="text" name="PagoPorDia" [(ngModel)]="auto.PagoPorDia" placeholder="PagoPorDia" class="form-control">
+                <input type="text" name="UrlImagen" [(ngModel)]="auto.UrlImagen" placeholder="UrlImagen" class="form-control">
+                <input type="text" name="CantidadAutos" [(ngModel)]="auto.CantidadAutos" placeholder="CantidadAutos" class="form-control">
+                <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="ClaveReserva" class="form-control">
                 <span class="input-group-addon">
-                    <button type="submit" class="btn btn-primary">
-                        Añadir Auto
-                    </button>
-                    <button type="button" class="btn btn-success ms-2" (click)="updateAuto()">Actualizar</button>
+                    <button type="submit" class="btn btn-primary">{{ modoEdicion ? 'Actualizar' : 'Crear' }} Auto</button>
                 </span>
             </div>
         </form>
