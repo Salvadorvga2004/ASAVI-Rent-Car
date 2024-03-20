@@ -16,7 +16,9 @@
                 <input type="text" name="CantidadAutos" [(ngModel)]="auto.CantidadAutos" placeholder="CantidadAutos" class="form-control">
                 <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="ClaveReserva" class="form-control">
                 <span class="input-group-addon">
-                    <button type="submit" class="btn btn-primary">{{ modoEdicion ? 'Actualizar' : 'Crear' }} Auto</button>
+                    <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
+                        {{ modoEdicion ? 'Actualizar' : 'Crear' }} Auto
+                    </button>
                 </span>
             </div>
         </form>
@@ -80,7 +82,7 @@
                 {{auto.ClaveReserva}}
             </td>
             <td>
-                <button class="btn btn-primary btn-update" (click)="editarAuto(auto)">
+                <button class="btn btn-success" (click)="editarAuto(auto)">
                     <i class="fas fa-sync-alt"></i>
                 </button>
                 <button class="btn btn-danger" (click)="deleteAuto(auto._id)">
