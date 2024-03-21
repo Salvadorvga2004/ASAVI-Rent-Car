@@ -1,35 +1,77 @@
 <div class="wrapper">
     <div class="container-sm">
-      <h1 >Estados</h1>
-      <form class="row g-3">
-        <div class="col-auto">
-          <label for="staticEmail2" class="visually-hidden">Email</label>
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
-        </div>
-        <div class="col-auto">
-          <label for="inputPassword2" class="visually-hidden">Password</label>
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-        </div>
-      </form>
+        <h1>Estados</h1>
+        <form class="row g-3">
+            <div></div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona el país</option>
+                    <option value="1">México</option>
+                </select>
+            </div>
+            
+            <div class="col-auto">
+                <label for="inputEstado" class="visually-hidden">Estado</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Estado">
+            </div>
+            <div class="col-auto"></div> <!-- Espacio para el botón -->
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+            </div>
+        </form>
     </div>
     <div class="container-sm">
-      <h1>Ciudades</h1>
-      <form class="row g-3">
-        <div class="col-auto">
-          <label for="staticEmail2" class="visually-hidden">Email</label>
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
-        </div>
-        <div class="col-auto">
-          <label for="inputPassword2" class="visually-hidden">Password</label>
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-        </div>
-      </form>
+        <h1>Ciudades</h1>
+        <form class="row g-3">
+            <div></div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona el estado</option>
+                    <option value="1">Guanajuato</option>
+                </select>
+            </div>
+            
+            <div class="col-auto">
+                <label for="inputEstado" class="visually-hidden">Estado</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Estado">
+            </div>
+            <div class="col-auto"></div> <!-- Espacio para el botón -->
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+            </div>
+        </form>
     </div>
-  </div>
-  
+    <div class="container-sm">
+        <h1>Sucursales</h1>
+        <form class="row g-3">
+            <div></div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona el país</option>
+                    <option value="1">México</option>
+                </select>
+            </div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona el estado</option>
+                    <option value="1">Guanajuato</option>
+                </select>
+            </div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona la ciudad</option>
+                    <option value="1">San Felipe</option>
+                </select>
+            </div>
+            
+            <div class="col-auto">
+                <label for="inputEstado" class="visually-hidden">Sucursal</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Nombre sucursal">
+            </div>
+            <div class="col-auto"></div> <!-- Espacio para el botón -->
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+            </div>
+        </form>
+    </div>
+</div>
