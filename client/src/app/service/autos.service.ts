@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Autos } from '../modelos/autos';
+import { Autos } from '../modelos/auto';
 
 @Injectable({
   providedIn: 'root'

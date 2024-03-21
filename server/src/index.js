@@ -4,7 +4,7 @@ const app = express();
 
 const raizR = require('./routes/index');
 const usuR = require('./routes/usuarios');
-const AutR = require('./routes/autos');
+const AutR = require('./routes/modelos');
 const EstaR = require('./routes/estados');
 
 

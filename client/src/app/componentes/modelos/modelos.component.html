@@ -1,0 +1,94 @@
+<div class="card">
+    <div class="card-body">
+        <form class="form" #modeloForm="ngForm" (ngSubmit)="addModelos()">
+            <input type="hidden" name="id" [(ngModel)]="modelo.id">
+            <div class="input-group">
+                <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
+                <input type="text" name="Tipo" [(ngModel)]="modelo.Tipo" placeholder="Tipo" class="form-control">
+                <input type="text" name="Marca" [(ngModel)]="modelo.Marca" placeholder="Marca" class="form-control">
+                <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmision" class="form-control">
+                <input type="text" name="NumPasajeros" [(ngModel)]="modelo.NumPasajeros" placeholder="NumPasajeros" class="form-control">
+                <input type="text" name="NumMaletas" [(ngModel)]="modelo.NumMaletas" placeholder="NumMaletas" class="form-control">
+                <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="AireAcondicionado" class="form-control">
+                <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
+                <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="PagoPorDia" class="form-control">
+                <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="UrlImagen" class="form-control">
+                <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="CantidadAutos" class="form-control">
+                <input type="text" name="ClaveReserva" [(ngModel)]="modelo.ClaveReserva" placeholder="ClaveReserva" class="form-control">
+                <span class="input-group-addon">
+                    <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
+                        {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo de Auto
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Transmision</th>
+            <th>NumPasajeros</th>
+            <th>NumMaletas</th>
+            <th>AireAcondicionado</th>
+            <th>Radio</th>
+            <th>PagoPorDia</th>
+            <th>Ilustracion</th>
+            <th>CantidadAutos</th>
+            <th>ClaveReserva</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let modelo of modelos">
+            <td>
+                {{modelo.Modelo}}
+            </td>
+            <td>
+                {{modelo.Tipo}}
+            </td>
+            <td>
+                {{modelo.Marca}}
+            </td>
+            <td>
+                {{modelo.Transmision}}
+            </td>
+            <td>
+                {{modelo.NumPasajeros}}
+            </td>
+            <td>
+                {{modelo.NumMaletas}}
+            </td>
+            <td>
+                {{modelo.AireAcondicionado}}
+            </td>
+            <td>
+                {{modelo.Radio}}
+            </td>
+            <td>
+                {{modelo.PagoPorDia}}
+            </td>
+            <td>
+                <img [src]="modelo.UrlImagen" alt="Imagen del modelo">
+            </td>
+            <td>
+                {{modelo.CantidadAutos}}
+            </td>
+            <td>
+                {{modelo.ClaveReserva}}
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="editarModelo(modelo)">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteModelo(modelo._id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -4,6 +4,7 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AutosComponent } from './componentes/autos/autos.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
+import { ModelosComponent } from './componentes/modelos/modelos.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'estados',
     component: EstadosComponent
+  },
+  {
+    path:'modelos',
+    component: ModelosComponent
   }
      
 
