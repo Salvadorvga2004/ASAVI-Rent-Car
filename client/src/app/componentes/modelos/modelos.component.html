@@ -20,6 +20,11 @@
                         {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo de Auto
                     </button>
                 </span>
+                <div class="col-auto" *ngIf="modoEdicion">
+                    <button type="button" class="btn btn-danger" (click)="resetForm()">
+                        Cancelar
+                    </button>
+                </div>
             </div>
         </form>
     </div>

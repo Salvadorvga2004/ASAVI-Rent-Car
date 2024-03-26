@@ -1,25 +1,57 @@
 <div class="wrapper">
     <div class="container-sm">
         <h1>Estados</h1>
-        <form class="row g-3">
+        <form class="row g-3" #estadoForm="ngForm" (ngSubmit)="addEstados()">
+            <input type="hidden" name="id" [(ngModel)]="estado.id">
             <div></div>
             <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona el país</option>
-                    <option value="1">México</option>
+                <select class="form-select" aria-label="Default select example" name="pais" [(ngModel)]="estado.Pais">
+                    <option [ngValue]="null" disabled selected>Selecciona el país</option>
+                    <option value="México">México</option>
                 </select>
             </div>
-            
-            <div class="col-auto">
-                <label for="inputEstado" class="visually-hidden">Estado</label>
-                <input type="text" class="form-control" id="inputEstado" placeholder="Estado">
+
+            <!-- Inputs para agregar un nuevo estado -->
+            <div class="col-auto" *ngIf="!modoEdicion">
+                <label for="inputClaveEstado" class="visually-hidden">Clave Estado</label>
+                <input type="text" name="ClaveEstado" [(ngModel)]="estado.ClaveEstado" placeholder="Clave Estado" class="form-control">
             </div>
-            <div class="col-auto"></div> <!-- Espacio para el botón -->
+            <div class="col-auto" *ngIf="!modoEdicion">
+                <label for="inputNombreEstado" class="visually-hidden">Nombre Estado</label>
+                <input type="text" name="NombreEstado" [(ngModel)]="estado.NombreEstado" placeholder="Nombre Estado" class="form-control">
+            </div>
+
+            <!-- Inputs para editar un estado existente -->
+            <div *ngIf="modoEdicion">
+                <div class="col-auto" *ngFor="let subEstado of estado.Estados; let i = index">
+                    <label for="inputClaveEstado" class="visually-hidden">Clave Estado</label>
+                    <input type="text" name="ClaveEstado{{i}}" [(ngModel)]="estado.Estados[i].ClaveEstado" placeholder="Clave Estado" class="form-control">
+                </div>        
+            </div>
+            <div *ngIf="modoEdicion">
+                <div class="col-auto" *ngFor="let subEstado of estado.Estados; let i = index">
+                    <label for="inputNombreEstado" class="visually-hidden">Nombre Estado</label>
+                    <input type="text" name="NombreEstado{{i}}" [(ngModel)]="estado.Estados[i].NombreEstado" placeholder="Nombre Estado" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-auto"></div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+                <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
+                    {{ modoEdicion ? 'Actualizar' : 'Agregar' }} Estado
+                </button>
+            </div>
+
+            <div class="col-auto" *ngIf="modoEdicion">
+                <button type="button" class="btn btn-danger" (click)="resetForm()">
+                    Cancelar
+                </button>
             </div>
         </form>
     </div>
+
+
+
     <div class="container-sm">
         <h1>Ciudades</h1>
         <form class="row g-3">
@@ -33,7 +65,7 @@
             
             <div class="col-auto">
                 <label for="inputEstado" class="visually-hidden">Estado</label>
-                <input type="text" class="form-control" id="inputEstado" placeholder="Estado">
+                <input type="text" class="form-control" id="inputEstado" placeholder="Ciudad">
             </div>
             <div class="col-auto"></div> <!-- Espacio para el botón -->
             <div class="col-auto">
@@ -41,6 +73,8 @@
             </div>
         </form>
     </div>
+
+
     <div class="container-sm">
         <h1>Sucursales</h1>
         <form class="row g-3">
@@ -75,3 +109,38 @@
         </form>
     </div>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Pais</th>
+            <th>Clave</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estado of estados">
+            <td>
+                {{ estado.Pais }}
+            </td>
+            <td>
+                <div *ngFor="let subEstados of estado.Estados">
+                    {{ subEstados.ClaveEstado }}
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let subEstados of estado.Estados">
+                    {{ subEstados.NombreEstado }}
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="editarEstado(estado)">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteEstado(estado._id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
