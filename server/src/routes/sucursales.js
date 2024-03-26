@@ -1,77 +1,80 @@
 const router = require('express').Router();
 const mongojs = require('mongojs');
-const db = mongojs('ASAVI',['Estado']);
+const db = mongojs('ASAVI',['Sucursal']);
 const { ObjectId } = require('mongojs');
 
-router.get('/Estado',(req ,res ,next) =>{
-    db.Estado.find((err,Estados) => {
+router.get('/Sucursal',(req ,res ,next) =>{
+    db.Sucursal.find((err,Sucursales) => {
         if (err) return next(err);
-        res.json(Estados);
+        res.json(Sucursales);
     });
 });
 
-router.get('/Estado/:id',(req ,res ,next) =>{
-    db.Estado.findOne({ _id: ObjectId(req.params.id)},(err,Estados) => {
+router.get('/Sucursal/:id',(req ,res ,next) =>{
+    db.Sucursal.findOne({ _id: ObjectId(req.params.id)},(err,Sucursales) => {
         if (err) return next(err);
 
-        if (!Estados) {
-            return res.status(404).json({ error: 'Estado no encontrado :(' });
+        if (!Sucursales) {
+            return res.status(404).json({ error: 'Sucursal no encontrada :(' });
         }
 
-        res.json(Estados);
+        res.json(Sucursales);
     });
 });
 
-router.post('/Estado', (req, res, next) => {
-    const { Pais, Estados } = req.body;
+router.post('/Sucursal', (req, res, next) => {
+    const { Pais, Estados, Ciudades, Sucursales } = req.body;
 
-    if (!Pais || !Estados || Estados.length === 0) {
+    if (!Pais || !Estados || !Ciudades ||!Array.isArray(Sucursales) || Sucursales.length === 0) {
         res.status(400).json({
-            error: 'Estado no insertado :('
+            error: 'Sucursal no insertada :('
         });
     } else {
-        db.Estado.save({ Pais, Estados }, (err, newEstado) => {
+        db.Sucursal.save({ Pais, Estados, Ciudades, Sucursales }, (err, newSucursal) => {
             if (err) return next(err);
-            res.json({ message: 'Estado insertado'});
+            res.json({ message: 'Sucursal insertada'});
         });
     }
 });
 
 
-router.delete('/Estado/:id', (req, res, next) => {
-    const EstadoD = req.params.id;
+router.delete('/Sucursal/:id', (req, res, next) => {
+    const SucursalD = req.params.id;
 
-    if (!ObjectId.isValid(EstadoD)) {
-        return res.status(400).json({ error: 'Estado no existente :(' });
+    if (!ObjectId.isValid(SucursalD)) {
+        return res.status(400).json({ error: 'Sucursal no existente :(' });
     }
 
-    db.Estado.remove({ _id: ObjectId(EstadoD) }, (err, result) => {
+    db.Sucursal.remove({ _id: ObjectId(SucursalD) }, (err, result) => {
         if (err) return next(err);
 
         if (result.n === 0) {
-            return res.status(404).json({ error: 'Estado no existente :(' });
+            return res.status(404).json({ error: 'Sucursal no existente :(' });
         }
 
-        res.json({ message: 'Estado eliminado' });
+        res.json({ message: 'Sucursal eliminada' });
     });
 });
 
-router.put('/Estado/:id', (req, res, next) => {
-    const EstadoA = req.params.id;
-    const { Pais, Estados: [{ claveEstado, NombreEstado }] } = req.body;
+router.put('/Sucursal/:id', (req, res, next) => {
+    const SucursalA = req.params.id;
+    const { Pais, Estados, Ciudades ,Sucursales: [{ ClaveSucursal, NombreSucursal, Telefono}] } = req.body;
 
-    if (!ObjectId.isValid(EstadoA)) {
-        return res.status(400).json({ error: 'Estado no existente :(' });
+    if (!ObjectId.isValid(SucursalA)) {
+        return res.status(400).json({ error: 'Ciudad no existente :(' });
     }
 
-    const query = { _id: ObjectId(EstadoA) };
+    const query = { _id: ObjectId(SucursalA) };
     const update = {
         $set: {
             Pais,
-	        Estados: [
+            Estados,
+            Ciudades,
+	        Sucursales: [
                 {
-                    claveEstado,
-                    NombreEstado,
+                    ClaveSucursal,
+		            NombreSucursal,
+		            Telefono
                 }
             ]
             
@@ -79,18 +82,18 @@ router.put('/Estado/:id', (req, res, next) => {
         }
     }
 
-    db.Estado.updateOne(query, update, (err, result) => {
+    db.Sucursal.updateOne(query, update, (err, result) => {
         if (err) return next(err);
 
         if (result.matchedCount === 0) {
-            return res.status(404).json({ error: 'Estado no encontrado :(' });
+            return res.status(404).json({ error: 'Sucursal no encontrada :(' });
         }
 
         if (result.modifiedCount === 0) {
             return res.status(304).json({ message: 'Error de cambios' });
         }
 
-        res.json({ message: 'Estado actualizado' });
+        res.json({ message: 'Sucursal actualizada' });
     });
 });
 module.exports = router;

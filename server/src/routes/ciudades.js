@@ -1,77 +1,78 @@
 const router = require('express').Router();
 const mongojs = require('mongojs');
-const db = mongojs('ASAVI',['Estado']);
+const db = mongojs('ASAVI',['Ciudad']);
 const { ObjectId } = require('mongojs');
 
-router.get('/Estado',(req ,res ,next) =>{
-    db.Estado.find((err,Estados) => {
+router.get('/Ciudad',(req ,res ,next) =>{
+    db.Ciudad.find((err,Ciudades) => {
         if (err) return next(err);
-        res.json(Estados);
+        res.json(Ciudades);
     });
 });
 
-router.get('/Estado/:id',(req ,res ,next) =>{
-    db.Estado.findOne({ _id: ObjectId(req.params.id)},(err,Estados) => {
+router.get('/Ciudad/:id',(req ,res ,next) =>{
+    db.Ciudad.findOne({ _id: ObjectId(req.params.id)},(err,Ciudades) => {
         if (err) return next(err);
 
-        if (!Estados) {
-            return res.status(404).json({ error: 'Estado no encontrado :(' });
+        if (!Ciudades) {
+            return res.status(404).json({ error: 'Ciudad no encontrada :(' });
         }
 
-        res.json(Estados);
+        res.json(Ciudades);
     });
 });
 
-router.post('/Estado', (req, res, next) => {
-    const { Pais, Estados } = req.body;
+router.post('/Ciudad', (req, res, next) => {
+    const { Pais, Estados, Ciudades } = req.body;
 
-    if (!Pais || !Estados || Estados.length === 0) {
+    if (!Pais || !Estados || !Array.isArray(Ciudades) || Ciudades.length === 0) {
         res.status(400).json({
-            error: 'Estado no insertado :('
+            error: 'Ciudad no insertada :('
         });
     } else {
-        db.Estado.save({ Pais, Estados }, (err, newEstado) => {
+        db.Ciudad.save({ Pais, Estados, Ciudades }, (err, newCiudad) => {
             if (err) return next(err);
-            res.json({ message: 'Estado insertado'});
+            res.json({ message: 'Ciudad insertada'});
         });
     }
 });
 
 
-router.delete('/Estado/:id', (req, res, next) => {
-    const EstadoD = req.params.id;
+router.delete('/Ciudad/:id', (req, res, next) => {
+    const CiudadD = req.params.id;
 
-    if (!ObjectId.isValid(EstadoD)) {
-        return res.status(400).json({ error: 'Estado no existente :(' });
+    if (!ObjectId.isValid(CiudadD)) {
+        return res.status(400).json({ error: 'Ciudad no existente :(' });
     }
 
-    db.Estado.remove({ _id: ObjectId(EstadoD) }, (err, result) => {
+    db.Ciudad.remove({ _id: ObjectId(CiudadD) }, (err, result) => {
         if (err) return next(err);
 
         if (result.n === 0) {
-            return res.status(404).json({ error: 'Estado no existente :(' });
+            return res.status(404).json({ error: 'Ciudad no existente :(' });
         }
 
-        res.json({ message: 'Estado eliminado' });
+        res.json({ message: 'Ciudad eliminada' });
     });
 });
 
-router.put('/Estado/:id', (req, res, next) => {
-    const EstadoA = req.params.id;
-    const { Pais, Estados: [{ claveEstado, NombreEstado }] } = req.body;
+router.put('/Ciudad/:id', (req, res, next) => {
+    const CiudadA = req.params.id;
+    const { Pais, Estados, Ciudades: [{ ClaveCiudad, NombreCiudad}] } = req.body;
 
-    if (!ObjectId.isValid(EstadoA)) {
-        return res.status(400).json({ error: 'Estado no existente :(' });
+    if (!ObjectId.isValid(CiudadA)) {
+        return res.status(400).json({ error: 'Ciudad no existente :(' });
     }
 
-    const query = { _id: ObjectId(EstadoA) };
+    const query = { _id: ObjectId(CiudadA) };
     const update = {
         $set: {
             Pais,
-	        Estados: [
+            Estados,
+	        Ciudades: [
                 {
-                    claveEstado,
-                    NombreEstado,
+                    ClaveCiudad,
+	                NombreCiudad
                 }
             ]
             
@@ -79,18 +80,18 @@ router.put('/Estado/:id', (req, res, next) => {
         }
     }
 
-    db.Estado.updateOne(query, update, (err, result) => {
+    db.Ciudad.updateOne(query, update, (err, result) => {
         if (err) return next(err);
 
         if (result.matchedCount === 0) {
-            return res.status(404).json({ error: 'Estado no encontrado :(' });
+            return res.status(404).json({ error: 'Ciudad no encontrada :(' });
         }
 
         if (result.modifiedCount === 0) {
             return res.status(304).json({ message: 'Error de cambios' });
         }
 
-        res.json({ message: 'Estado actualizado' });
+        res.json({ message: 'Ciudad actualizada' });
     });
 });
 module.exports = router;

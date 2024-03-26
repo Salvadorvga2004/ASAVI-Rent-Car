@@ -58,7 +58,7 @@ router.delete('/Estado/:id', (req, res, next) => {
 
 router.put('/Estado/:id', (req, res, next) => {
     const EstadoA = req.params.id;
-    const { Pais, Estados: [{ claveEstado, NombreEstado }] } = req.body;
+    const { Pais, Estados: [{ ClaveEstado, NombreEstado }] } = req.body;
 
     if (!ObjectId.isValid(EstadoA)) {
         return res.status(400).json({ error: 'Estado no existente :(' });
@@ -70,7 +70,7 @@ router.put('/Estado/:id', (req, res, next) => {
             Pais,
 	        Estados: [
                 {
-                    claveEstado,
+                    ClaveEstado,
                     NombreEstado,
                 }
             ]
