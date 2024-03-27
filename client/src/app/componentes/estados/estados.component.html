@@ -1,4 +1,6 @@
 <div class="wrapper">
+
+    <!--Estados-->
     <div class="container-sm">
         <h1>Estados</h1>
         <form class="row g-3" #estadoForm="ngForm" (ngSubmit)="addEstados()">
@@ -11,24 +13,24 @@
                 </select>
             </div>
 
-            <!-- Inputs para agregar un nuevo estado -->
-            <div class="col-auto" *ngIf="!modoEdicion">
+            <!-- Si modo edicion es false muestra esto -->
+            <div class="col-auto" *ngIf="!modoEdicionEstado">
                 <label for="inputClaveEstado" class="visually-hidden">Clave Estado</label>
                 <input type="text" name="ClaveEstado" [(ngModel)]="estado.ClaveEstado" placeholder="Clave Estado" class="form-control">
             </div>
-            <div class="col-auto" *ngIf="!modoEdicion">
+            <div class="col-auto" *ngIf="!modoEdicionEstado">
                 <label for="inputNombreEstado" class="visually-hidden">Nombre Estado</label>
                 <input type="text" name="NombreEstado" [(ngModel)]="estado.NombreEstado" placeholder="Nombre Estado" class="form-control">
             </div>
 
-            <!-- Inputs para editar un estado existente -->
-            <div *ngIf="modoEdicion">
+            <!-- Si modo edicion es true muestra esto -->
+            <div *ngIf="modoEdicionEstado">
                 <div class="col-auto" *ngFor="let subEstado of estado.Estados; let i = index">
                     <label for="inputClaveEstado" class="visually-hidden">Clave Estado</label>
                     <input type="text" name="ClaveEstado{{i}}" [(ngModel)]="estado.Estados[i].ClaveEstado" placeholder="Clave Estado" class="form-control">
                 </div>        
             </div>
-            <div *ngIf="modoEdicion">
+            <div *ngIf="modoEdicionEstado">
                 <div class="col-auto" *ngFor="let subEstado of estado.Estados; let i = index">
                     <label for="inputNombreEstado" class="visually-hidden">Nombre Estado</label>
                     <input type="text" name="NombreEstado{{i}}" [(ngModel)]="estado.Estados[i].NombreEstado" placeholder="Nombre Estado" class="form-control">
@@ -37,82 +39,162 @@
 
             <div class="col-auto"></div>
             <div class="col-auto">
-                <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
-                    {{ modoEdicion ? 'Actualizar' : 'Agregar' }} Estado
+                <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicionEstado, 'btn-success': modoEdicionEstado}">
+                    {{ modoEdicionEstado ? 'Actualizar' : 'Agregar' }} Estado
                 </button>
             </div>
 
-            <div class="col-auto" *ngIf="modoEdicion">
-                <button type="button" class="btn btn-danger" (click)="resetForm()">
+            <div class="col-auto" *ngIf="modoEdicionEstado">
+                <button type="button" class="btn btn-danger" (click)="resetFormEstado()">
                     Cancelar
                 </button>
             </div>
         </form>
     </div>
 
-
-
+    <!--Ciudades-->
     <div class="container-sm">
         <h1>Ciudades</h1>
-        <form class="row g-3">
+        <form class="row g-3" #ciudadForm="ngForm" (ngSubmit)="addCiudades()">
+            <input type="hidden" name="id" [(ngModel)]="ciudad.id">
             <div></div>
             <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona el estado</option>
-                    <option value="1">Guanajuato</option>
+                <select class="form-select" aria-label="Default select example" name="pais" [(ngModel)]="ciudad.Pais">
+                    <option [ngValue]="null" disabled selected>Selecciona el país</option>
+                    <option value="México">México</option>
                 </select>
             </div>
             
-            <div class="col-auto">
-                <label for="inputEstado" class="visually-hidden">Estado</label>
-                <input type="text" class="form-control" id="inputEstado" placeholder="Ciudad">
+            <div>
+                <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="ciudad.Estados">
+                    <option [ngValue]="null" disabled selected>Selecciona el estado</option>
+                    <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
+                </select>
             </div>
-            <div class="col-auto"></div> <!-- Espacio para el botón -->
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+            
+            <!-- Si modo edicion es false muestra esto -->
+            <div class="col-auto" *ngIf="!modoEdicionCiudad">
+                <label for="inputClaveCiudad" class="visually-hidden">Clave Ciudad</label>
+                <input type="text" name="ClaveCiudad" [(ngModel)]="ciudad.ClaveCiudad" placeholder="Clave Ciudad" class="form-control">
             </div>
+            <div class="col-auto" *ngIf="!modoEdicionCiudad">
+                <label for="inputNombreCiudad" class="visually-hidden">Nombre Ciudad</label>
+                <input type="text" name="NombreCiudad" [(ngModel)]="ciudad.NombreCiudad" placeholder="Nombre Ciudad" class="form-control">
+            </div>
+
+            <!-- Si modo edicion es true muestra esto -->
+            <div *ngIf="modoEdicionCiudad">
+                <div class="col-auto" *ngFor="let subCiudad of ciudad.Ciudades; let i = index">
+                    <label for="inputClaveCiudad" class="visually-hidden">Clave Ciudad</label>
+                    <input type="text" name="ClaveCiudad{{i}}" [(ngModel)]="ciudad.Ciudades[i].ClaveCiudad" placeholder="Clave Ciudad" class="form-control">
+                </div>        
+            </div>
+            <div *ngIf="modoEdicionCiudad">
+                <div class="col-auto" *ngFor="let subCiudad of ciudad.Ciudades; let i = index">
+                    <label for="inputNombreCiudad" class="visually-hidden">Nombre Ciudad</label>
+                    <input type="text" name="NombreCiudad{{i}}" [(ngModel)]="ciudad.Ciudades[i].NombreCiudad" placeholder="Nombre Ciudad" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-auto"></div>
+            <div class="col-auto">
+                <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicionCiudad, 'btn-success': modoEdicionCiudad}">
+                    {{ modoEdicionCiudad ? 'Actualizar' : 'Agregar' }} Ciudad
+                </button>
+            </div>
+
+            <div class="col-auto" *ngIf="modoEdicionCiudad">
+                <button type="button" class="btn btn-danger" (click)="resetFormCiudad()">
+                    Cancelar
+                </button>
+            </div>
+            
         </form>
     </div>
+    
 
-
+    <!--Sucursales-->
     <div class="container-sm">
         <h1>Sucursales</h1>
-        <form class="row g-3">
+        <form class="row g-3" #estadoForm="ngForm" (ngSubmit)="addSucursales()">
+            <input type="hidden" name="id" [(ngModel)]="sucursal.id">
             <div></div>
             <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona el país</option>
-                    <option value="1">México</option>
-                </select>
-            </div>
-            <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona el estado</option>
-                    <option value="1">Guanajuato</option>
-                </select>
-            </div>
-            <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona la ciudad</option>
-                    <option value="1">San Felipe</option>
+                <select class="form-select" aria-label="Default select example" name="pais" [(ngModel)]="sucursal.Pais">
+                    <option [ngValue]="null" disabled selected>Selecciona el país</option>
+                    <option value="México">México</option>
                 </select>
             </div>
             
-            <div class="col-auto">
-                <label for="inputEstado" class="visually-hidden">Sucursal</label>
-                <input type="text" class="form-control" id="inputEstado" placeholder="Nombre sucursal">
+            <div>
+                <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="sucursal.Estados">
+                    <option [ngValue]="null" disabled selected>Selecciona el estado</option>
+                    <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
+                </select>
             </div>
-            <div class="col-auto"></div> <!-- Espacio para el botón -->
+
+            <div>
+                <select class="form-select" aria-label="Default select example" name="ciudad" [(ngModel)]="sucursal.Ciudades">
+                    <option [ngValue]="null" disabled selected>Selecciona la ciudad</option>
+                    <option *ngFor="let nombreCiudad of ciudadesDisponibles" [value]="nombreCiudad">{{ nombreCiudad }}</option>
+                </select>
+            </div>
+            
+            <!-- Si modo edicion es false muestra esto -->
+            <div class="col-auto" *ngIf="!modoEdicionSucursal">
+                <label for="inputClaveSucursal" class="visually-hidden">Clave Sucursal</label>
+                <input type="text" name="ClaveSucursal" [(ngModel)]="sucursal.ClaveSucursal" placeholder="Clave Sucursal" class="form-control">
+            </div>
+            <div class="col-auto" *ngIf="!modoEdicionSucursal">
+                <label for="inputNombreSucursal" class="visually-hidden">Nombre Sucursal</label>
+                <input type="text" name="NombreSucursal" [(ngModel)]="sucursal.NombreSucursal" placeholder="Nombre Sucursal" class="form-control">
+            </div>
+	        <div class="col-auto" *ngIf="!modoEdicionSucursal">
+                <label for="inputTelefono" class="visually-hidden">Telefono</label>
+                <input type="text" name="Telefono" [(ngModel)]="sucursal.Telefono" placeholder="Telefono" class="form-control">
+            </div>
+
+            <!-- Si modo edicion es true muestra esto -->
+            <div *ngIf="modoEdicionSucursal">
+                <div class="col-auto" *ngFor="let subSucursal of sucursal.Sucursales; let i = index">
+                    <label for="inpuClaveSucursal" class="visually-hidden">Clave Sucursal</label>
+                    <input type="text" name="ClaveSucursal{{i}}" [(ngModel)]="sucursal.Sucursales[i].ClaveSucursal" placeholder="Clave Sucursal" class="form-control">
+                </div>        
+            </div>
+            <div *ngIf="modoEdicionSucursal">
+                <div class="col-auto" *ngFor="let subSucursal of sucursal.Sucursales; let i = index">
+                    <label for="inputNombreSucursal" class="visually-hidden">Nombre Sucursal</label>
+                    <input type="text" name="NombreSucursal{{i}}" [(ngModel)]="sucursal.Sucursales[i].NombreSucursal" placeholder="Nombre Sucursal" class="form-control">
+                </div>
+            </div>
+            <div *ngIf="modoEdicionSucursal">
+                <div class="col-auto" *ngFor="let subSucursal of sucursal.Sucursales; let i = index">
+                    <label for="inputTelefono" class="visually-hidden">Telefono</label>
+                    <input type="text" name="Telefono{{i}}" [(ngModel)]="sucursal.Sucursales[i].Telefono" placeholder="Telefono" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-auto"></div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+                <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicionSucursal, 'btn-success': modoEdicionSucursal}">
+                    {{ modoEdicionSucursal ? 'Actualizar' : 'Agregar' }} Sucursal
+                </button>
+            </div>
+
+            <div class="col-auto" *ngIf="modoEdicionSucursal">
+                <button type="button" class="btn btn-danger" (click)="resetFormSucursal()">
+                    Cancelar
+                </button>
             </div>
         </form>
     </div>
 </div>
 
+<!-- Estados -->
 <table class="table">
     <thead>
-        <tr>
+        <h1>Estados</h1>
+        <tr> 
             <th>Pais</th>
             <th>Clave</th>
             <th>Estado</th>
@@ -138,6 +220,98 @@
                     <i class="fas fa-sync-alt"></i>
                 </button>
                 <button class="btn btn-danger" (click)="deleteEstado(estado._id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--Ciudades-->
+<table class="table">
+    <thead>
+        <h1>Ciudades</h1>
+        <tr> 
+            <th>Pais</th>
+            <th>Estado</th>
+            <th>Clave</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ciudad of ciudades">
+            <td>
+                {{ ciudad.Pais }}
+            </td>
+            <td>
+                {{ ciudad.Estados}}
+            </td>
+            <td>
+                <div *ngFor="let subCiudad of ciudad.Ciudades">
+                    {{ subCiudad.ClaveCiudad }}
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let subCiudad of ciudad.Ciudades">
+                    {{ subCiudad.NombreCiudad }}
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="editarCiudad(ciudad)">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteCiudad(ciudad._id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--Sucursales-->
+<table class="table">
+    <thead>
+        <h1>Sucursales</h1>
+        <tr> 
+            <th>Pais</th>
+            <th>Estado</th>
+            <th>Ciudades</th>
+            <th>Clave</th>
+            <th>Sucursal</th>
+            <th>Teleforno</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sucursal of sucursales">
+            <td>
+                {{ sucursal.Pais }}
+            </td>
+            <td>
+                {{ sucursal.Estados}}
+            </td>
+            <td>
+                {{ sucursal.Ciudades}}
+            </td>
+            <td>
+                <div *ngFor="let subSucursal of sucursal.Sucursales">
+                    {{ subSucursal.ClaveSucursal }}
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let subSucursal of sucursal.Sucursales">
+                    {{ subSucursal.NombreSucursal }}
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let subSucursal of sucursal.Sucursales">
+                    {{ subSucursal.Telefono }}
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="editarSucursales(sucursal)">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteSucursal(sucursal._id)">
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </td>

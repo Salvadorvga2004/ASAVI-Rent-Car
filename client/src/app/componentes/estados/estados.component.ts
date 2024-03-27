@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { EstadosService } from '../../service/estados.service';
 
-import { Estados } from '../../modelos/estados';
+import { Ciudades, Estados, Sucursales } from '../../modelos/estados';
 
 @Component({
   selector: 'app-estados',
@@ -11,19 +11,33 @@ import { Estados } from '../../modelos/estados';
 })
 export class EstadosComponent implements OnInit {
   estados: Estados[] = [];
-  estado: Estados | any = {}; 
-  modoEdicion: boolean = false;
+  estado: Estados | any = {};
+  ciudades: Ciudades[] = [];
+  ciudad: Ciudades | any = {}; 
+  sucursales: Sucursales[] = [];
+  sucursal: Sucursales | any = {}; 
+
+  modoEdicionEstado: boolean = false;
+  modoEdicionCiudad : boolean = false;
+  modoEdicionSucursal : boolean = false;
+
+  ciudadesDisponibles: string[] = [];
+  estadosDisponibles: string[] = [];
 
   constructor(private estadosService: EstadosService) {}
               
   ngOnInit(): void {
     this.cargarEstados();
+    this.cargarCiudades();
+    this.cargarSucursales();
   }
 
+  //Estados
   cargarEstados() {
     this.estadosService.getEstados().subscribe(
       estados => {
         this.estados = estados;
+        this.estadosDisponibles = estados.flatMap(estado => estado.Estados.map(subEstado => subEstado.NombreEstado));
       },
       error => {
         console.error('Error al cargar estados:', error);
@@ -32,7 +46,7 @@ export class EstadosComponent implements OnInit {
   }
 
   addEstados() {
-    if (this.modoEdicion) {
+    if (this.modoEdicionEstado) {
         this.estadosService.updateEstado(this.estado).subscribe(() => {
             this.resetForm();
             this.cargarEstados();
@@ -61,6 +75,7 @@ export class EstadosComponent implements OnInit {
         this.estadosService.deleteEstado(_id).subscribe(
           () => {
             this.estados = this.estados.filter(estado => estado._id !== _id);
+            this.resetForm();
           },
           error => {
             console.error('Error al eliminar estado:', error);
@@ -75,12 +90,161 @@ export class EstadosComponent implements OnInit {
   }
 
   editarEstado(estado: Estados) {
-    this.modoEdicion = true;
+    this.modoEdicionEstado = true;
     this.estado = { ...estado };
+  }
+
+  resetFormEstado() {
+    this.estado = {};
+    this.modoEdicionEstado = false;
   }
 
   resetForm() {
     this.estado = {};
-    this.modoEdicion = false;
+    this.modoEdicionEstado = false;
+    this.ciudad = {};
+    this.modoEdicionCiudad = false
+    this.sucursal = {};
+    this.modoEdicionSucursal = false
+
   }
+
+  //Ciudades
+  cargarCiudades() {
+    this.estadosService.getCiudades().subscribe(
+      ciudades => {
+        this.ciudades = ciudades;
+        this.ciudadesDisponibles = ciudades.flatMap(ciudades => ciudades.Ciudades.map(subCiudades => subCiudades.NombreCiudad));
+
+      },
+      error => {
+        console.error('Error al cargar ciudades:', error);
+      }
+    );
+  }
+
+  addCiudades() {
+    if (this.modoEdicionCiudad) {
+        this.estadosService.updateCiudad(this.ciudad).subscribe(() => {
+            this.resetForm();
+            this.cargarCiudades();
+        });
+    } else {
+        const data = {
+            Pais: this.ciudad.Pais,
+            Estados: this.ciudad.Estados,
+            Ciudades: [
+                {
+                    ClaveCiudad: this.ciudad.ClaveCiudad,
+                    NombreCiudad: this.ciudad.NombreCiudad
+                }
+            ]
+        };
+        this.estadosService.addCiudad(data).subscribe(() => {
+            this.resetForm();
+            this.cargarCiudades();
+        });
+    }
+}
+
+  deleteCiudad(_id?: String) {
+    const conf = confirm('Estas seguro de eliminar esta ciudad?')
+    if (conf){
+      if (_id) {
+        this.estadosService.deleteCiudad(_id).subscribe(
+          () => {
+            this.ciudades = this.ciudades.filter(ciudad => ciudad._id !== _id);
+            this.resetForm();
+          },
+          error => {
+            console.error('Error al eliminar ciudad:', error);
+          }
+        );
+      } else {
+        console.error("El ID de la ciudad es inexistente.");
+      }
+    }
+
+    return ;
+  }
+
+  editarCiudad(ciudad: Ciudades) {
+    this.modoEdicionCiudad = true;
+    this.ciudad = { ...ciudad };
+  }
+  
+  resetFormCiudad() {
+    this.ciudad = {};
+    this.modoEdicionCiudad = false
+  }
+
+  //Sucursales
+  cargarSucursales() {
+    this.estadosService.getSucursales().subscribe(
+      sucursales => {
+        this.sucursales = sucursales;
+      },
+      error => {
+        console.error('Error al cargar sucursales:', error);
+      }
+    );
+  }
+
+  addSucursales() {
+    if (this.modoEdicionSucursal) {
+        this.estadosService.updateSucursal(this.sucursal).subscribe(() => {
+            this.resetForm();
+            this.cargarSucursales();
+        });
+    } else {
+        const data = {
+            Pais: this.sucursal.Pais,
+            Estados: this.sucursal.Estados,
+            Ciudades: this.sucursal.Ciudades,
+            Sucursales: [
+                {
+                    ClaveSucursal: this.sucursal.ClaveSucursal,
+                    NombreSucursal: this.sucursal.NombreSucursal,
+                    Telefono: this.sucursal.Telefono
+                }
+            ]
+        };
+        this.estadosService.addSucursales(data).subscribe(() => {
+            this.resetForm();
+            this.cargarSucursales();
+        });
+    }
+}
+
+  deleteSucursal(_id?: String) {
+    const conf = confirm('Estas seguro de eliminar esta sucursal?')
+    if (conf){
+      if (_id) {
+        this.estadosService.deleteSucursal(_id).subscribe(
+          () => {
+            this.sucursales = this.sucursales.filter(sucursal => sucursal._id !== _id);
+            this.resetForm();
+          },
+          error => {
+            console.error('Error al eliminar sucursal:', error);
+          }
+        );
+      } else {
+        console.error("El ID de la sucursal es inexistente.");
+      }
+    }
+
+    return ;
+  }
+
+  editarSucursales(sucursal: Sucursales) {
+    this.modoEdicionSucursal = true;
+    this.sucursal = { ...sucursal };
+  }
+  
+  resetFormSucursal() {
+    this.sucursal = {};
+    this.modoEdicionSucursal = false
+  }
+
 }
