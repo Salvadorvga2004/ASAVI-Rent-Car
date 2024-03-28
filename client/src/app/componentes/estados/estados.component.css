@@ -1,23 +1,45 @@
 .wrapper {
-    display: flex;
-    flex-direction: row; /* Dividir horizontalmente */
-    justify-content: space-around; /* Centrar horizontalmente los contenedores */
-    width: 100%;
-    height: 100vh; /* Tamaño completo de la ventana */
-  }
-  
-  .container-sm {
-    flex: 1; /* Que cada contenedor ocupe el mismo espacio */
-  }
-  
-  .container-sm h1 {
-    margin: 0; /* Eliminar el margen predeterminado del h1 */
-    color: white; /* Cambiar el color del texto a azul */
-    background-color: skyblue; /* Agregar color de fondo amarillo */
-    padding: 10px; /* Añadir espacio alrededor del texto */
-    display: flex; /* Usar flexbox */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    border-radius: 15px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+}
+
+.container-sm {
+  flex: 1;
+}
+
+.container-sm h1 {
+  margin: 0;
+  color: white;
+  background-color: skyblue;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+
+
+.table {
+  width: 100%;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: #2600ff;
+  color: #333;
+}
+
+.small-btn {
+  font-size: 14px;
+  padding: 5px 10px;
+}

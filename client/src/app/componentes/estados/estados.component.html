@@ -1,5 +1,4 @@
 <div class="wrapper">
-
     <!--Estados-->
     <div class="container-sm">
         <h1>Estados</h1>
@@ -191,41 +190,44 @@
 </div>
 
 <!-- Estados -->
-<table class="table">
-    <thead>
-        <h1>Estados</h1>
-        <tr> 
-            <th>Pais</th>
-            <th>Clave</th>
-            <th>Estado</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let estado of estados">
-            <td>
-                {{ estado.Pais }}
-            </td>
-            <td>
-                <div *ngFor="let subEstados of estado.Estados">
-                    {{ subEstados.ClaveEstado }}
-                </div>
-            </td>
-            <td>
-                <div *ngFor="let subEstados of estado.Estados">
-                    {{ subEstados.NombreEstado }}
-                </div>
-            </td>
-            <td>
-                <button class="btn btn-success" (click)="editarEstado(estado)">
-                    <i class="fas fa-sync-alt"></i>
-                </button>
-                <button class="btn btn-danger" (click)="deleteEstado(estado._id)">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <h1 class="text-center">Estados</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr> 
+                <th>Pais</th>
+                <th>Clave</th>
+                <th>Estado</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let estado of estados">
+                <td>{{ estado.Pais }}</td>
+                <td>
+                    <div *ngFor="let subEstados of estado.Estados">
+                        {{ subEstados.ClaveEstado }}
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let subEstados of estado.Estados">
+                        {{ subEstados.NombreEstado }}
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-success small-btn" (click)="editarEstado(estado)">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="btn btn-danger small-btn" (click)="deleteEstado(estado._id)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 
 <!--Ciudades-->
 <table class="table">
@@ -236,6 +238,7 @@
             <th>Estado</th>
             <th>Clave</th>
             <th>Ciudad</th>
+            <th>Operaciones</th>
         </tr>
     </thead>
     <tbody>
@@ -257,10 +260,10 @@
                 </div>
             </td>
             <td>
-                <button class="btn btn-success" (click)="editarCiudad(ciudad)">
-                    <i class="fas fa-sync-alt"></i>
+                <button class="btn btn-success small-btn" (click)="editarCiudad(ciudad)">
+                    <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-danger" (click)="deleteCiudad(ciudad._id)">
+                <button class="btn btn-danger small-btn" (click)="deleteCiudad(ciudad._id)">
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </td>
@@ -279,6 +282,7 @@
             <th>Clave</th>
             <th>Sucursal</th>
             <th>Teleforno</th>
+            <th>Operaciones</th>
         </tr>
     </thead>
     <tbody>
@@ -308,10 +312,10 @@
                 </div>
             </td>
             <td>
-                <button class="btn btn-success" (click)="editarSucursales(sucursal)">
-                    <i class="fas fa-sync-alt"></i>
+                <button class="btn btn-success small-btn" (click)="editarSucursales(sucursal)">
+                    <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-danger" (click)="deleteSucursal(sucursal._id)">
+                <button class="btn btn-danger small-btn" (click)="deleteSucursal(sucursal._id)">
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </td>
