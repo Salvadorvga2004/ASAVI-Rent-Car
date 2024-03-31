@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
-import { Clientes,Usuarios } from '../modelos/clientes';
+import { Clientes,Usuarios } from '../modelos/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +42,8 @@ export class UsuariosService {
   }
 
   //Usuarios
-  getUsuarios(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(`${this.ApiUri}/api/usuario`)
+  getUsuarios(Correo:string,Contrasena: string): Observable<Usuarios[]> {
+    return this.http.get<Usuarios[]>(`${this.ApiUri}/api/usuario/${Correo}/${Contrasena}`)
       .pipe(
         map(res => res)
       );

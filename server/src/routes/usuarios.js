@@ -10,16 +10,20 @@ router.get('/Usuario',(req ,res ,next) =>{
     });
 });
 
-router.get('/Usuario/:id',(req ,res ,next) =>{
-    db.Usuario.findOne({_id: ObjectId(req.params.id)},(err,Usuarios) => {
+router.get('/Usuario/:Correo/:Contrasena', (req, res, next) => {
+    const correo = req.params.Correo;
+    const contrasena = req.params.Contrasena;
+
+    db.Usuario.findOne({ Correo: correo, Contrasena: contrasena }, (err, Usuario) => {
         if (err) return next(err);
 
-        if (!Usuarios){
+        if (!Usuario) {
             return res.status(404).json({ error: 'Usuario no encontrado :(' });
         }
-        res.json(Usuarios);
+        res.json(Usuario);
     });
 });
+
 
 router.post('/Usuario', (req, res, next) => {
     const UsuarioI = req.body;

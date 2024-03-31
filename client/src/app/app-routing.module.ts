@@ -5,11 +5,12 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AutosComponent } from './componentes/autos/autos.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   {
       path: '',
-      redirectTo:'/inicio',
+      redirectTo:'/login',
       pathMatch:'full'
   },
   {
@@ -32,10 +33,11 @@ const routes: Routes = [
   {
     path:'modelos',
     component: ModelosComponent
-  }
-     
-
-
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  }  
 ];
 
 @NgModule({

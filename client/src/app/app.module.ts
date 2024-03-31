@@ -12,6 +12,7 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ModelosComponent } from './componentes/modelos/modelos.component';
     AutosComponent,
     UsuariosComponent,
     EstadosComponent,
-    ModelosComponent
+    ModelosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
