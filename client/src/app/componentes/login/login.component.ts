@@ -23,16 +23,20 @@ export class LoginComponent {
             this.resultadoValidacion = resultado;
   
             if (resultado) {
-              // Si las credenciales son válidas, redirige a la página principal
-              this.router.navigate(['/inicio']);
+              if (this.resultadoValidacion.ClaveCliente === 1) {
+                this.router.navigate(['/inicio']);
+              } else if (this.resultadoValidacion.ClaveCliente === 2) {
+                this.router.navigate(['/modelos']);
+              } else {
+                this.errorMensaje = 'Valor de ClaveCliente no reconocido.';
+              }
             } else {
-              // Si las credenciales son inválidas, muestra un mensaje de error
               this.errorMensaje = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
             }
           },
           (error) => {
             console.error('Error al validar credenciales', error);
-            this.errorMensaje = 'Error al validar la contraseña o correo electronico. Por favor, inténtalo de nuevo.';
+            this.errorMensaje = 'Error al validar la contraseña o correo electrónico. Por favor, inténtalo de nuevo.';
           }
         );
     } else {
