@@ -5,10 +5,10 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AutosComponent } from './componentes/autos/autos.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   {
@@ -38,6 +38,7 @@ const routes: Routes = [
     component: ModelosComponent
   },
   {
+
     path:'Principal',
     component: PantallaPrincipalComponent
   },
@@ -46,7 +47,6 @@ const routes: Routes = [
     component: NosotrosComponent
   },
   {
-     
     path:'login',
     component: LoginComponent
   }  

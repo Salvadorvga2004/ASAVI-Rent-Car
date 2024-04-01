@@ -12,11 +12,11 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { NavigationComponent } from './componentes/navigation/navigation.component';
 
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-import { LoginComponent } from './componentes/login/login.component';
-import { NavigationComponent } from './componentes/navigation/navigation.component';
 
 
 @NgModule({
