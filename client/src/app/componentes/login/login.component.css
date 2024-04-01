@@ -39,7 +39,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'EB Garamond', serif;
   background-size: cover;
   background-position: center;
 }
@@ -71,7 +71,7 @@ input[type="password"] {
 
 button {
   padding: 10px 20px;
-  background-color: #090909;
+  background-color: #050505;
   color: #fff;
   border: none;
   cursor: pointer;
