@@ -41,11 +41,11 @@ const routes: Routes = [
   },
   {
 
-    path:'Principal',
+    path:'principal',
     component: PantallaPrincipalComponent
   },
   {
-    path:'Nosotros', 
+    path:'nosotros', 
     component: NosotrosComponent
   },
   {

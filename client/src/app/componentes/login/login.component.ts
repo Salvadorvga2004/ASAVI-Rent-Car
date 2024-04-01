@@ -26,7 +26,7 @@ export class LoginComponent {
               if (this.resultadoValidacion.ClaveCliente === 1) {
                 this.router.navigate(['/inicio']);
               } else if (this.resultadoValidacion.ClaveCliente === 2) {
-                this.router.navigate(['/modelos']);
+                this.router.navigate(['/administracion']);
               } else {
                 this.errorMensaje = 'Valor de ClaveCliente no reconocido.';
               }
