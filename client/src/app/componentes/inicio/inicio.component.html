@@ -4,73 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASAVI RENT CAR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="inicio.component.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $(".datepicker").datepicker();
-        });
-    </script>
+    <!-- Agrega el CSS de Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Agrega el CSS personalizado -->
+    <link rel="stylesheet" href="inicio.component.css">
 </head>
 <body>
-    <!-- Encabezado con título y fondo -->
-    <div class="encabezado" style="background-color: #0b0b0b;">
-        <h1 style="color: #fff; text-align: center; padding: 20px;">ASAVI RENT CAR</h1>
+    <div class="encabezado">
+        <h1>ASAVI RENT CAR</h1>
+        <div class="partes">
+        <a class="nav-link" href="/Principal">inicio</a>
+        <a class="nav-link" href="/inicio">Registrarse</a>
+        <a class="nav-link" href="/Nosotros">Adicionales</a>
+        </div>
     </div>
-    
+
     <!-- Resto del contenido -->
-    <div class="cuadro">
-        <div class="ubicacion-container">
-            <div class="ubicacion-texto">Ubicación</div>
-            <textarea class="ubicacion" placeholder="Escribe la ubicación aquí..." contenteditable="true"></textarea>
-        </div>
-
-        <!-- Rectángulo con datepicker -->
-        <div class="rectangulo">
-            <h2>Fecha de Entrega</h2>
-            <input type="text" id="fecha-entrega" class="datepicker">
-        </div>
-        
-        <!-- Otros rectángulos -->
-        <div class="rectangulo" contenteditable="true">
-            <h2>Tiempo</h2>
-            <p>Contenido de Tiempo</p>
-        </div>
-        <div class="rectangulo" contenteditable="true">
-            <h2>Fecha de Devolución</h2>
-            <p>Contenido de Fecha de Devolución</p>
-        </div>
-    </div>
-
-    <div class="cuadro">
-        <div class="rectangulo" contenteditable="true">
-            <h2>Tiempo</h2>
-            <p>Contenido de Tiempo</p>
-        </div>
-        <div class="rectangulo" contenteditable="true">
-            <h2>Edad del Conductor</h2>
-            <p>Contenido de Edad del Conductor</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 cuadro">
+                <div class="ubicacion-container">
+                    <div class="ubicacion-texto">Ubicación</div>
+                    <textarea class="ubicacion" placeholder="Escribe la ubicación aquí..." contenteditable="true"></textarea>
+                </div>
+                <!-- Rectángulo con datepicker -->
+                <div class="rectangulo">
+                    <h2>Fecha de Entrega</h2>
+                    <input type="text" id="fecha-entrega" class="datepicker">
+                </div>
+                <!-- Otros rectángulos -->
+                <div class="rectangulo" contenteditable="true">
+                    <h2>Tiempo</h2>
+                    <p>Contenido de Tiempo</p>
+                </div>
+                <div class="rectangulo" contenteditable="true">
+                    <h2>Fecha de Devolución</h2>
+                    <p>Contenido de Fecha de Devolución</p>
+                </div>
+            </div>
+            <div class="col-md-4 align-self-end cuadro">
+                <!-- Imagen centrada verticalmente -->
+                <img class="img-fluid imagen-centrada" src="https://media.istockphoto.com/id/485787194/es/foto/plata-pickup-truck-gen%C3%A9rico.jpg?s=1024x1024&w=is&k=20&c=Xtw0_Wys5RUgRkXtvS4hahVoa3ALSgcCIa9WBIj3dPw=" alt="Imagen Derecha">
+            </div>
         </div>
     </div>
+</body>
+</html>
 
-    <!-- Imagen -->
-    <img class="imagen-lateral" src="https://cdn.pixabay.com/photo/2016/09/25/18/29/nissan-1694345_960_720.jpg" alt="Imagen Derecha">
 
-    <!-- Rectángulos adicionales -->
-    <div class="cuadro-container">
-        <div class="rectangulo-negro" style="height: 320px;">
-            <p>Acerca de Nosotros</p>
-            <p>ASAVI REN CART es una empresa líder en el sector de alquiler de vehículos, comprometida con ofrecer soluciones de movilidad flexibles y accesibles para todos sus clientes. Desde su fundación en 2024, ASAVI REN CART ha estado a la vanguardia de la industria, proporcionando una amplia gama de opciones de alquiler que van desde automóviles compactos hasta lujosos vehículos de alta gama.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="info-box">
+                <h3>Gestión de tu Renta</h3>
+                <p>Realiza la gestión de tu renta de manera rápida y sencilla y eficaz su tienes algo que ni entiendes puedes marcar a nuestro telefono oh mandar un correo electronico</p>
+            </div>
         </div>
-        <div class="rectangulo-negro" style="height: 320px;">
-            <p>Compromiso y limpieza</p>
-            <p>En Asavi Rent Car, estamos comprometidos con brindar un servicio excepcional a nuestros clientes en cada etapa de su experiencia. Nos esforzamos por superar las expectativas al ofrecer vehículos de calidad, atención personalizada y soluciones eficientes para satisfacer sus necesidades de movilidad. Nuestro compromiso se refleja en cada interacción, asegurando la máxima satisfacción y confianza en nuestros servicios.</p>
+        <div class="col-md-4">
+            <div class="info-box">
+                <h3>Más Información</h3>
+                <p>Encuentra más detalles sobre nuestros servicios y ofertas.</p>
+                <p>Nuestra empresa se dedica a la renta de autos y al buen servicio al cliente, por el buen servicio.</p>
+            </div>
         </div>
-        <div class="rectangulo-negro" style="height: 320px;">
-            <p>Lugares más comunes de renta</p>
-            <p>Aeropuertos: Muchos viajeros optan por alquilar un automóvil justo después de llegar a su destino en el aeropuerto. Esto les brinda comodidad y flexibilidad para explorar la zona sin depender del transporte público.<br>
-               Estaciones de tren o autobús: Las estaciones de transporte público también son lugares populares para alquilar vehículos, especialmente para aquellos que llegan a una ciudad en tren o autobús y desean moverse con libertad.<br>
-               Centros urbanos: En las áreas urbanas, las oficinas de alquiler de automóv
+        <div class="col-md-4">
+            <div class="info-box">
+                <h3>Contactos</h3>
+                <p>Contáctanos para cualquier consulta o duda que tengas.</p>
+                <p>Télefono: 4281081112</p>
+                <p>Correo Electronico: asaviarrobagmail</p>
+            </div>
+        </div>
+    </div>
+</div>
+ 

@@ -13,6 +13,11 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
 
+import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { NavigationComponent } from './componentes/navigation/navigation.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import { ModelosComponent } from './componentes/modelos/modelos.component';
     AutosComponent,
     UsuariosComponent,
     EstadosComponent,
-    ModelosComponent
+    ModelosComponent,
+    PantallaPrincipalComponent,
+    NosotrosComponent,
+    LoginComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

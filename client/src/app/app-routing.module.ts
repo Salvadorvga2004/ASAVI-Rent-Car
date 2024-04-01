@@ -6,10 +6,14 @@ import { AutosComponent } from './componentes/autos/autos.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
 
+import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { LoginComponent } from './componentes/login/login.component';
+
 const routes: Routes = [
   {
       path: '',
-      redirectTo:'/inicio',
+      redirectTo:'/login',
       pathMatch:'full'
   },
   {
@@ -32,10 +36,20 @@ const routes: Routes = [
   {
     path:'modelos',
     component: ModelosComponent
-  }
+  },
+  {
+    path:'Principal',
+    component: PantallaPrincipalComponent
+  },
+  {
+    path:'Nosotros', 
+    component: NosotrosComponent
+  },
+  {
      
-
-
+    path:'login',
+    component: LoginComponent
+  }  
 ];
 
 @NgModule({

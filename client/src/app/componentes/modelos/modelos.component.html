@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <div class="card">
     <div class="card-body">
         <form class="form" #modeloForm="ngForm" (ngSubmit)="addModelos()">
@@ -14,10 +15,9 @@
                 <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="PagoPorDia" class="form-control">
                 <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="UrlImagen" class="form-control">
                 <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="CantidadAutos" class="form-control">
-                <input type="text" name="ClaveReserva" [(ngModel)]="modelo.ClaveReserva" placeholder="ClaveReserva" class="form-control">
                 <span class="input-group-addon">
                     <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
-                        {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo de Auto
+                        {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo
                     </button>
                 </span>
                 <div class="col-auto" *ngIf="modoEdicion">

@@ -1,3 +1,50 @@
+/* Estilo para cada parte */
+.partes {
+    display: flex;
+    justify-content: flex-start; /* Alinear las partes a la izquierda */
+    position: absolute; /* Posición absoluta para colocar en la esquina superior izquierda */
+    top: 0; /* Desde la parte superior */
+    left: 0; /* Desde el lado izquierdo */
+    margin: 20px; /* Agregar un margen para separar de los bordes */
+    z-index: 1; /* Asegurar que esté sobre la imagen */
+    max-width: 60%; /* Ancho máximo de las partes de navegación */
+}
+.partes a {
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 5px; /* Agregar relleno alrededor del texto */
+    position: relative; /* Establecer posición relativa para alinear los pseudoelementos */
+}
+.partes a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Posicionamiento a la izquierda */
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+}
+
+.partes a:hover {
+    color: #2a06ad;
+    
+}
+
+
+/* Estilo para la imagen lateral */
+.imagen-lateral {
+    position: fixed;
+    top: 50%; /* Posiciona la parte superior de la imagen en el centro vertical */
+    right: 0;
+    transform: translateY(50%); /* Centra verticalmente la imagen */
+    width: auto;
+    z-index: -1; /* Para que esté detrás de todo */
+}
+
 
 /* Estilos generales */
 body {
@@ -131,25 +178,55 @@ body {
     justify-content: space-between; /* Distribuir los cuadros horizontalmente */
     margin-top: 20px; /* Espacio encima de los cuadros */
 }
+/* Estilo para centrar verticalmente la imagen */
+.imagen-centrada {
+    max-width: 130%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
 
-/* Estilo para los rectángulos negros */
-.rectangulo-negro {
-    flex: 1; /* Para que los rectángulos se expandan y llenen el espacio disponible */
-    margin: 50px; /* Espacio entre los rectángulos */
-    background-color: #000;
-    border-radius: 20px; /* Reducir el radio del borde para que se vea más bonito */
-    box-sizing: border-box;
-    height: 350px; /* Aumentar la altura para que se vea más largo hacia abajo */
-    width: 250px; /* Ancho de los rectángulos */
-    color: #fff; /* Color del texto blanco */
-    display: flex; /* Para que el contenido se alinee verticalmente */
-    flex-direction: column; /* Alinear el contenido en columna */
-    justify-content: center; /* Centrar verticalmente el contenido */
-    align-items: center; /* Centrar horizontalmente el contenido */
-    font-family: Arial, sans-serif; /* Cambiar la fuente a Arial */
-    font-size: 13px; /* Tamaño de fuente a 12px */
-    font-weight: bold; /* Hacer el texto en negrita */
-    text-align: left; /* Alinear el texto a la izquierda */
-    padding: 20px; /* Agregar un relleno para separar el contenido del borde */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Agregar una sombra para resaltar el rectángulo */
+/* Estilo para ajustar la altura de los rectángulos */
+.cuadro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilo para ajustar la altura de los rectángulos en dispositivos móviles */
+@media (max-width: 767px) {
+    .cuadro {
+        height: auto;
+    }
+}
+
+.info-box {
+    background-color: #101010; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(102, 6, 6, 0.1); /* Sombra */
+    transition: transform 0.3s ease; /* Transición suave */
+    min-height: 200px; /* Altura mínima para cada info-box */
+    height: 100%; /* Tamaño fijo para cada info-box */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinear el contenido verticalmente */
+}
+
+.info-box:hover {
+    transform: translateY(-5px); /* Efecto de levantamiento al pasar el ratón */
+}
+
+
+.info-box h3 {
+    font-size: 24px; /* Tamaño del título */
+    color: #faf3f3; /* Color del texto */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.info-box p {
+    font-size: 16px; /* Tamaño del texto */
+    color: #faf3f3; /* Color del texto */
+    line-height: 1.6; /* Altura de línea */
 }

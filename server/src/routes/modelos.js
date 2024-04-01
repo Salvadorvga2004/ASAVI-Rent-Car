@@ -24,7 +24,7 @@ router.get('/Modelo/:id',(req ,res ,next) =>{
 
 router.post('/Modelo', (req, res, next) => {
     const ModeloI = req.body;
-    if( !ModeloI.Modelo || !ModeloI.Tipo || !ModeloI.Marca || !ModeloI.Transmision || !ModeloI.NumPasajeros || !ModeloI.NumMaletas || !ModeloI.AireAcondicionado || !ModeloI.Radio || !ModeloI.PagoPorDia || !ModeloI.UrlImagen || !ModeloI.CantidadAutos || !ModeloI.ClaveReserva){
+    if( !ModeloI.Modelo || !ModeloI.Tipo || !ModeloI.Marca || !ModeloI.Transmision || !ModeloI.NumPasajeros || !ModeloI.NumMaletas || !ModeloI.AireAcondicionado || !ModeloI.Radio || !ModeloI.PagoPorDia || !ModeloI.UrlImagen || !ModeloI.CantidadAutos){
         res.status(400).json({
             error: 'Modelo no insertado :('
         });
@@ -56,7 +56,7 @@ router.delete('/Modelo/:id', (req, res, next) => {
 
 router.put('/Modelo/:id', (req, res, next) => {
     const ModeloA = req.params.id;
-    const { Modelo, Tipo, Marca, Transmision, NumPasajeros, NumMaletas,AireAcondicionado,Radio,PagoPorDia,UrlImagen,CantidadAutos,ClaveReserva} = req.body;
+    const { Modelo, Tipo, Marca, Transmision, NumPasajeros, NumMaletas,AireAcondicionado,Radio,PagoPorDia,UrlImagen,CantidadAutos} = req.body;
 
     if (!ObjectId.isValid(ModeloA)) {
         return res.status(400).json({ error: 'Modelo no existente :(' });
@@ -75,8 +75,7 @@ router.put('/Modelo/:id', (req, res, next) => {
             Radio,
             PagoPorDia,
             UrlImagen,
-            CantidadAutos,
-            ClaveReserva
+            CantidadAutos
         }
     };
 

@@ -1,1 +1,110 @@
-<p>usuarios works!</p>
+<h1>Registro</h1>
+    <form class="row g-3" #clienteForm="ngForm" (ngSubmit)="addClientes()">
+        <input type="hidden" name="id" [(ngModel)]="cliente.id">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente.Nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="ap_paterno">Apellido Paterno:</label>
+            <input type="text" id="ap_paterno" name="ap_paterno" [(ngModel)]="cliente.ApPaterno" required>
+        </div>
+        <div class="form-group">
+            <label for="ap_materno">Apellido Materno:</label>
+            <input type="text" id="ap_materno" name="ap_materno" [(ngModel)]="cliente.ApMaterno" required>
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" [(ngModel)]="cliente.Telefono" required>
+        </div>
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <select class="form-select" aria-label="Default select example" name="pais" [(ngModel)]="cliente.Pais">
+                <option [ngValue]="null" disabled selected>Selecciona el país</option>
+                <option value="México">México</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="cliente.Estados">
+                <option [ngValue]="null" disabled selected>Selecciona el estado</option>
+                <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <select class="form-select" aria-label="Default select example" name="ciudad" [(ngModel)]="cliente.Ciudades">
+                <option [ngValue]="null" disabled selected>Selecciona la ciudad</option>
+                <option *ngFor="let nombreCiudad of ciudadesDisponibles" [value]="nombreCiudad">{{ nombreCiudad }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="municipio">Municipio:</label>
+            <input type="text" id="municipio" name="municipio" [(ngModel)]="cliente.Municipio" required>
+        </div>
+        <div class="form-group">
+            <label for="colonia">Colonia:</label>
+            <input type="text" id="colonia" name="colonia" [(ngModel)]="cliente.Colonia" required>
+        </div>
+        <div class="form-group">
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle" [(ngModel)]="cliente.Calle" required>
+        </div>
+        <div class="form-group">
+            <label for="num_exterior">Número Exterior:</label>
+            <input type="number" id="num_exterior" name="num_exterior" [(ngModel)]="cliente.NumExterior" required>
+        </div>
+        <div class="form-group">
+            <label for="num_licencia">Número de Licencia:</label>
+            <input type="text" id="num_licencia" name="num_licencia" [(ngModel)]="cliente.NumLicencia" required>
+        </div>
+        <div class="form-group">
+            <label for="estado_emision">Estado de Emisión:</label>
+            <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="cliente.EstadoEmision">
+                <option [ngValue]="null" disabled selected>Selecciona el estado</option>
+                <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_vencimiento_lic">Fecha de Vencimiento de Licencia:</label>
+            <input type="date" id="fecha_vencimiento_lic" name="fecha_vencimiento_lic" [(ngModel)]="cliente.FechaVencimientoLic" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_emision_lic">Fecha de Emisión de Licencia:</label>
+            <input type="date" id="fecha_emision_lic" name="fecha_emision_lic" [(ngModel)]="cliente.FechaEmisionLic" required>
+        </div>
+        <div class="form-group">
+            <label for="estado_emision_lic">Estado de Emisión de Licencia:</label>
+            <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="cliente.EstadoEmisionLic">
+                <option [ngValue]="null" disabled selected>Selecciona el estado</option>
+                <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="url_licencia">URL de Licencia:</label>
+            <input type="text" id="url_licencia" name="url_licencia" [(ngModel)]="cliente.UrlLicencia" required>
+        </div>
+        <div class="form-group">
+            <label for="num_ine">Número de INE:</label>
+            <input type="text" id="num_ine" name="num_ine" [(ngModel)]="cliente.NumIne" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_vencimiento_ine">Fecha de Vencimiento de INE:</label>
+            <input type="date" id="fecha_vencimiento_ine" name="fecha_vencimiento_ine" [(ngModel)]="cliente.FechaVencimientoIne" required>
+        </div>
+        <div class="form-group">
+            <label for="url_ine">URL de INE:</label>
+            <input type="text" id="url_ine" name="url_ine" [(ngModel)]="cliente.UrlIne" required>
+        </div>
+        <div class="form-group">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" [(ngModel)]="cliente.Correo" required>
+        </div>
+        <div class="form-group">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" [(ngModel)]="cliente.Contrasena" required>
+        </div>
+        <a href="/login">Ya tengo una cuenta...</a>
+        <br>
+        <button type="submit">Registrarse</button>
+    </form>
