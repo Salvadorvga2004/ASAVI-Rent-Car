@@ -17,6 +17,7 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { AdministracionComponent } from './componentes/administracion/administracion.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     PantallaPrincipalComponent,
     NosotrosComponent,
     LoginComponent,
-    NavigationComponent
+    NavigationComponent,
+    AdministracionComponent
   ],
   imports: [
     BrowserModule,
