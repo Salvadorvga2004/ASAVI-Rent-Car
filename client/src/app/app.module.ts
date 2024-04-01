@@ -15,9 +15,11 @@ import { ModelosComponent } from './componentes/modelos/modelos.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NavigationComponent } from './componentes/navigation/navigation.component';
 
-import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
+
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
+
 
 
 @NgModule({

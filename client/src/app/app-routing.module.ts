@@ -7,8 +7,9 @@ import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
 import { LoginComponent } from './componentes/login/login.component';
 
-import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
+import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
+
 
 const routes: Routes = [
   {
