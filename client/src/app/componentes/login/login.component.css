@@ -137,4 +137,14 @@ button:disabled {
 .ubicacion::placeholder {
   color: #fff;
 }
+/* Estilo para la parte inferior */
+.parte-inferior {
+  position: fixed; /* Posición fija para mantenerla en la parte inferior */
+  bottom: 0; /* Desde la parte inferior */
+  left: 0; /* Desde el lado izquierdo */
+  width: 100%; /* Ancho completo */
+  height: 100px; /* Altura de la parte inferior */
+  background-color: #000; /* Color de fondo negro */
+  z-index: 1; /* Asegurar que esté sobre otras capas */
+}
 
