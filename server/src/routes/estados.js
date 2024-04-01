@@ -22,6 +22,7 @@ router.get('/Estado/:id',(req ,res ,next) =>{
     });
 });
 
+
 router.post('/Estado', (req, res, next) => {
     const { Pais, Estados } = req.body;
 

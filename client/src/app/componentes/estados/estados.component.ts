@@ -24,6 +24,10 @@ export class EstadosComponent implements OnInit {
   ciudadesDisponibles: string[] = [];
   estadosDisponibles: string[] = [];
 
+  filtroEstado: string = '';
+  filtroCiudad: string = '';
+  filtroSucursal: string = '';
+
   constructor(private estadosService: EstadosService) {}
               
   ngOnInit(): void {
@@ -35,15 +39,19 @@ export class EstadosComponent implements OnInit {
   //Estados
   cargarEstados() {
     this.estadosService.getEstados().subscribe(
-      estados => {
-        this.estados = estados;
-        this.estadosDisponibles = estados.flatMap(estado => estado.Estados.map(subEstado => subEstado.NombreEstado));
-      },
-      error => {
-        console.error('Error al cargar estados:', error);
-      }
+        estados => {
+            if (this.filtroEstado.trim() !== '') {
+                estados = estados.filter(estado => estado.Estados.some(subEstado => subEstado.NombreEstado.toLowerCase().includes(this.filtroEstado.toLowerCase())));
+            }
+            
+            this.estados = estados;
+            this.estadosDisponibles = estados.flatMap(estado => estado.Estados.map(subEstado => subEstado.NombreEstado));
+        },
+        error => {
+            console.error('Error al cargar estados:', error);
+        }
     );
-  }
+}
 
   addEstados() {
     if (this.modoEdicionEstado) {
@@ -113,15 +121,22 @@ export class EstadosComponent implements OnInit {
   cargarCiudades() {
     this.estadosService.getCiudades().subscribe(
       ciudades => {
-        this.ciudades = ciudades;
-        this.ciudadesDisponibles = ciudades.flatMap(ciudades => ciudades.Ciudades.map(subCiudades => subCiudades.NombreCiudad));
+        if (this.filtroCiudad.trim() !== '') {
+          ciudades = ciudades.filter(ciudad => ciudad.Ciudades.some(subCiudad => subCiudad.NombreCiudad.toLowerCase().includes(this.filtroCiudad.toLowerCase())) ||
+            (ciudad.Estados && ciudad.Estados.toLowerCase().includes(this.filtroCiudad.toLowerCase()))
+          );
+        }
 
+        this.ciudades = ciudades;
+        this.ciudadesDisponibles = ciudades.flatMap(ciudad => ciudad.Ciudades.map(subCiudad => subCiudad.NombreCiudad));
       },
       error => {
         console.error('Error al cargar ciudades:', error);
       }
     );
-  }
+}
+
+
 
   addCiudades() {
     if (this.modoEdicionCiudad) {
@@ -182,6 +197,12 @@ export class EstadosComponent implements OnInit {
   cargarSucursales() {
     this.estadosService.getSucursales().subscribe(
       sucursales => {
+        if (this.filtroSucursal.trim() !== '') {
+          sucursales = sucursales.filter(sucursal => sucursal.Sucursales.some(subSucursal => subSucursal.NombreSucursal.toLowerCase().includes(this.filtroSucursal.toLowerCase())) ||
+            (sucursal.Ciudades && sucursal.Ciudades.toLowerCase().includes(this.filtroSucursal.toLowerCase())) ||
+            (sucursal.Estados && sucursal.Estados.toLowerCase().includes(this.filtroSucursal.toLowerCase()))
+          );
+        }
         this.sucursales = sucursales;
       },
       error => {
@@ -189,6 +210,7 @@ export class EstadosComponent implements OnInit {
       }
     );
   }
+
 
   addSucursales() {
     if (this.modoEdicionSucursal) {
