@@ -13,6 +13,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { NavigationComponent } from './componentes/navigation/navigation.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './componentes/login/login.component';
     UsuariosComponent,
     EstadosComponent,
     ModelosComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
