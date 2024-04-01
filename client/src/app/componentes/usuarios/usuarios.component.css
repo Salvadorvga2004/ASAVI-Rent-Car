@@ -1,3 +1,38 @@
+/* Estilo para el texto "ASAVI RENT CAR" */
+.asavi-texto {
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+/* Estilo para el encabezado */
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #000; /* Cambiar el color de fondo a negro */
+    padding: 10px; /* Reducir el padding del encabezado */
+}
+
+/* Estilo para el texto del encabezado */
+.encabezado h1 {
+    color: #fff;
+    font-size: 28px; /* Reducir el tamaño del texto del encabezado */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 25px;
+    margin: 0;
+}
+
+/* Estilo para el cuadro principal */
+.cuadro {
+    width: 50%; /* Ancho del cuadro */
+    margin: 0 auto; /* Centrar el cuadro horizontalmente */
+    display: flex;
+    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+
 h1 {
     text-align: center;
 }
@@ -28,7 +63,7 @@ select {
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #080808;
     color: white;
     border: none;
     border-radius: 4px;
@@ -37,5 +72,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #0c0c0c;
 }
