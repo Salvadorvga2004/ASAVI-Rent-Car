@@ -12,21 +12,7 @@ export class ModelosComponent implements OnInit {
   modelo: Modelos | any = {};
   modoEdicion: boolean = false;
 
-  Modelo!: string;
-  Tipo!: string;
-  Marca!: string;
-  Transmision!: string;
-  NumPasajeros!: number;
-  NumMaletas!: number;
-  AireAcondicionado!: string;
-  Radio!: string;
-  PagoPorDia!: number;
-  UrlImagen!: string;
-  CantidadAutos!: number;
-  ClaveReserva!: string;
-
   constructor(private modelosService: ModelosService) {}
-              
 
   ngOnInit(): void {
     this.cargarModelos();
@@ -44,6 +30,24 @@ export class ModelosComponent implements OnInit {
   }
 
   addModelos() {
+    // Verificar si algún campo está vacío
+    if (
+      !this.modelo.Modelo ||
+      !this.modelo.Tipo ||
+      !this.modelo.Marca ||
+      !this.modelo.Transmision ||
+      !this.modelo.NumPasajeros ||
+      !this.modelo.NumMaletas ||
+      !this.modelo.AireAcondicionado ||
+      !this.modelo.Radio ||
+      !this.modelo.PagoPorDia ||
+      !this.modelo.UrlImagen ||
+      !this.modelo.CantidadAutos
+    ) {
+      alert('Por favor, complete todos los campos.');
+      return;
+    }
+
     if (this.modoEdicion) {
       this.modelosService.updateModelo(this.modelo).subscribe(() => {
         this.resetForm();
@@ -57,11 +61,9 @@ export class ModelosComponent implements OnInit {
     }
   }
 
-
-
   deleteModelo(_id?: String) {
-    const conf = confirm('Estas seguro de eliminar este modelo de auto?')
-    if (conf){
+    const conf = confirm('Estás seguro de eliminar este modelo de auto?');
+    if (conf) {
       if (_id) {
         this.modelosService.deleteModelo(_id).subscribe(
           () => {
@@ -72,11 +74,9 @@ export class ModelosComponent implements OnInit {
           }
         );
       } else {
-        console.error("El ID del modelo es inexistente.");
+        console.error('El ID del modelo es inexistente.');
       }
     }
-
-    return ;
   }
 
   editarModelo(modelo: Modelos) {
@@ -88,4 +88,4 @@ export class ModelosComponent implements OnInit {
     this.modelo = {};
     this.modoEdicion = false;
   }
-}  
+}

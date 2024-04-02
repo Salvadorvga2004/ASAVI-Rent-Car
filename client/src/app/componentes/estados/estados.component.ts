@@ -28,6 +28,8 @@ export class EstadosComponent implements OnInit {
   filtroCiudad: string = '';
   filtroSucursal: string = '';
 
+  
+
   constructor(private estadosService: EstadosService) {}
               
   ngOnInit(): void {
@@ -53,27 +55,35 @@ export class EstadosComponent implements OnInit {
     );
 }
 
-  addEstados() {
-    if (this.modoEdicionEstado) {
-        this.estadosService.updateEstado(this.estado).subscribe(() => {
-            this.resetForm();
-            this.cargarEstados();
-        });
-    } else {
-        const data = {
-            Pais: this.estado.Pais,
-            Estados: [
-                {
-                    ClaveEstado: this.estado.ClaveEstado,
-                    NombreEstado: this.estado.NombreEstado
-                }
-            ]
-        };
-        this.estadosService.addEstados(data).subscribe(() => {
-            this.resetForm();
-            this.cargarEstados();
-        });
-    }
+addEstados() {
+  if (this.modoEdicionEstado) {
+      if (this.validarCamposEstado()) {
+          this.estadosService.updateEstado(this.estado).subscribe(() => {
+              this.resetForm();
+              this.cargarEstados();
+          });
+      } else {
+          alert('Por favor, complete todos los campos.');
+      }
+  } else {
+      if (this.validarCamposEstado()) {
+          const data = {
+              Pais: this.estado.Pais,
+              Estados: [
+                  {
+                      ClaveEstado: this.estado.ClaveEstado,
+                      NombreEstado: this.estado.NombreEstado
+                  }
+              ]
+          };
+          this.estadosService.addEstados(data).subscribe(() => {
+              this.resetForm();
+              this.cargarEstados();
+          });
+      } else {
+          alert('Por favor, complete todos los campos.');
+      }
+  }
 }
 
   deleteEstado(_id?: String) {
@@ -117,6 +127,13 @@ export class EstadosComponent implements OnInit {
 
   }
 
+  validarCamposEstado(): boolean {
+    if (!this.estado.Pais || !this.estado.ClaveEstado || !this.estado.NombreEstado) {
+        return false;
+    }
+    return true;
+}
+
   //Ciudades
   cargarCiudades() {
     this.estadosService.getCiudades().subscribe(
@@ -136,30 +153,36 @@ export class EstadosComponent implements OnInit {
     );
 }
 
-
-
-  addCiudades() {
-    if (this.modoEdicionCiudad) {
-        this.estadosService.updateCiudad(this.ciudad).subscribe(() => {
-            this.resetForm();
-            this.cargarCiudades();
-        });
-    } else {
-        const data = {
-            Pais: this.ciudad.Pais,
-            Estados: this.ciudad.Estados,
-            Ciudades: [
-                {
-                    ClaveCiudad: this.ciudad.ClaveCiudad,
-                    NombreCiudad: this.ciudad.NombreCiudad
-                }
-            ]
-        };
-        this.estadosService.addCiudad(data).subscribe(() => {
-            this.resetForm();
-            this.cargarCiudades();
-        });
-    }
+addCiudades() {
+  if (this.modoEdicionCiudad) {
+      if (this.validarCamposCiudad()) {
+          this.estadosService.updateCiudad(this.ciudad).subscribe(() => {
+              this.resetForm();
+              this.cargarCiudades();
+          });
+      } else {
+          alert('Por favor, complete todos los campos.');
+      }
+  } else {
+      if (this.validarCamposCiudad()) {
+          const data = {
+              Pais: this.ciudad.Pais,
+              Estados: this.ciudad.Estados,
+              Ciudades: [
+                  {
+                      ClaveCiudad: this.ciudad.ClaveCiudad,
+                      NombreCiudad: this.ciudad.NombreCiudad
+                  }
+              ]
+          };
+          this.estadosService.addCiudad(data).subscribe(() => {
+              this.resetForm();
+              this.cargarCiudades();
+          });
+      } else {
+          alert('Por favor, complete todos los campos.');
+      }
+  }
 }
 
   deleteCiudad(_id?: String) {
@@ -193,6 +216,13 @@ export class EstadosComponent implements OnInit {
     this.modoEdicionCiudad = false
   }
 
+  validarCamposCiudad(): boolean {
+    if (!this.ciudad.Pais || !this.ciudad.Estados || !this.ciudad.ClaveCiudad || !this.ciudad.NombreCiudad) {
+        return false;
+    }
+    return true;
+}
+
   //Sucursales
   cargarSucursales() {
     this.estadosService.getSucursales().subscribe(
@@ -214,27 +244,35 @@ export class EstadosComponent implements OnInit {
 
   addSucursales() {
     if (this.modoEdicionSucursal) {
-        this.estadosService.updateSucursal(this.sucursal).subscribe(() => {
-            this.resetForm();
-            this.cargarSucursales();
-        });
+        if (this.validarCamposSucursal()) {
+            this.estadosService.updateSucursal(this.sucursal).subscribe(() => {
+                this.resetForm();
+                this.cargarSucursales();
+            });
+        } else {
+            alert('Por favor, complete todos los campos.');
+        }
     } else {
-        const data = {
-            Pais: this.sucursal.Pais,
-            Estados: this.sucursal.Estados,
-            Ciudades: this.sucursal.Ciudades,
-            Sucursales: [
-                {
-                    ClaveSucursal: this.sucursal.ClaveSucursal,
-                    NombreSucursal: this.sucursal.NombreSucursal,
-                    Telefono: this.sucursal.Telefono
-                }
-            ]
-        };
-        this.estadosService.addSucursales(data).subscribe(() => {
-            this.resetForm();
-            this.cargarSucursales();
-        });
+        if (this.validarCamposSucursal()) {
+            const data = {
+                Pais: this.sucursal.Pais,
+                Estados: this.sucursal.Estados,
+                Ciudades: this.sucursal.Ciudades,
+                Sucursales: [
+                    {
+                        ClaveSucursal: this.sucursal.ClaveSucursal,
+                        NombreSucursal: this.sucursal.NombreSucursal,
+                        Telefono: this.sucursal.Telefono
+                    }
+                ]
+            };
+            this.estadosService.addSucursales(data).subscribe(() => {
+                this.resetForm();
+                this.cargarSucursales();
+            });
+        } else {
+            alert('Por favor, complete todos los campos.');
+        }
     }
 }
 
@@ -269,4 +307,10 @@ export class EstadosComponent implements OnInit {
     this.modoEdicionSucursal = false
   }
 
+  validarCamposSucursal(): boolean {
+    if (!this.sucursal.Pais || !this.sucursal.Estados || !this.sucursal.Ciudades || !this.sucursal.ClaveSucursal || !this.sucursal.NombreSucursal || !this.sucursal.Telefono) {
+        return false;
+    }
+    return true;
+}
 }
