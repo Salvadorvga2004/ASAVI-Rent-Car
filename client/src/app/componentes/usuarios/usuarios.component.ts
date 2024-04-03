@@ -110,7 +110,7 @@ export class UsuariosComponent implements OnInit {
     };
 
     const dataUsu = {
-      ClaveCliente: 1, // No deberías asignar el valor aquí si ya lo haces dentro de dataCli
+      ClaveCliente: 1,
       Correo: this.cliente.Correo,
       Contrasena: this.cliente.Contrasena
     };
