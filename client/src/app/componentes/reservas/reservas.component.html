@@ -1,0 +1,30 @@
+<!-- reservas.component.html -->
+
+<div class="container">
+    <h1>Reservas</h1>
+  
+    <!-- Formulario para agregar/editar reservas -->
+    <form (ngSubmit)="addReservas()">
+      <div class="form-group">
+        <label for="ClaveReserva">Clave de Reserva:</label>
+        <input type="text" class="form-control" id="ClaveReserva" [(ngModel)]="reserva.ClaveReserva" name="ClaveReserva" required>
+      </div>
+      <!-- Otros campos del formulario... -->
+  
+      <button type="submit" class="btn btn-primary">{{ modoEdicion ? 'Editar Reserva' : 'Agregar Reserva' }}</button>
+    </form>
+  
+    <!-- Lista de reservas existentes -->
+    <ul class="list-group mt-3">
+      <li *ngFor="let reserva of reservas" class="list-group-item">
+        <!-- Mostrar detalles de la reserva aquí -->
+        {{ reserva.ClaveReserva }}
+        <!-- Mostrar otros detalles de la reserva... -->
+  
+        <!-- Botones para editar y eliminar -->
+        <button class="btn btn-sm btn-warning mx-2" (click)="editarreserva(reserva)">Editar</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteReserva(reserva._id)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+  
