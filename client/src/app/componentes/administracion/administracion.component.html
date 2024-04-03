@@ -1,1 +1,229 @@
-<app-navigation></app-navigation>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Lado del apartado de administrador -->
+        <div class="col-lg-6">
+            <div class="container-sm">
+              
+                <!-- Tu formulario para administradores aquí -->
+                <!--Aministrador-->
+ <div class="container-sm">
+    <h2 class="card-title mb-4">Administradores</h2>
+                    <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addUsuarios()">
+                        <input type="hidden" name="id" [(ngModel)]="usuario.claveCliente">
+                        <input type="hidden" name="correo" [(ngModel)]="usuario.Correo">
+                        <input type="hidden" name="contrasena" [(ngModel)]="usuario.Contrasena">
+
+                        <div class="col-md-6">
+                            <label for="inputCorreo" class="form-label visually-hidden">Correo</label>
+                            <input type="text" name="Correo" [(ngModel)]="usuario.Correo" placeholder="Correo" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputContraseña" class="form-label visually-hidden">Contraseña</label>
+                            <input type="text" name="Contraseña" [(ngModel)]="usuario.Contrasena" placeholder="Contraseña" class="form-control mb-3">
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionUsuario}">
+                                {{ modoEdicionUsuario ? 'Actualizar' : 'Agregar' }} Administrador
+                            </button>
+                            <button type="button" class="btn btn-danger" *ngIf="modoEdicionUsuario" (click)="resetFormAdmin()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+
+                    <h3 class="mt-4">Lista de administradores</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Correo</th>
+                                <th>Contraseña</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios">
+                                <td>{{usuario.Correo}}</td>
+                                <td>{{usuario.Contrasena}}</td>
+                                <td>
+                                    <button class="btn btn-success me-2" (click)="editarUsuarios(usuario)">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="deleteUsuarios(usuario._id)">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+</div>
+            </div>
+        </div>
+        <!-- Lado de la tabla de clientes y el formulario de edición -->
+        <div class="col-lg-6">
+            <div style="height: 400px; overflow-y: auto;">
+                <h1>Clientes</h1>
+                <!-- Tabla de clientes -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ciclo para mostrar los clientes -->
+                        <tr *ngFor="let cliente of clientes">
+                            <td>{{cliente.Nombre}}</td>
+                            <td>{{cliente.ApPaterno}}</td>
+                            <td>{{cliente.ApMaterno}}</td>
+                            <td>{{cliente.Telefono}}</td>
+                            <td>{{cliente.Correo}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="editarCliente(cliente)">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn btn-danger" (click)="deleteCliente(cliente._id)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Formulario de edición de clientes -->
+            <div style="height: 400px; overflow-y: auto;">
+                <div *ngIf="modoEdicionCliente">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="form" #adminForm="ngForm" (ngSubmit)="addClientes()">
+                                <!-- Campos del formulario de edición de clientes -->
+                                <input type="hidden" name="id" [(ngModel)]="cliente.id">
+                                <h2>Información del Cliente </h2>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="Nombre" [(ngModel)]="cliente.Nombre" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoPaterno">Apellido Paterno:</label>
+                        <input type="text" name="ApPaterno" [(ngModel)]="cliente.ApPaterno" placeholder="Apellido Paterno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoMaterno">Apellido Materno:</label>
+                        <input type="text" name="ApMaterno" [(ngModel)]="cliente.ApMaterno" placeholder="Apellido Materno" class="form-control">
+                    </div>
+                    <!-- Agrega aquí los demás campos de formulario -->
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="Telefono" [(ngModel)]="cliente.Telefono" placeholder="Teléfono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">País:</label>
+                        <input type="text" name="Pais" [(ngModel)]="cliente.Pais" placeholder="País" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <input type="text" name="Estado" [(ngModel)]="cliente.Estado" placeholder="Estado" class="form-control">
+                    </div>
+                       <div class="col d-block">
+                                    <label for="ciudad">Ciudad:</label>
+                                    <input type="text" name="Ciudad" [(ngModel)]="cliente.Ciudad" placeholder="Ciudad" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="municipio">Municipio:</label>
+                                    <input type="text" name="Municipio" [(ngModel)]="cliente.Municipio" placeholder="Municipio" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="colonia">Colonia:</label>
+                                    <input type="text" name="Colonia" [(ngModel)]="cliente.Colonia" placeholder="Colonia" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="calle">Calle:</label>
+                                    <input type="text" name="Calle" [(ngModel)]="cliente.Calle" placeholder="Calle" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="numeroExterior">Número Exterior:</label>
+                                    <input type="text" name="NumExterior" [(ngModel)]="cliente.NumExterior" placeholder="Número Exterior" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="numeroLicencia">Número Licencia:</label>
+                                    <input type="text" name="NumLicencia" [(ngModel)]="cliente.NumLicencia" placeholder="Número Licencia" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="fechaVencimientoLicencia">Fecha Vencimiento Licencia:</label>
+                                    <input type="text" name="FechaVencimientoLic" [(ngModel)]="cliente.FechaVencimientoLic" placeholder="Fecha Vencimiento Licencia" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="fechaEmisionLicencia">Fecha Emisión Licencia:</label>
+                                    <input type="text" name="FechaEmisionLic" [(ngModel)]="cliente.FechaEmisionLic" placeholder="Fecha Emisión Licencia" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="urlLicencia">URL Licencia:</label>
+                                    <input type="text" name="UrlLicencia" [(ngModel)]="cliente.UrlLicencia" placeholder="URL Licencia" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="numeroINE">Número INE:</label>
+                                    <input type="text" name="NumIne" [(ngModel)]="cliente.NumIne" placeholder="Número INE" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="fechaVencimientoINE">Fecha Vencimiento INE:</label>
+                                    <input type="text" name="FechaVencimientoIne" [(ngModel)]="cliente.FechaVencimientoIne" placeholder="Fecha Vencimiento INE" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="estadoEmision">Estado Emisión:</label>
+                                    <input type="text" name="EstadoEmision" [(ngModel)]="cliente.EstadoEmision" placeholder="Estado Emisión" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="urlINE">URL INE:</label>
+                                    <input type="text" name="UrlIne" [(ngModel)]="cliente.UrlIne" placeholder="URL INE" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="correo">Correo:</label>
+                                    <input type="text" name="Correo" [(ngModel)]="cliente.Correo" placeholder="Correo" class="form-control">
+                                </div>
+                                <div class="col d-block">
+                                    <label for="contrasena">Contraseña:</label>
+                                    <input type="text" name="Contrasena" [(ngModel)]="cliente.Contrasena" placeholder="Contraseña" class="form-control">
+                                </div>
+                    <!-- Repite la estructura para los demás campos -->
+                    <div class="row mt-2">
+                        <div class="col">
+                            <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicionCliente, 'btn-success': modoEdicionCliente}">
+                                {{ modoEdicionCliente ? 'Actualizar' : 'Crear' }} Cliente
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <button type="button" class="btn btn-danger" (click)="resetForm()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

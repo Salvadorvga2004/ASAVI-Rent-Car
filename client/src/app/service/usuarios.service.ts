@@ -42,6 +42,13 @@ export class UsuariosService {
   }
 
   //Usuarios
+
+  getUsuario(): Observable<Usuarios[]> {
+    return this.http.get<Usuarios[]>(`${this.ApiUri}/api/usuario`)
+      .pipe(
+        map(res => res)
+      );
+  }
   getUsuarios(Correo:string,Contrasena: string): Observable<Usuarios[]> {
     return this.http.get<Usuarios[]>(`${this.ApiUri}/api/usuario/${Correo}/${Contrasena}`)
       .pipe(
@@ -54,5 +61,19 @@ export class UsuariosService {
       .pipe(
         map(res => res)
       )
+  }
+
+  updateusuario(newusuario : Usuarios){
+    return this.http.put(`${this.ApiUri}/api/usuario/${newusuario._id}`, newusuario)
+    .pipe(
+      map (res=> res)
+    )
+  }
+
+  deleteusuario(_id:String){
+    return this.http.delete(`${this.ApiUri}/api/usuario/${_id}`)
+    .pipe(
+      map(res=>res)
+    )
   }
 }

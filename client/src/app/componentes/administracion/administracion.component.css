@@ -1,0 +1,20 @@
+.container {
+    display: flex; /* Establece el contenedor como flexible */
+    height: 100vh; /* Ajusta la altura al 100% de la ventana */
+}
+
+.half {
+    flex: 1; /* Hace que cada parte ocupe el mismo espacio */
+    border: 1px solid #ccc; /* Borde para separar visualmente las partes */
+    padding: 20px; /* Añade espacio alrededor del contenido */
+}
+.custom-input {
+    width: 10%; /* Para que los inputs ocupen todo el ancho disponible */
+    height: 40px; /* Cambia el valor según el tamaño deseado */
+    font-size: 16px; /* Cambia el tamaño de la fuente según el tamaño deseado */
+}
+
+.custom-btn {
+    height: 40px; /* Cambia el valor según el tamaño deseado */
+    font-size: 16px; /* Cambia el tamaño de la fuente según el tamaño deseado */
+}

@@ -26,6 +26,7 @@ export class Clientes {
 }
 
 export class Usuarios {
+    _id?:string; 
     ClaveCliente ?:number;
     Correo?:string; 
     Contrasena?:string;
