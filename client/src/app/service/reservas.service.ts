@@ -26,14 +26,14 @@ export class ReservasService {
       )
   }
 
-  deleteEstado(_id:String){
+  deleteReserva(_id:String){
     return this.http.delete(`${this.ApiUri}/api/reserva/${_id}`)
     .pipe(
       map(res=>res)
     )
   }
 
-  updateEstado(newReserva : Reservas){
+  updateReserva(newReserva : Reservas){
     return this.http.put(`${this.ApiUri}/api/reserva/${newReserva._id}`, newReserva)
     .pipe(
       map (res=> res)

@@ -61,7 +61,7 @@ router.put('/Sucursal/:id', (req, res, next) => {
     const { Pais, Estados, Ciudades ,Sucursales: [{ ClaveSucursal, NombreSucursal, Telefono}] } = req.body;
 
     if (!ObjectId.isValid(SucursalA)) {
-        return res.status(400).json({ error: 'Ciudad no existente :(' });
+        return res.status(400).json({ error: 'Sucuersal no existente :(' });
     }
 
     const query = { _id: ObjectId(SucursalA) };
