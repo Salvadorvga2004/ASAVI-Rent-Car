@@ -23,19 +23,34 @@ router.get('/Reserva/:id',(req ,res ,next) =>{
 });
 
 router.post('/Reserva', (req, res, next) => {
-    const { ClaveReserva, NumSerie, ClaveExtra, ModeloAuto, FechaEntrega, HoraEntrega, SucursalEntrega, FechaRegreso, HoraRegreso, SucursalRegreso, Estatus, Total, Correo} = req.body;
+    const { ClaveReserva, NumSerie, ClaveExtra, ModeloAuto, FechaEntrega, HoraEntrega, SucursalEntrega, FechaRegreso, HoraRegreso, SucursalRegreso, Estatus, Total, Correo } = req.body;
 
-    if (!Pais || !Estados || !Ciudades ||!Array.isArray(Reservas) || Reservas.length === 0) {
+    if (!ClaveReserva || !NumSerie || !ModeloAuto || !FechaEntrega || !HoraEntrega || !SucursalEntrega || !FechaRegreso || !HoraRegreso || !SucursalRegreso || !Estatus || !Total || !Correo) {
         res.status(400).json({
             error: 'Reserva no insertada :('
         });
     } else {
-        db.Reserva.save({ Pais, Estados, Ciudades, Reservas }, (err, newReserva) => {
+        db.Reserva.save({
+            ClaveReserva,
+            NumSerie,
+            ClaveExtra,
+            ModeloAuto,
+            FechaEntrega,
+            HoraEntrega,
+            SucursalEntrega,
+            FechaRegreso,
+            HoraRegreso,
+            SucursalRegreso,
+            Estatus,
+            Total,
+            Correo
+        }, (err, newReserva) => {
             if (err) return next(err);
-            res.json({ message: 'Reserva insertada'});
+            res.json({ message: 'Reserva insertada' });
         });
     }
 });
+
 
 
 router.delete('/Reserva/:id', (req, res, next) => {
@@ -58,29 +73,30 @@ router.delete('/Reserva/:id', (req, res, next) => {
 
 router.put('/Reserva/:id', (req, res, next) => {
     const ReservaA = req.params.id;
-    const { Pais, Estados, Ciudades ,Reservas: [{ ClaveReserva, NombreReserva, Telefono}] } = req.body;
+    const { ClaveReserva, NumSerie, ClaveExtra, ModeloAuto, FechaEntrega, HoraEntrega, SucursalEntrega, FechaRegreso, HoraRegreso, SucursalRegreso, Estatus, Total, Correo } = req.body;
 
     if (!ObjectId.isValid(ReservaA)) {
-        return res.status(400).json({ error: 'Ciudad no existente :(' });
+        return res.status(400).json({ error: 'Reserva no existente :(' });
     }
 
     const query = { _id: ObjectId(ReservaA) };
     const update = {
         $set: {
-            Pais,
-            Estados,
-            Ciudades,
-	        Reservaes: [
-                {
-                    ClaveReserva,
-		            NombreReserva,
-		            Telefono
-                }
-            ]
-            
-
+            ClaveReserva,
+            NumSerie,
+            ClaveExtra,
+            ModeloAuto,
+            FechaEntrega,
+            HoraEntrega,
+            SucursalEntrega,
+            FechaRegreso,
+            HoraRegreso,
+            SucursalRegreso,
+            Estatus,
+            Total,
+            Correo
         }
-    }
+    };
 
     db.Reserva.updateOne(query, update, (err, result) => {
         if (err) return next(err);
@@ -96,4 +112,5 @@ router.put('/Reserva/:id', (req, res, next) => {
         res.json({ message: 'Reserva actualizada' });
     });
 });
+
 module.exports = router;
