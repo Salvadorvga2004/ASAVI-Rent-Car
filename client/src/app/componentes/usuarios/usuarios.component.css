@@ -25,13 +25,7 @@
 }
 
 /* Estilo para el cuadro principal */
-.cuadro {
-    width: 50%; /* Ancho del cuadro */
-    margin: 0 auto; /* Centrar el cuadro horizontalmente */
-    display: flex;
-    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
-    align-items: center; /* Centrar los elementos horizontalmente */
-}
+
 
 h1 {
     text-align: center;
@@ -74,3 +68,245 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0c0c0c;
 }
+/* Estilo para el cuadro principal */
+.cuadro {
+    width: 80%; /* Ancho del cuadro */
+    margin: 0 auto; /* Centrar el cuadro horizontalmente */
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    align-items: center; /* Centrar los elementos verticalmente */
+}
+
+/* Estilo para los rectángulos */
+.formulario {
+    width: 50%; /* Ancho del rectángulo */
+    padding: 20px; /* Espacio interior del rectángulo */
+    box-sizing: border-box;
+}
+/* Estilo para el texto "ASAVI RENT CAR" */
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #000;
+    padding: 10px;
+}
+
+.encabezado h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 25px;
+    margin: 0;
+}
+
+/* Estilo para el cuadro principal */
+.cuadro {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #080808;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0c0c0c;
+}
+/* Estilo para el cuadro principal */
+.cuadro {
+    width: 80%; /* Ancho del cuadro */
+    margin: 0 auto; /* Centrar el cuadro horizontalmente */
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    align-items: center; /* Centrar los elementos verticalmente */
+}
+
+/* Estilo para el contenedor del formulario */
+.formulario-container {
+    width: 50%; /* Ancho del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para los rectángulos del formulario */
+.formulario {
+    width: 100%; /* Ancho del rectángulo */
+    padding: 20px; /* Espacio interior del rectángulo */
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #080808;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0c0c0c;
+}
+/* Estilo para el contenedor del formulario */
+.formulario-container {
+    width: 60%; /* Reducir el ancho del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para los rectángulos del formulario */
+.formulario {
+    width: 50%; /* Ancho del rectángulo */
+    padding: 15px; /* Reducir el espacio interior del rectángulo */
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Reducir el espacio entre grupos */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 10px); /* Reducir el ancho de los campos de entrada */
+    padding: 8px; /* Reducir el relleno */
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+}
+
+button[type="submit"] {
+    width: calc(100% - 30px); /* Reducir el ancho del botón */
+    padding: 8px; /* Reducir el relleno */
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+}
+/* Estilo para el contenedor del formulario de registro */
+.registro-container {
+    width: 100%; /* Ancho del contenedor */
+    background-image: url('https://images.unsplash.com/photo-1502219422320-9ca47798b75b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajustar la imagen para cubrir todo el contenedor */
+    background-position: center; /* Posición de la imagen centrada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Espacio interior */
+    box-sizing: border-box;
+}
+
+/* Estilos para el formulario de registro */
+.registro-form {
+    width: 50%; /* Ancho del formulario */
+    padding: 20px; /* Espacio interior del formulario */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.registro-form h2 {
+    margin-top: 0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: calc(100% - 20px); /* Reducir el ancho de los campos de entrada */
+    padding: 10px; /* Espaciado interior */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-group button[type="submit"] {
+    width: calc(100% - 20px); /* Reducir el ancho del botón */
+    padding: 10px; /* Espaciado interior */
+    background-color: #080808; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+.input-group button[type="submit"]:hover {
+    background-color: #0c0c0c; /* Cambiar color de fondo al pasar el ratón */
+}
+
