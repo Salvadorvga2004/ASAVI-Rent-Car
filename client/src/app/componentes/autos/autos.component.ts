@@ -12,18 +12,7 @@ export class AutosComponent implements OnInit {
   auto: Autos | any = {};
   modoEdicion: boolean = false;
 
-  Modelo!: string;
-  Tipo!: string;
-  Marca!: string;
-  Transmision!: string;
-  NumPasajeros!: number;
-  NumMaletas!: number;
-  AireAcondicionado!: string;
-  Radio!: string;
-  PagoPorDia!: number;
-  UrlImagen!: string;
-  CantidadAutos!: number;
-  ClaveReserva!: string;
+  
 
   constructor(private autoservice: AutosService) {}
               
