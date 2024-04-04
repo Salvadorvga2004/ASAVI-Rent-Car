@@ -1,85 +1,126 @@
-<h2 class="card-title mb-4">Administradores</h2>
-                    <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addAutos()">
-                        <input type="hidden" name="NumSerie" [(ngModel)]="auto.NumSerie">
-                        <input type="hidden" name="Kilometraje" [(ngModel)]="auto.Kilometraje">
-                        <input type="hidden" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria">
-                        <input type="hidden" name="Ubicacion" [(ngModel)]="auto.Ubicacion">
-                        <input type="hidden" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto">
-                        <input type="hidden" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
-                        <input type="hidden" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo adicional */
+        .half-screen {
+            height: 50vh;
+        }
+        .overflow-auto {
+            max-height: calc(50vh - 72px); /* 72px es la altura aproximada de la tabla de autos */
+        }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <div class="row">
+        <!-- Primera mitad de la pantalla -->
+        <div class="col-md-6 half-screen">
+            <h1>Hola</h1>
+        </div>
+        <!-- Segunda mitad de la pantalla -->
+        <div class="col-md-6 half-screen ">
+            <h2 class="card-title mb-4">Autos</h2>
+            <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addAutos()">
+                <input type="hidden" name="NumSerie" [(ngModel)]="auto.NumSerie">
+                <input type="hidden" name="Kilometraje" [(ngModel)]="auto.Kilometraje">
+                <input type="hidden" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria">
+                <input type="hidden" name="Ubicacion" [(ngModel)]="auto.Ubicacion">
+                <input type="hidden" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto">
+                <input type="hidden" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
+                <input type="hidden" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva">
 
-                      
+                <div class="col-md-6">
+                    <label for="inputCorreo" class="form-label visually-hidden">Numero serie</label>
+                    <input type="text" name="NumSerie" [(ngModel)]="auto.NumSerie" placeholder="Numero de serie" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputContraseña" class="form-label visually-hidden">Kilometraje</label>
+                    <input type="text" name="Kilometraje" [(ngModel)]="auto.Kilometraje" placeholder="Kilometraje" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCorreo" class="form-label visually-hidden">Carroceria</label>
+                    <input type="text" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" placeholder="EstadoCarroceria" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputContraseña" class="form-label visually-hidden">Ubicación</label>
+                    <input type="text" name="Ubicacion" [(ngModel)]="auto.Ubicacion" placeholder="Ubicacion" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCorreo" class="form-label visually-hidden">Estatus Auto</label>
+                    <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="EstatusAuto" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputContraseña" class="form-label visually-hidden">Modelo auto</label>
+                    <input type="text" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" placeholder="Modelo Auto" class="form-control mb-3">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputContraseña" class="form-label visually-hidden">ClaveReserva</label>
+                    <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="ClaveReserva" class="form-control mb-3">
+                </div>
 
-                        <div class="col-md-6">
-                            <label for="inputCorreo" class="form-label visually-hidden">Numero serie</label>
-                            <input type="text" name="NumSerie" [(ngModel)]="auto.NumSerie" placeholder="Numero de serie" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputContraseña" class="form-label visually-hidden">Kilometraje</label>
-                            <input type="text" name="Kilometraje" [(ngModel)]="auto.Kilometraje" placeholder="Kilometraje" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCorreo" class="form-label visually-hidden">Carroceria</label>
-                            <input type="text" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" placeholder="EstadoCarroceria" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputContraseña" class="form-label visually-hidden">Ubicación</label>
-                            <input type="text" name="Ubicacion" [(ngModel)]="auto.Ubicacion" placeholder="Ubicacion" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCorreo" class="form-label visually-hidden">Estatus Auto</label>
-                            <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="EstatusAuto" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputContraseña" class="form-label visually-hidden">Modelo auto</label>
-                            <input type="text" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" placeholder="Modelo Auto" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputContraseña" class="form-label visually-hidden">ClaveReserva</label>
-                            <input type="text" name="Contraseña" [(ngModel)]="auto.ClaveReserva" placeholder="Contraseña" class="form-control mb-3">
-                        </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicion}">
+                        {{ modoEdicion ? 'Actualizar' : 'Agregar' }} Auto
+                    </button>
+                    <button type="button" class="btn btn-danger" *ngIf="modoEdicion" (click)="resetForm()">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+            <div>
+                <h1>   
 
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicion}">
-                                {{ modoEdicion ? 'Actualizar' : 'Agregar' }} Administrador
+                </h1>
+            </div>
+            <h3 class="mt-4">Lista de autos</h3>
+            <div class=" half-screen overflow-auto">
+                
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Num Serie</th>
+                        <th>Kilometraje</th>
+                        <th>Carroceria</th>
+                        <th>Ubicación</th>
+                        <th>Estatus Auto</th>
+                        <th>Modelo Auto</th>
+                        <th>Clave Reserva</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let auto of autos">
+                        <td>{{auto.NumSerie}}</td>
+                        <td>{{auto.Kilometraje}}</td>
+                        <td>{{auto.EstadoCarroceria}}</td>
+                        <td>{{auto.Ubicacion}}</td>
+                        <td>{{auto.EstatusAuto}}</td>
+                        <td>{{auto.ModeloAuto}}</td>
+                        <td>{{auto.ClaveReserva}}</td>
+                        <td>
+                            <button class="btn btn-success me-2" (click)="editarAuto(auto)">
+                                <i class="fas fa-sync-alt"></i>
                             </button>
-                            <button type="button" class="btn btn-danger" *ngIf="modoEdicion" (click)="resetForm()">
-                                Cancelar
+                            <button class="btn btn-danger" (click)="deleteAuto(auto._id)">
+                                <i class="fa-solid fa-trash"></i>
                             </button>
-                        </div>
-                    </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
 
-                    <h3 class="mt-4">Lista de autos</h3>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Num Serie</th>
-                                <th>Kilometraje</th>
-                                <th>Carroceria</th>
-                                <th>Ubicación</th>
-                                <th>Estatus Auto</th>
-                                <th>Modelo Auto</th>
-                                <th>Clave Reserva</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let auto of autos">
-                                <td>{{auto.NumSerie}}</td>
-                                <td>{{auto.Kilometraje}}</td>
-                                <td>{{auto.EstadoCarroceria}}</td>
-                                <td>{{auto.Ubicacion}}</td>
-                                <td>{{auto.EstatusAuto}}</td>
-                                <td>{{auto.ModeloAuto}}</td>
-                                <td>{{auto.ClaveReserva}}</td>
-                                <td>
-                                    <button class="btn btn-success me-2" (click)="editarAuto(auto)">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </button>
-                                    <button class="btn btn-danger" (click)="deleteAuto(auto._id)">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
