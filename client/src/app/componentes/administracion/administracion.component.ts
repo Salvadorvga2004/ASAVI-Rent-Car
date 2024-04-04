@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { UsuariosService } from '../../service/usuarios.service';
-import { Clientes, Usuarios } from '../../modelos/usuarios';
+import { Clientes, Usuarios,} from '../../modelos/usuarios';
+import { Modelos } from '../../modelos/modelos';
 
 @Component({
   selector: 'app-administracion',
@@ -12,14 +13,16 @@ export class AdministracionComponent {
 
   clientes: Clientes[]=[];
   cliente: Clientes | any = {};
-
+  
   usuarios: Usuarios[]=[];
   usuario: Usuarios | any = {};
 
   modoEdicion: boolean = false;
   modoEdicionCliente: boolean = false;
   modoEdicionUsuario: boolean = false;
-
+  showFormAndTable: boolean = false; 
+  showModelos: boolean = false; 
+  showButton: boolean = true;
   usuariosDisponibles: string[] = [];
 
   
@@ -165,5 +168,17 @@ export class AdministracionComponent {
    
   }
 
+  verAdmin() {
+    this.showFormAndTable = !this.showFormAndTable;
+  }
+  verModelos() {
+    this.showModelos = !this.showModelos;
+  }
+  ocultarBoton() {
+    this.showButton = false;
+ }
+ mostrarBoton() {
+  this.showButton = true;
+ }
 
 }
