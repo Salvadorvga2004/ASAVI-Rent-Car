@@ -21,7 +21,7 @@ export class AdministracionComponent {
   modoEdicionCliente: boolean = false;
   modoEdicionUsuario: boolean = false;
   showFormAndTable: boolean = false; 
-  showModelos: boolean = false; 
+  showClientes: boolean = false; 
   showButton: boolean = true;
   usuariosDisponibles: string[] = [];
 
@@ -171,8 +171,8 @@ export class AdministracionComponent {
   verAdmin() {
     this.showFormAndTable = !this.showFormAndTable;
   }
-  verModelos() {
-    this.showModelos = !this.showModelos;
+  verClientes() {
+    this.showClientes = !this.showClientes;
   }
   ocultarBoton() {
     this.showButton = false;
