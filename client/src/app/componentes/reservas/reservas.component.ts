@@ -1,27 +1,73 @@
 import { Component } from '@angular/core';
 import { ReservasService } from '../../service/reservas.service';
+import { EstadosService } from '../../service/estados.service';
+import { ModelosService } from '../../service/modelos.service';
+
 import { Reservas } from '../../modelos/reservas';
+import { Sucursales } from '../../modelos/estados';
+import { Modelos } from '../../modelos/modelos';
 
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
-  styleUrl: './reservas.component.css'
+  styleUrls: ['./reservas.component.css']
 })
 export class ReservasComponent {
   reservas: Reservas[] = [];
   reserva: Reservas | any = {};
+  sucursales: Sucursales[] = [];
+  sucursal: Sucursales | any = {}; 
+  modelos: Modelos[] = [];
+  modelo: Modelos | any = {};
+
   modoEdicion: boolean = false;
 
-  constructor(private reservaService: ReservasService) {}
+  sucursalesDisponibles: string[] = [];
+  modelosDisponibles: string[] = [];
+
+  constructor(private reservaService: ReservasService, 
+              private estadosService: EstadosService,
+              private modelosService: ModelosService) {}
 
   ngOnInit(): void {
     this.cargarReservas();
+    this.cargarSucursales();
+    this.cargarModelos();
   }
 
+  //Estados y sucursales
+  cargarSucursales() {
+    this.estadosService.getSucursales().subscribe(
+      sucursales => {
+        this.sucursales = sucursales;
+        this.sucursalesDisponibles = sucursales.flatMap(sucursal => sucursal.Sucursales.map(subSucursal => subSucursal.NombreSucursal));
+      },
+      error => {
+        console.error('Error al cargar sucursales:', error);
+      }
+    );
+  }
+
+  //Modelos
+  cargarModelos() {
+    this.modelosService.getModelos().subscribe(
+      modelos => {
+        this.modelos = modelos;
+        this.modelosDisponibles = modelos
+          .filter(modelo => modelo.Modelo !== undefined)
+          .flatMap(modelo => modelo.Modelo as string);
+      },
+      error => {
+        console.error('Error al cargar autos:', error);
+      }
+    );
+  }
+
+  //Reservas
   cargarReservas() {
     this.reservaService.getReservas().subscribe(
       reservas => {
-        this.reservas = this.reservas;
+        this.reservas = reservas;
       },
       error => {
         console.error('Error al cargar reservas:', error);
@@ -30,7 +76,8 @@ export class ReservasComponent {
   }
 
   addReservas() {
-    // Verificar si algún campo está vacío
+    this.reserva.ClaveReserva = this.generarClaveReserva();
+    
     if (
       !this.reserva.ClaveReserva ||
       !this.reserva.NumSerie ||
@@ -49,7 +96,7 @@ export class ReservasComponent {
       alert('Por favor, complete todos los campos.');
       return;
     }
-
+  
     if (this.modoEdicion) {
       this.reservaService.updateReserva(this.reserva).subscribe(() => {
         this.resetForm();
@@ -89,5 +136,14 @@ export class ReservasComponent {
   resetForm() {
     this.reserva = {};
     this.modoEdicion = false;
+  }
+
+  generarClaveReserva(): string {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let clave = '';
+    for (let i = 0; i < 10; i++) {
+      clave += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    }
+    return clave;
   }
 }

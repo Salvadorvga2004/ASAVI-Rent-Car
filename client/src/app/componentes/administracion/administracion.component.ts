@@ -101,15 +101,14 @@ export class AdministracionComponent {
   cargarUsuarios() {
     this.usuarioService.getUsuario().subscribe(
       usuarios => {
-        this.usuarios = usuarios;
-        
-       
+        this.usuarios = usuarios.filter(usuario => usuario.ClaveCliente === 2);
       },
       error => {
         console.error('Error al cargar administradores:', error);
       }
     );
-  }
+}
+
 
   addUsuarios() {
     if (this.modoEdicionUsuario) {
