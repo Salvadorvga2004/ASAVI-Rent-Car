@@ -1,0 +1,19 @@
+.img-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.model-image {
+    width: 100%;
+    height: auto;
+}
+
+.custom-thead th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+.small-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}

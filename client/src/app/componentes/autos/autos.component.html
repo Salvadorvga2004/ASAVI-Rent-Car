@@ -113,39 +113,78 @@
 
     <div *ngIf="showModelos" class="mt-4">
         <div class="card">
+            <h2 class="card-header text-center">Agregar Modelo</h2>
             <div class="card-body">
                 <form class="form" #modeloForm="ngForm" (ngSubmit)="addModelos()">
                     <input type="hidden" name="id" [(ngModel)]="modelo.id">
-                    <div class="input-group">
-                        <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
-                        <input type="text" name="Tipo" [(ngModel)]="modelo.Tipo" placeholder="Tipo" class="form-control">
-                        <input type="text" name="Marca" [(ngModel)]="modelo.Marca" placeholder="Marca" class="form-control">
-                        <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmision" class="form-control">
-                        <input type="text" name="NumPasajeros" [(ngModel)]="modelo.NumPasajeros" placeholder="NumPasajeros" class="form-control">
-                        <input type="text" name="NumMaletas" [(ngModel)]="modelo.NumMaletas" placeholder="NumMaletas" class="form-control">
-                        <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="AireAcondicionado" class="form-control">
-                        <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
-                        <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="PagoPorDia" class="form-control">
-                        <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="UrlImagen" class="form-control">
-                        <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="CantidadAutos" class="form-control">
-                        <span class="input-group-addon">
-                            <button type="submit" class="btn" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
-                                {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo
-                            </button>
-                        </span>
-                        <div class="col-auto" *ngIf="modoEdicion">
-                            <button type="button" class="btn btn-danger" (click)="resetForm()">
-                                Cancelar
-                            </button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Modelo">Modelo:</label>
+                                <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Tipo">Tipo:</label>
+                                <input type="text" name="Tipo" [(ngModel)]="modelo.Tipo" placeholder="Tipo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Marca">Marca:</label>
+                                <input type="text" name="Marca" [(ngModel)]="modelo.Marca" placeholder="Marca" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Transmision">Transmisión:</label>
+                                <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmisión" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="NumPasajeros">Número de Pasajeros:</label>
+                                <input type="text" name="NumPasajeros" [(ngModel)]="modelo.NumPasajeros" placeholder="Número de Pasajeros" class="form-control">
+                            </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="NumMaletas">Número de Maletas:</label>
+                                <input type="text" name="NumMaletas" [(ngModel)]="modelo.NumMaletas" placeholder="Número de Maletas" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="AireAcondicionado">Aire Acondicionado:</label>
+                                <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="Aire Acondicionado" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Radio">Radio:</label>
+                                <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="PagoPorDia">Pago Por Día:</label>
+                                <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="Pago Por Día" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="UrlImagen">URL de la Imagen:</label>
+                                <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="URL de la Imagen" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="CantidadAutos">Cantidad de Autos:</label>
+                        <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="Cantidad de Autos" class="form-control">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
+                            {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo
+                        </button>
+                        <button type="button" class="btn btn-danger" (click)="resetForm()" *ngIf="modoEdicion">
+                            Cancelar
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
+        
+        
 
-        <h3 class="mt-4">Lista de modelos</h3>
+        
         <div class="table-responsive">
-            <table class="table table-bordered table-striped ">
+            <h3 class="mt-4">Lista de modelos</h3>
+            <table class="table table-bordered table-striped">
                 <thead class="custom-thead">
                     <tr>
                         <th>Modelo</th>
@@ -177,7 +216,7 @@
                             <div class="img-container">
                                 <img [src]="modelo.UrlImagen" alt="Imagen del modelo" class="model-image">
                             </div>
-                        </td>            
+                        </td>
                         <td class="text-center">{{modelo.CantidadAutos}}</td>
                         <td class="text-center">
                             <button class="btn btn-success small-btn" (click)="editarModelo(modelo)">
@@ -191,6 +230,7 @@
                 </tbody>
             </table>
         </div>
+        
         <div class="col">
             <button class="btn btn-lg btn-primary" (click)="verModelos(); mostrarBoton()">Cerrar</button>
         </div>
