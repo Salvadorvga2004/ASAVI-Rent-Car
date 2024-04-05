@@ -51,9 +51,16 @@
                 <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="Estatus de Auto" class="form-control mb-3">
             </div>
             <div class="col-md-6">
-                <label for="inputModeloAuto" class="form-label visually-hidden">Modelo de Auto</label>
-                <input type="text" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" placeholder="Modelo de Auto" class="form-control mb-3">
+                <select class="form-select" aria-label="Default select example" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" aria-placeholder="Modelo" aria-describedby="modelo-help">
+                    <option disabled selected>Selecciona el modelo</option>
+                    <option *ngFor="let modeloItem of modelos" [value]="modeloItem.Modelo">{{ modeloItem.Modelo }}</option>
+                </select>
+                <div id="modelo-help" class="form-text">Selecciona el modelo que deseas.</div>
             </div>
+            
+            
+            
+            
             <div class="col-md-6">
                 <label for="inputClaveReserva" class="form-label visually-hidden">Clave de Reserva</label>
                 <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="Clave de Reserva" class="form-control mb-3">
