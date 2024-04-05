@@ -133,9 +133,19 @@
   font-family: 'EB Garamond', serif; /* Fuente del texto */
 }
 
+.small-btn {
+  font-size: 14px;
+  padding: 5px 10px;
+}
 
+.container input[type="text"] {
+  width: 50%;
+  padding: 5px;
+  margin-left: auto;
+}
 
-
-
-
+.header {
+  display: flex;
+  align-items: center;
+}
 

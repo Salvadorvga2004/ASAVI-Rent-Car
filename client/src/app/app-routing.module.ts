@@ -10,7 +10,11 @@ import { LoginComponent } from './componentes/login/login.component';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+
 import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
+
+import { ReservasComponent } from './componentes/reservas/reservas.component';
+
 
 
 const routes: Routes = [
@@ -42,23 +46,30 @@ const routes: Routes = [
   },
   {
 
-    path:'Principal',
+    path:'principal',
     component: PantallaPrincipalComponent
   },
   {
-    path:'Nosotros', 
+    path:'nosotros', 
     component: NosotrosComponent
   },
   {
     path:'login',
     component: LoginComponent
-  }  ,
+  },
   {
     path: 'administracion',
     component:AdministracionComponent
+
   },{
     path:'vehiculos',
     component:VehiculosComponent
+
+  },
+  {
+    path: 'reservas',
+    component:ReservasComponent
+
   }
 ];
 

@@ -193,7 +193,12 @@
 
 <!-- Estados -->
 <div class="table-responsive">
-    <h1 class="text-center">Estados</h1>
+    <div class="header">
+        <h1>Estados</h1>
+        <div class="container">
+            <input type="text" [(ngModel)]="filtroEstado" (change)="cargarEstados()" placeholder="Buscar por nombre de estado">
+        </div>
+    </div>
     <table class="table table-bordered table-striped">
         <thead>
             <tr> 
@@ -235,6 +240,9 @@
 <table class="table">
     <thead>
         <h1>Ciudades</h1>
+        <div class="container">
+            <input type="text" [(ngModel)]="filtroCiudad" (change)="cargarCiudades()" placeholder="Buscar por nombre de estado">
+        </div>
         <tr> 
             <th>Pais</th>
             <th>Estado</th>
@@ -277,6 +285,9 @@
 <table class="table">
     <thead>
         <h1>Sucursales</h1>
+        <div class="container">
+            <input type="text" [(ngModel)]="filtroSucursal" (change)="cargarSucursales()" placeholder="Buscar por nombre de estado">
+        </div>
         <tr> 
             <th>Pais</th>
             <th>Estado</th>

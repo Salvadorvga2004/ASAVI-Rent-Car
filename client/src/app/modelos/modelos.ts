@@ -11,5 +11,4 @@ export class Modelos{
     PagoPorDia?: number;
     UrlImagen?: String;
     CantidadAutos?: number;
-    ClaveReserva?: String;
 }

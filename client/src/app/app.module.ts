@@ -19,7 +19,11 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
+
 import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
+
+import { ReservasComponent } from './componentes/reservas/reservas.component';
+
 
 
 
@@ -36,9 +40,15 @@ import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
     LoginComponent,
     NavigationComponent,
     AdministracionComponent,
-    VehiculosComponent
+
+    VehiculosComponent,
+
+    ReservasComponent
+
+  
+
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

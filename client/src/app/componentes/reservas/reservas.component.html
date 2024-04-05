@@ -1,0 +1,65 @@
+<!-- reservas.component.html -->
+
+<div class="container">
+  <h1>Reservas</h1>
+  <form (ngSubmit)="addReservas()">
+
+    <div class="form-group">
+      <label for="NumSerie">Número de Serie:</label>
+      <input type="text" class="form-control" id="NumSerie" [(ngModel)]="reserva.NumSerie" name="NumSerie" required>
+    </div>
+    <div class="form-group">
+      <label for="ClaveExtra">Clave Extra:</label>
+      <input type="text" class="form-control" id="ClaveExtra" [(ngModel)]="reserva.ClaveExtra" name="ClaveExtra" required>
+    </div>
+    <div class="form-group">
+      <label for="SucursalEntrega">Modelo Auto:</label>
+      <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="reserva.ModeloAuto">
+          <option *ngFor="let Modelo of modelosDisponibles" [ngValue]="Modelo">{{ Modelo }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="FechaEntrega">Fecha de Entrega:</label>
+      <input type="date" class="form-control" id="FechaEntrega" [(ngModel)]="reserva.FechaEntrega" name="FechaEntrega" required>
+    </div>
+    <div class="form-group">
+      <label for="HoraEntrega">Hora de Entrega:</label>
+      <input type="time" class="form-control" id="HoraEntrega" [(ngModel)]="reserva.HoraEntrega" name="HoraEntrega" required>
+    </div>
+    <div class="form-group">
+      <label for="SucursalEntrega">Sucursal de Entrega:</label>
+        <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="reserva.SucursalEntrega">
+            <option *ngFor="let NombreSucursal of sucursalesDisponibles" [value]="NombreSucursal">{{ NombreSucursal }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="FechaRegreso">Fecha de Regreso:</label>
+      <input type="date" class="form-control" id="FechaRegreso" [(ngModel)]="reserva.FechaRegreso" name="FechaRegreso" required>
+    </div>
+    <div class="form-group">
+      <label for="HoraRegreso">Hora de Regreso:</label>
+      <input type="time" class="form-control" id="HoraRegreso" [(ngModel)]="reserva.HoraRegreso" name="HoraRegreso" required>
+    </div>
+    <div class="form-group">
+      <label for="SucursalEntrega">Sucursal de Regreso:</label>
+        <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="reserva.SucursalRegreso">
+            <option *ngFor="let NombreSucursal of sucursalesDisponibles" [value]="NombreSucursal">{{ NombreSucursal }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="Estatus">Estatus:</label>
+      <input type="text" class="form-control" id="Estatus" [(ngModel)]="reserva.Estatus" name="Estatus" required>
+    </div>
+    <div class="form-group">
+      <label for="Total">Total:</label>
+      <input type="number" class="form-control" id="Total" [(ngModel)]="reserva.Total" name="Total" required>
+    </div>
+    <div class="form-group">
+      <label for="Correo">Correo:</label>
+      <input type="email" class="form-control" id="Correo" [(ngModel)]="reserva.Correo" name="Correo" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ modoEdicion ? 'Editar Reserva' : 'Agregar Reserva' }}</button>
+  </form>
+
+</div>
