@@ -11,6 +11,7 @@ export class ExtrasComponent implements OnInit {
   extras: Extras[] = [];
   extra: Extras | any = {};
   modoEdicion: boolean = false;
+  filtro: string = '';
 
   constructor(private extrasService: ExtrasService) {}
 
@@ -21,6 +22,13 @@ export class ExtrasComponent implements OnInit {
   cargarExtras() {
     this.extrasService.getExtras().subscribe(
       extras => {
+
+        if (this.filtro.trim() !== '') {
+          extras = extras.filter(extra => 
+            extra.NomArticulo && extra.NomArticulo.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
+
         this.extras = extras;
       },
       error => {

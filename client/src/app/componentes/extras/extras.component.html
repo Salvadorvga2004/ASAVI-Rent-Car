@@ -33,6 +33,9 @@
         </div>
     </div>
 
+    <div class="container">
+        <input type="text" [(ngModel)]="filtro" (change)="cargarExtras()" placeholder="Buscar por Nombre de articulo">
+    </div>
     <div class="table-responsive mt-4">
         <table class="table table-bordered table-striped">
             <thead class="custom-thead">
