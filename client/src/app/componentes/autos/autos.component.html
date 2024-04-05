@@ -50,8 +50,8 @@
 
         
         <h3 class="mt-4">Lista de autos</h3>
-        <div class="container">
-            <input type="text" [(ngModel)]="filtroNumSerie" (change)="cargarAutos()" placeholder="Buscar por NumSerie">
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="filtroNumSerie" (change)="cargarAutos()" placeholder="Buscar por NumSerie" class="form-control">
         </div>
         <div class="overflow-auto">
             <table class="table table-striped">

@@ -69,8 +69,8 @@
     
     <div class="table-responsive mt-5">
         <h3 class="mb-4">Lista de modelos</h3>
-        <div class="container">
-            <input type="text" [(ngModel)]="filtro" (change)="cargarModelos()" placeholder="Buscar por Modelo">
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="filtro" (change)="cargarModelos()" placeholder="Buscar por Modelo" class="form-control">
         </div>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
