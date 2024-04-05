@@ -1,15 +1,5 @@
 <app-navigation></app-navigation>
 <div class="container">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     <div  class="mt-5">
         <h2 class="card-title mb-4">Autos</h2>
         <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addAutos()">
@@ -19,7 +9,6 @@
             <input type="hidden" name="Ubicacion" [(ngModel)]="auto.Ubicacion">
             <input type="hidden" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto">
             <input type="hidden" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
-            <input type="hidden" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva">
 
             <div class="col-md-6">
                 <label for="inputNumSerie" class="form-label visually-hidden">Número de Serie</label>
@@ -48,14 +37,6 @@
                 </select>
                 <div id="modelo-help" class="form-text">Selecciona el modelo que deseas.</div>
             </div>
-            
-            
-            
-            
-            <div class="col-md-6">
-                <label for="inputClaveReserva" class="form-label visually-hidden">Clave de Reserva</label>
-                <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="Clave de Reserva" class="form-control mb-3">
-            </div>
 
             <div class="col-12">
                 <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionAuto}">
@@ -82,7 +63,6 @@
                         <th>Ubicación</th>
                         <th>Estatus de Auto</th>
                         <th>Modelo de Auto</th>
-                        <th>Clave de Reserva</th>
                         <th>Operaciones</th>
                     </tr>
                 </thead>
@@ -94,7 +74,6 @@
                         <td>{{auto.Ubicacion}}</td>
                         <td>{{auto.EstatusAuto}}</td>
                         <td>{{auto.ModeloAuto}}</td>
-                        <td>{{auto.ClaveReserva}}</td>
                         <td>
                             <button class="btn btn-success me-2" (click)="editarAuto(auto)">
                                 <i class="fas fa-sync-alt"></i>
