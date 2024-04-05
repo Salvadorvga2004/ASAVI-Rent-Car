@@ -1,3 +1,18 @@
+.encabezado {
+    position: relative; /* Posición relativa para que el ícono esté posicionado correctamente */
+}
+
+.usuario-icono {
+    position: absolute; /* Posición absoluta para el ícono */
+    top: 10px; /* Ajustar la posición verticalmente */
+    right: 10px; /* Ajustar la posición horizontalmente */
+    color: #fff; /* Color del ícono */
+    font-size: 24px; /* Tamaño del ícono */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+
+
 /* Estilo para el encabezado */
 .encabezado {
     text-align: center;
