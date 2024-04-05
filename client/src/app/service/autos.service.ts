@@ -20,6 +20,8 @@ export class AutosService {
       );
   }
 
+  
+
   addAutos (newAuto : Autos){
     return this.http.post<Autos>(`${this.ApiUri}/api/auto`, newAuto)
       .pipe(

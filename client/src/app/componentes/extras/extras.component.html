@@ -1,6 +1,9 @@
 <app-navigation></app-navigation>
 <div class="container mt-4">
     <div class="card">
+        <div class="card-header">
+            <h5 class="text-white">Gestión de Extras</h5>
+        </div>
         <div class="card-body">
             <form class="form" #extraForm="ngForm" (ngSubmit)="addExtra()">
                 <input type="hidden" name="id" [(ngModel)]="extra.id">
@@ -43,14 +46,14 @@
         <table class="table table-bordered table-striped">
             <thead class="custom-thead">
                 <tr>
-                    <th>Clave Extra</th>
-                    <th>Nombre Articulo</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Número de Días</th>
-                    <th>Total</th>
-                    <th>Clave de Reserva</th>
-                    <th>Operaciones</th>
+                    <th class="text-white">Clave Extra</th>
+                    <th class="text-white">Nombre Articulo</th>
+                    <th class="text-white">Descripción</th>
+                    <th class="text-white">Precio</th>
+                    <th class="text-white">Número de Días</th>
+                    <th class="text-white">Total</th>
+                    <th class="text-white">Clave de Reserva</th>
+                    <th class="text-white">Operaciones</th>
                 </tr>
             </thead>
             <tbody>

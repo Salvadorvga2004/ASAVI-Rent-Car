@@ -1,6 +1,6 @@
 export class Autos{
     _id ?: String;
-    NumSerie ?: String;
+    NumSerie?: String;
 	Kilometraje ?:number;
 	EstadoCarroceria ?: String;
 	Ubicacion ?: String;
