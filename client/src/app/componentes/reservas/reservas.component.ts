@@ -139,7 +139,7 @@ export class ReservasComponent {
   }
 
   generarClaveReserva(): string {
-    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
     let clave = '';
     for (let i = 0; i < 10; i++) {
       clave += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
