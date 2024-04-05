@@ -1,119 +1,121 @@
 <app-navigation></app-navigation>
 
-<div class="container mt-5">
-    <div class="card">
-        <h2 class="card-header text-center">Agregar Modelo</h2>
-        <div class="card-body">
-            <form class="form" #modeloForm="ngForm" (ngSubmit)="addModelos()">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="Modelo">Modelo:</label>
-                            <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
+<div class="wrapper">
+    <div class="container mt-5">
+        <div class="card">
+            <h2 class="card-header text-center bg-dark text-white">Agregar Modelo</h2>
+            <div class="card-body bg-dark text-white">
+                <form class="form" #modeloForm="ngForm" (ngSubmit)="addModelos()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Modelo">Modelo:</label>
+                                <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Tipo">Tipo:</label>
+                                <input type="text" name="Tipo" [(ngModel)]="modelo.Tipo" placeholder="Tipo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Marca">Marca:</label>
+                                <input type="text" name="Marca" [(ngModel)]="modelo.Marca" placeholder="Marca" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Transmision">Transmisión:</label>
+                                <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmisión" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="NumPasajeros">Número de Pasajeros:</label>
+                                <input type="text" name="NumPasajeros" [(ngModel)]="modelo.NumPasajeros" placeholder="Número de Pasajeros" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="NumMaletas">Número de Maletas:</label>
+                                <input type="text" name="NumMaletas" [(ngModel)]="modelo.NumMaletas" placeholder="Número de Maletas" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Tipo">Tipo:</label>
-                            <input type="text" name="Tipo" [(ngModel)]="modelo.Tipo" placeholder="Tipo" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Marca">Marca:</label>
-                            <input type="text" name="Marca" [(ngModel)]="modelo.Marca" placeholder="Marca" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Transmision">Transmisión:</label>
-                            <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmisión" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="NumPasajeros">Número de Pasajeros:</label>
-                            <input type="text" name="NumPasajeros" [(ngModel)]="modelo.NumPasajeros" placeholder="Número de Pasajeros" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="NumMaletas">Número de Maletas:</label>
-                            <input type="text" name="NumMaletas" [(ngModel)]="modelo.NumMaletas" placeholder="Número de Maletas" class="form-control">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="AireAcondicionado">Aire Acondicionado:</label>
+                                <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="Aire Acondicionado" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Radio">Radio:</label>
+                                <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="PagoPorDia">Pago Por Día:</label>
+                                <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="Pago Por Día" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="UrlImagen">URL de la Imagen:</label>
+                                <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="URL de la Imagen" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="CantidadAutos">Cantidad de Autos:</label>
+                                <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="Cantidad de Autos" class="form-control">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="AireAcondicionado">Aire Acondicionado:</label>
-                            <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="Aire Acondicionado" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Radio">Radio:</label>
-                            <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="PagoPorDia">Pago Por Día:</label>
-                            <input type="text" name="PagoPorDia" [(ngModel)]="modelo.PagoPorDia" placeholder="Pago Por Día" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="UrlImagen">URL de la Imagen:</label>
-                            <input type="text" name="UrlImagen" [(ngModel)]="modelo.UrlImagen" placeholder="URL de la Imagen" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="CantidadAutos">Cantidad de Autos:</label>
-                            <input type="text" name="CantidadAutos" [(ngModel)]="modelo.CantidadAutos" placeholder="Cantidad de Autos" class="form-control">
-                        </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
+                            {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo
+                        </button>
+                        <button type="button" class="btn btn-danger" (click)="resetForm()" *ngIf="modoEdicion">
+                            Cancelar
+                        </button>
                     </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-primary': !modoEdicion, 'btn-success': modoEdicion}">
-                        {{ modoEdicion ? 'Actualizar' : 'Crear' }} Modelo
-                    </button>
-                    <button type="button" class="btn btn-danger" (click)="resetForm()" *ngIf="modoEdicion">
-                        Cancelar
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-    
-    <div class="table-responsive mt-5">
-        <h3 class="mb-4">Lista de modelos</h3>
-        <div class="container">
-            <input type="text" [(ngModel)]="filtro" (change)="cargarModelos()" placeholder="Buscar por Modelo">
+
+        <div class="table-responsive mt-5">
+            <h3 class="mb-4 text-center">Lista de modelos</h3>
+            <div class="container">
+                <input type="text" [(ngModel)]="filtro" (change)="cargarModelos()" placeholder="Buscar por Modelo" class="form-control">
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Tipo</th>
+                        <th>Marca</th>
+                        <th>Transmisión</th>
+                        <th>Núm. Pasajeros</th>
+                        <th>Núm. Maletas</th>
+                        <th>Aire Acondicionado</th>
+                        <th>Radio</th>
+                        <th>Pago por Día</th>
+                        <th>Ilustración</th>
+                        <th>Cantidad Autos</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let modelo of modelos">
+                        <td>{{modelo.Modelo}}</td>
+                        <td>{{modelo.Tipo}}</td>
+                        <td>{{modelo.Marca}}</td>
+                        <td>{{modelo.Transmision}}</td>
+                        <td>{{modelo.NumPasajeros}}</td>
+                        <td>{{modelo.NumMaletas}}</td>
+                        <td>{{modelo.AireAcondicionado}}</td>
+                        <td>{{modelo.Radio}}</td>
+                        <td>{{modelo.PagoPorDia}}</td>
+                        <td>
+                            <img [src]="modelo.UrlImagen" alt="Imagen del modelo" class="model-image">
+                        </td>
+                        <td class="text-center">{{modelo.CantidadAutos}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-success small-btn" (click)="editarModelo(modelo)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger small-btn" (click)="deleteModelo(modelo._id)">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Modelo</th>
-                    <th>Tipo</th>
-                    <th>Marca</th>
-                    <th>Transmisión</th>
-                    <th>Núm. Pasajeros</th>
-                    <th>Núm. Maletas</th>
-                    <th>Aire Acondicionado</th>
-                    <th>Radio</th>
-                    <th>Pago por Día</th>
-                    <th>Ilustración</th>
-                    <th>Cantidad Autos</th>
-                    <th>Operaciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let modelo of modelos">
-                    <td>{{modelo.Modelo}}</td>
-                    <td>{{modelo.Tipo}}</td>
-                    <td>{{modelo.Marca}}</td>
-                    <td>{{modelo.Transmision}}</td>
-                    <td>{{modelo.NumPasajeros}}</td>
-                    <td>{{modelo.NumMaletas}}</td>
-                    <td>{{modelo.AireAcondicionado}}</td>
-                    <td>{{modelo.Radio}}</td>
-                    <td>{{modelo.PagoPorDia}}</td>
-                    <td>
-                        <img [src]="modelo.UrlImagen" alt="Imagen del modelo" class="model-image">
-                    </td>
-                    <td class="text-center">{{modelo.CantidadAutos}}</td>
-                    <td class="text-center">
-                        <button class="btn btn-success small-btn" (click)="editarModelo(modelo)">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger small-btn" (click)="deleteModelo(modelo._id)">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>
