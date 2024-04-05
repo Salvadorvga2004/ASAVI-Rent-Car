@@ -34,10 +34,7 @@ export class ExtrasComponent implements OnInit {
       !this.extra.ClaveExtra ||
       !this.extra.NomArticulo ||
       !this.extra.Descripcion ||
-      !this.extra.Precio ||
-      !this.extra.NumDias ||
-      !this.extra.Total ||
-      !this.extra.ClaveReserva
+      !this.extra.Precio
     ) {
       alert('Por favor, complete todos los campos.');
       return;

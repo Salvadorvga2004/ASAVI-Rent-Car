@@ -1,3 +1,4 @@
+
 <div *ngFor="let modelo of modelos" class="carta">
     <img [src]="modelo.UrlImagen" alt="Imagen del vehículo" class="imagen-vehiculo">
     <div class="informacion-vehiculo">
@@ -9,5 +10,6 @@
         <p><strong>Aire Acondicionado:</strong> {{modelo.AireAcondicionado}}</p>
         <p><strong>Radio:</strong> {{modelo.Radio}}</p>
         <p><strong>Pago por Día:</strong> {{modelo.PagoPorDia}}</p>
+        <button class="btn-en-oficinas">Pago en oficinas</button>
     </div>
 </div>

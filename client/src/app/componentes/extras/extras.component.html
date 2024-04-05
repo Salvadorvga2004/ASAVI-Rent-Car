@@ -1,6 +1,9 @@
 <app-navigation></app-navigation>
 <div class="container mt-4">
     <div class="card">
+        <div class="card-header">
+            <h5 class="text-white">Gestión de Extras</h5>
+        </div>
         <div class="card-body">
             <form class="form" #extraForm="ngForm" (ngSubmit)="addExtra()">
                 <input type="hidden" name="id" [(ngModel)]="extra.id">
@@ -16,15 +19,6 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <input type="number" name="Precio" [(ngModel)]="extra.Precio" placeholder="Precio" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="NumDias" [(ngModel)]="extra.NumDias" placeholder="Número de Días" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="Total" [(ngModel)]="extra.Total" placeholder="Total" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="text" name="ClaveReserva" [(ngModel)]="extra.ClaveReserva" placeholder="Clave de Reserva" class="form-control">
                     </div>
                     <div class="col-md-12 mb-3">
                         <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-success': modoEdicion}">
@@ -43,14 +37,11 @@
         <table class="table table-bordered table-striped">
             <thead class="custom-thead">
                 <tr>
-                    <th>Clave Extra</th>
-                    <th>Nombre Articulo</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Número de Días</th>
-                    <th>Total</th>
-                    <th>Clave de Reserva</th>
-                    <th>Operaciones</th>
+                    <th class="text-white">Clave Extra</th>
+                    <th class="text-white">Nombre Articulo</th>
+                    <th class="text-white">Descripción</th>
+                    <th class="text-white">Precio</th>
+                    <th class="text-white">Operaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,9 +50,6 @@
                     <td>{{ extra.NomArticulo }}</td>
                     <td>{{ extra.Descripcion }}</td>
                     <td>{{ extra.Precio }}</td>
-                    <td>{{ extra.NumDias }}</td>
-                    <td>{{ extra.Total }}</td>
-                    <td>{{ extra.ClaveReserva }}</td>
                     <td class="text-center">
                         <button class="btn btn-success small-btn mr-2" (click)="editarExtra(extra)">
                             <i class="fas fa-pencil-alt"></i>
