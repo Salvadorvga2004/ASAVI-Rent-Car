@@ -1,46 +1,66 @@
+/* Estilo para el contenedor principal */
 .wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
     height: auto;
+    background-color: #f3f3f3; /* Color de fondo para toda la pantalla */
   }
-
-.table {
+  
+  /* Estilo para el contenedor del formulario */
+  .container {
+    width: 80%;
+  }
+  
+  /* Estilo para el título dentro del formulario */
+  .card-header h2 {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  /* Estilo para la tabla */
+  .table {
     width: 100%;
-}
-
-.custom-thead {
-    background-color: #007bff;
-    color: white;
-}
-
-.table th,
-.table td {
+  }
+  
+  .table th,
+  .table td {
     padding: 8px;
-    border: 1px solid #000000;
+    border: 1px solid #ddd;
     text-align: center;
-}
-
-.model-image {
-    max-width: 100px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.img-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.small-btn {
-    font-size: 14px;
-    padding: 5px 10px;
-}
-
-
-
-
+  }
+  
+  .table th {
+    background-color: #0a0a0a;
+    color: #eeeeee;
+  }
+  
+  /* Estilo para los botones */
+  .btn {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px; /* Forma de botón redondeada */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .btn-primary {
+    background-color: #080808; /* Color de fondo del botón primario */
+    color: #fff; /* Color del texto del botón primario */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Color de fondo del botón de éxito */
+    color: #fff; /* Color del texto del botón de éxito */
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Color de fondo del botón de éxito al pasar el mouse */
+  }
+  
