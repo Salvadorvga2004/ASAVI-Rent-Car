@@ -4,9 +4,9 @@ const db = mongojs('ASAVI', ['Extras']);
 const { ObjectId } = require('mongojs');
 
 router.get('/Extras', (req, res, next) => {
-    db.Extras.find((err, Extras) => {
+    db.Extras.find((err, Extra) => {
         if (err) return next(err);
-        res.json(Extras);
+        res.json(Extra);
     });
 });
 
