@@ -24,6 +24,9 @@ router.get('/Auto/:id',(req ,res ,next) =>{
 
 
 
+
+
+
 router.post('/Auto', (req, res, next) => {
     const AutoA = req.body;
     if( !AutoA.NumSerie || !AutoA.Kilometraje || !AutoA.EstadoCarroceria || !AutoA.Ubicacion || !AutoA.EstatusAuto || !AutoA.ModeloAuto || !AutoA.ClaveReserva  ){

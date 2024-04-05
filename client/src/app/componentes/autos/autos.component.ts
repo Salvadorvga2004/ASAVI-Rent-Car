@@ -21,6 +21,10 @@ export class AutosComponent implements OnInit {
   // En tu componente.ts
 showButton: boolean = true;
 
+filtroNumSerie: string = '';
+
+
+
 // Función para ocultar el botón
 
 
@@ -32,16 +36,26 @@ showButton: boolean = true;
     this.cargarModelos();
   }
 
+
+  
+
+
+
   cargarAutos() {
     this.autoservice.getAutos().subscribe(
       autos => {
+        if (this.filtroNumSerie.trim() !== '') {
+          autos = autos.filter(auto => 
+            auto.NumSerie && auto.NumSerie.toLowerCase().includes(this.filtroNumSerie.toLowerCase())
+          );
+        }
         this.autos = autos;
       },
       error => {
         console.error('Error al cargar autos:', error);
       }
     );
-  }
+}
 
   cargarModelos() {
     this.modelosService.getModelos().subscribe(
