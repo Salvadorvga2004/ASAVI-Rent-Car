@@ -77,32 +77,22 @@
     margin-bottom: 20px; /* Agregar margen inferior para separar de la información acerca de la empresa */
 }
 
-.imagen-container::before,
-.imagen-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 150px;
-    background-color: #000;
-    z-index: 1;
+/* Estilos para el contenedor de las imágenes */
+.imagen-container {
+    display: flex; /* Utilizar flexbox para centrar las imágenes */
+    justify-content: center; /* Centrar horizontalmente las imágenes */
+    align-items: center; /* Centrar verticalmente las imágenes */
+    height: 100vh; /* Utilizar el 100% del alto de la ventana */
+    background-color: #000; /* Fondo negro */
 }
 
-.imagen-container::before {
-    left: 0;
-}
-
-.imagen-container::after {
-    right: 0;
-}
-
+/* Estilo para las imágenes */
 .imagen-container img {
-    width: calc(100% - 300px);
-    height: auto;
-    max-height: 100%; /* Altura máxima ajustada al contenedor */
-    position: relative;
-    z-index: 2;
+    max-width: 100%; /* Ajustar el tamaño máximo al ancho del contenedor */
+    max-height: 100%; /* Ajustar el tamaño máximo al alto del contenedor */
+    margin: auto; /* Centrar horizontalmente las imágenes */
 }
+
 
 /* Estilos generales */
 body {

@@ -1,5 +1,12 @@
 /* Estilos para la barra de navegación */
 .navbar {
+  background-image: url("https://img.freepik.com/foto-gratis/carreras-autos-deportivos-traves-ia-generativa-movimiento-borroso-oscuro_188544-12490.jpg?size=626&ext=jpg&ga=GA1.1.1488620777.1712275200&semt=ais");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80px; /* Altura de la barra de navegación */
+}
+.navbar {
     background-color: #007bff; /* Cambia el color de fondo de la barra de navegación */
   }
   
@@ -8,7 +15,7 @@
   }
   
   .navbar-nav .nav-link {
-    color: #6b6969; /* Cambia el color del texto de los enlaces de navegación */
+    color: #e1dede; /* Cambia el color del texto de los enlaces de navegación */
   }
   
   .navbar-nav .nav-link:hover {
