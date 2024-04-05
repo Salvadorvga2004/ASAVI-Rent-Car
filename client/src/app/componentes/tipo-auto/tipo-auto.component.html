@@ -1,0 +1,62 @@
+<app-navigation></app-navigation>
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-lg-8">
+            <div class="card">
+                <h2 class="card-header text-center">Tipo autos</h2>
+                <div class="card-body">
+                    <form class="row g-3" #tipoAutoForm="ngForm" (ngSubmit)="addTipoAutos()">
+                        <input type="hidden" name="id" [(ngModel)]="tipoAuto.Tipo">
+                       
+
+                        <div class="col-md-6">
+                            <label for="inputCorreo" class="form-label visually-hidden">Tipo</label>
+                            <input type="text" name="Tipo" [(ngModel)]="tipoAuto.Tipo" placeholder="Tipo de auto" class="form-control mb-3">
+                        </div>
+                        
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionUsuario}">
+                                {{ modoEdicionUsuario ? 'Actualizar' : 'Agregar' }} Tipo Auto
+                            </button>
+                            <button type="button" class="btn btn-danger" *ngIf="modoEdicionUsuario" (click)="resetFormAdmin()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+
+                    <h3 class="mt-4">Lista de tipos de autos</h3>
+                    <div class="input-group mb-3">
+                        <input type="text" [(ngModel)]="filtro" (change)="cargarTipoAuto()" placeholder="Buscar " class="form-control">
+                    </div>
+                    <div class="table-responsive" style="max-height: 400px;">
+                        <table class="table table-striped" style="overflow-y: auto;">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de auto</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tipoAuto of tipoAutos">
+                                    <td>{{tipoAuto.Tipo}}</td>
+                                    
+                                    <td>
+                                        <button class="btn btn-success me-2" (click)="editarTipoAuto(tipoAuto)">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="btn btn-danger" (click)="deleteTipoAuto(tipoAuto._id)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
