@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelosService } from '../../service/modelos.service';
 import { Modelos } from '../../modelos/modelos';
+import { TipoAutos } from '../../modelos/tipoAuto';
+import { TipoAutoService } from '../../service/tipo-auto.service';
 
 @Component({
   selector: 'app-modelos',
@@ -13,11 +15,34 @@ export class ModelosComponent implements OnInit {
   modoEdicion: boolean = false;
   filtro: string = '';
 
-  constructor(private modelosService: ModelosService) {}
+  tipoAutos: TipoAutos[]=[];
+  tipoAuto: TipoAutos | any = {};
+
+  constructor(private modelosService: ModelosService, private tipoAutoService: TipoAutoService) {}
 
   ngOnInit(): void {
     this.cargarModelos();
+    this.cargarTipoAuto();
   }
+
+  cargarTipoAuto() {
+    this.tipoAutoService.getTipoAutos().subscribe(
+      tipoAutos => {
+
+        if (this.filtro.trim() !== '') {
+          tipoAutos = tipoAutos.filter(tipoAuto => 
+            tipoAuto.Tipo && tipoAuto.Tipo.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
+
+        
+        this.tipoAutos = tipoAutos;
+      },
+      error => {
+        console.error('Error al cargar tipo de autos:', error);
+      }
+    );
+}
 
   cargarModelos() {
     this.modelosService.getModelos().subscribe(
