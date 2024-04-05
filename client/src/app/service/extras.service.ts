@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Extras } from '../modelos/extras'; // Asegúrate de importar el modelo de datos correcto
+import { Extras } from '../modelos/extras'; 
 
 @Injectable({
   providedIn: 'root'

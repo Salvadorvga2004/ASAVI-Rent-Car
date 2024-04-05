@@ -1,68 +1,53 @@
-/* Estilos en tonos negros */
-
-.container {
-    background-color: #1a1a1a; /* Fondo negro */
-    color: #fff; /* Texto blanco */
+body {
+    font-family: 'Arial', sans-serif; 
 }
 
 .card {
-    background-color: #333; /* Color de fondo del card */
-    border: 1px solid #000; /* Borde del card */
+    background-color: #333; 
+    border: 1px solid #000; 
 }
 
 .form-control {
-    background-color: #444; /* Color de fondo del input */
-    color: #fff; /* Texto blanco */
-    border: 1px solid #666; /* Borde del input */
+    background-color: #444; 
+    color: #fff; 
+    border: 1px solid #666; 
 }
 
 .btn-primary {
-    background-color: #007bff; /* Color de fondo del botón principal */
-    border-color: #007bff; /* Borde del botón principal */
-    color: #fff; /* Texto blanco */
-}
-
-.btn-primary:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el ratón sobre el botón principal */
-    border-color: #0056b3; /* Cambio de color del borde al pasar el ratón sobre el botón principal */
+    background-color: #007bff; 
+    border-color: #007bff; 
+    color: #fff; 
+    font-family: 'Arial', sans-serif; 
 }
 
 .btn-success {
-    background-color: #28a745; /* Color de fondo del botón de éxito */
-    border-color: #28a745; /* Borde del botón de éxito */
-    color: #fff; /* Texto blanco */
-}
-
-.btn-success:hover {
-    background-color: #218838; /* Cambio de color al pasar el ratón sobre el botón de éxito */
-    border-color: #1e7e34; /* Cambio de color del borde al pasar el ratón sobre el botón de éxito */
+    background-color: #28a745; 
+    border-color: #28a745; 
+    color: #fff; 
+    font-family: 'Arial', sans-serif; 
 }
 
 .btn-danger {
-    background-color: #dc3545; /* Color de fondo del botón de peligro */
-    border-color: #dc3545; /* Borde del botón de peligro */
-    color: #fff; /* Texto blanco */
-}
-
-.btn-danger:hover {
-    background-color: #c82333; /* Cambio de color al pasar el ratón sobre el botón de peligro */
-    border-color: #bd2130; /* Cambio de color del borde al pasar el ratón sobre el botón de peligro */
+    background-color: #dc3545; 
+    border-color: #dc3545; 
+    color: #fff; 
+    font-family: 'Arial', sans-serif; 
 }
 
 .custom-thead {
-    background-color: #343a40; /* Color de fondo del encabezado de la tabla */
-    color: #fff; /* Texto blanco */
+    background-color: #343a40; 
+    color: #fff; 
 }
 
 .table th,
 .table td {
-    border-color: #454d55; /* Borde de las celdas de la tabla */
+    border-color: #454d55; 
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #343a40; /* Color de fondo de las filas impares en la tabla */
+    background-color: #343a40; 
 }
 
 .table-striped tbody tr:nth-of-type(even) {
-    background-color: #3d444a; /* Color de fondo de las filas pares en la tabla */
+    background-color: #3d444a; 
 }
