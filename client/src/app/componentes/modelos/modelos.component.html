@@ -70,8 +70,9 @@
     <div class="table-responsive mt-5">
         <h3 class="mb-4">Lista de modelos</h3>
         <div class="input-group mb-3">
-            <input type="text" [(ngModel)]="filtro" (change)="cargarModelos()" placeholder="Buscar por Modelo" class="form-control">
+            <input type="text" [(ngModel)]="filtro" (input)="cargarModelos()" placeholder="Buscar por Modelo" class="form-control">
         </div>
+        
         <table class="table table-striped" style="overflow-y: auto;">
             <thead class="thead-dark">
                 <tr>
@@ -104,14 +105,17 @@
                         <img [src]="modelo.UrlImagen" alt="Imagen del modelo" class="model-image">
                     </td>
                     <td class="text-center">{{modelo.CantidadAutos}}</td>
-                    <td class="text-center">
-                        <button class="btn btn-success small-btn" (click)="editarModelo(modelo)">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger small-btn" (click)="deleteModelo(modelo._id)">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
+ <td >
+    
+        <button class="btn btn-success small-btn mr-2" (click)="editarModelo(modelo)">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <button type="button" class="btn btn-danger small-btn" (click)="deleteModelo(modelo._id)">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    
+</td>
+
                 </tr>
             </tbody>
         </table>
