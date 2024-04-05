@@ -84,3 +84,23 @@
   color: #666666;
   font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
 }
+.carta {
+  /* Estilos anteriores... */
+}
+
+/* Otros estilos... */
+
+/* Estilos para el botón "En Oficinas" */
+.btn-en-oficinas {
+  background-color: #060606; /* Color de fondo negro */
+  color: #f6efef; /* Color del texto negro */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio alrededor del texto */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+}
+
+.btn-en-oficinas:hover {
+  background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
+  color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
+}
