@@ -67,3 +67,80 @@ body {
 .carta-derecha:not(:first-child) {
   margin-top: 50px; /* Espacio entre las cartas del lado derecho */
 }
+/* Estilo para cada parte */
+.partes {
+  display: flex;
+  justify-content: flex-start; /* Alinear las partes a la izquierda */
+  position: absolute; /* Posición absoluta para colocar en la esquina superior izquierda */
+  top: 0; /* Desde la parte superior */
+  left: 0; /* Desde el lado izquierdo */
+  margin: 20px; /* Agregar un margen para separar de los bordes */
+  z-index: 1; /* Asegurar que esté sobre la imagen */
+  max-width: 60%; /* Ancho máximo de las partes de navegación */
+}
+
+.partes a {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 5px; /* Agregar relleno alrededor del texto */
+  position: relative; /* Establecer posición relativa para alinear los pseudoelementos */
+}
+
+.partes a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px; /* Posicionamiento a la izquierda */
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+.partes a:hover {
+  color: #2a06ad;
+  
+}
+
+.info-box {
+  background-color: #101010; /* Color de fondo */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 0px 10px #fff (248, 246, 246, 0.1); /* Sombra */
+  transition: transform 0.3s ease; /* Transición suave */
+  min-height: 200px; /* Altura mínima para cada info-box */
+  height: 100%; /* Tamaño fijo para cada info-box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Alinear el contenido verticalmente */
+}
+
+.info-box:hover {
+  transform: translateY(-5px); /* Efecto de levantamiento al pasar el ratón */
+}
+
+.info-box h3 {
+  font-size: 24px; /* Tamaño del título */
+  color: #e5dfdf; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+.info-box p {
+  font-size: 16px; /* Tamaño del texto */
+  color: #f7eeee; /* Color del texto */
+  line-height: 1.6; /* Altura de línea */
+}
+/* Estilo para el encabezado */
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* Ajustar el margen inferior para que sea más largo hacia abajo */
+  background-color: #000; /* Cambiar el color de fondo a negro */
+  padding: 15px; /* Reducir el padding del encabezado */
+  color: #fff; /* Cambiar el color del texto a blanco */
+}
+/* Estilos para la imagen */

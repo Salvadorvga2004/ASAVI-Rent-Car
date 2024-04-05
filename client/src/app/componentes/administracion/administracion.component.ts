@@ -17,6 +17,8 @@ export class AdministracionComponent {
   usuarios: Usuarios[]=[];
   usuario: Usuarios | any = {};
 
+  
+
   modoEdicion: boolean = false;
   modoEdicionCliente: boolean = false;
   modoEdicionUsuario: boolean = false;
@@ -25,6 +27,7 @@ export class AdministracionComponent {
   showButton: boolean = true;
   usuariosDisponibles: string[] = [];
 
+  filtro: string = '';
   
   constructor(private usuarioService: UsuariosService){}
 
@@ -40,6 +43,8 @@ export class AdministracionComponent {
    cargarClientes() {
     this.usuarioService.getClientes().subscribe(
       clientes => {
+        
+
         this.clientes = clientes;
         
        
@@ -104,6 +109,14 @@ export class AdministracionComponent {
   cargarUsuarios() {
     this.usuarioService.getUsuario().subscribe(
       usuarios => {
+
+        if (this.filtro.trim() !== '') {
+          usuarios = usuarios.filter(usuario => 
+            usuario.Correo && usuario.Correo.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
+
+        
         this.usuarios = usuarios.filter(usuario => usuario.ClaveCliente === 2);
       },
       error => {

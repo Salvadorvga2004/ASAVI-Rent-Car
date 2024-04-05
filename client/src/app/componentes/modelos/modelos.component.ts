@@ -11,6 +11,7 @@ export class ModelosComponent implements OnInit {
   modelos: Modelos[] = [];
   modelo: Modelos | any = {};
   modoEdicion: boolean = false;
+  filtro: string = '';
 
   constructor(private modelosService: ModelosService) {}
 
@@ -21,6 +22,12 @@ export class ModelosComponent implements OnInit {
   cargarModelos() {
     this.modelosService.getModelos().subscribe(
       modelos => {
+
+        if (this.filtro.trim() !== '') {
+          modelos = modelos.filter(modelo => 
+            modelo.Modelo && modelo.Modelo.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
         this.modelos = modelos;
       },
       error => {

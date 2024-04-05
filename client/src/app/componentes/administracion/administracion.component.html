@@ -1,42 +1,41 @@
 <app-navigation></app-navigation>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="container-sm">
-                <div class="container-sm">
-                    <div class="row justify-content-center align-items-center mt-5">
-                        
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-lg-8">
+            <div class="card">
+                <h2 class="card-header text-center">Administradores</h2>
+                <div class="card-body">
+                    <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addUsuarios()">
+                        <input type="hidden" name="id" [(ngModel)]="usuario.claveCliente">
+                        <input type="hidden" name="correo" [(ngModel)]="usuario.Correo">
+                        <input type="hidden" name="contrasena" [(ngModel)]="usuario.Contrasena">
+
+                        <div class="col-md-6">
+                            <label for="inputCorreo" class="form-label visually-hidden">Correo</label>
+                            <input type="text" name="Correo" [(ngModel)]="usuario.Correo" placeholder="Correo" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputContraseña" class="form-label visually-hidden">Contraseña</label>
+                            <input type="text" name="Contraseña" [(ngModel)]="usuario.Contrasena" placeholder="Contraseña" class="form-control mb-3">
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionUsuario}">
+                                {{ modoEdicionUsuario ? 'Actualizar' : 'Agregar' }} Administrador
+                            </button>
+                            <button type="button" class="btn btn-danger" *ngIf="modoEdicionUsuario" (click)="resetFormAdmin()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+
+                    <h3 class="mt-4">Lista de administradores</h3>
+                    <div class="input-group mb-3">
+                        <input type="text" [(ngModel)]="filtro" (change)="cargarUsuarios()" placeholder="Buscar por Correo" class="form-control">
                     </div>
-                    
-                        <h2 class="card-title mb-4">Administradores</h2>
-                        <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addUsuarios()">
-                            <input type="hidden" name="id" [(ngModel)]="usuario.claveCliente">
-                            <input type="hidden" name="correo" [(ngModel)]="usuario.Correo">
-                            <input type="hidden" name="contrasena" [(ngModel)]="usuario.Contrasena">
-
-                            <div class="col-md-6">
-                                <label for="inputCorreo" class="form-label visually-hidden">Correo</label>
-                                <input type="text" name="Correo" [(ngModel)]="usuario.Correo" placeholder="Correo" class="form-control mb-3">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputContraseña" class="form-label visually-hidden">Contraseña</label>
-                                <input type="text" name="Contraseña" [(ngModel)]="usuario.Contrasena" placeholder="Contraseña" class="form-control mb-3">
-                            </div>
-
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionUsuario}">
-                                    {{ modoEdicionUsuario ? 'Actualizar' : 'Agregar' }} Administrador
-                                </button>
-                                <button type="button" class="btn btn-danger" *ngIf="modoEdicionUsuario" (click)="resetFormAdmin()">
-                                    Cancelar
-                                </button>
-                            </div>
-                        </form>
-
-                        
-                        <h3 class="mt-4">Lista de administradores</h3>
-                        <table class="table table-striped">
+                    <div class="table-responsive" style="max-height: 400px;">
+                        <table class="table table-striped" style="overflow-y: auto;">
                             <thead>
                                 <tr>
                                     <th>Correo</th>
@@ -59,11 +58,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                       
+                    </div>
                     
                 </div>
             </div>
         </div>
     </div>
 </div>
-

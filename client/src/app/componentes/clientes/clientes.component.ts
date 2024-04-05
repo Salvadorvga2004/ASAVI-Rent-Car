@@ -11,6 +11,7 @@ export class ClientesComponent {
   cliente: Clientes | any = {};
 
   modoEdicionCliente: boolean = false;
+  filtro: string = '';
 
 
     
@@ -25,7 +26,11 @@ export class ClientesComponent {
   cargarClientes() {
     this.usuarioService.getClientes().subscribe(
       clientes => {
-
+        if (this.filtro.trim() !== '') {
+          clientes = clientes.filter(cliente => 
+            cliente.Nombre && cliente.Nombre.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
 
         this.clientes = clientes;
         
