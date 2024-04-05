@@ -1,136 +1,69 @@
-  body {
-    background-color: #f0f0f0; /* Color de fondo general */
-  }
+body {
+  background-color: #f0f0f0; /* Color de fondo general */
+}
 
-  .carta {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    margin-top: 50px; /* Espacio en la parte superior */
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto negro */
-    border: 1px solid #000000; /* Borde negro */
-    border-radius: 10px;
-    padding: 20px;
-    width: 600px; /* Ancho máximo de la carta */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Espacio entre las cartas */
-    margin-left: auto; /* Auto para centrar horizontalmente */
-    margin-right: auto; /* Auto para centrar horizontalmente */
-  }
+.carta {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  margin-top: 50px; /* Espacio en la parte superior */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #000000; /* Texto negro */
+  border: 1px solid #000000; /* Borde negro */
+  border-radius: 10px;
+  padding: 20px;
+  width: 600px; /* Ancho máximo de la carta */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px; /* Espacio entre las cartas */
+}
 
-  .carta:not(:first-child) {
-    margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
-  }
+.carta:not(:first-child) {
+  margin-top: 50px; /* Espacio entre las cartas */
+}
 
-  .imagen-vehiculo {
-    width: 150px; /* Ancho deseado para la imagen */
-    margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
-    border-radius: 10px; /* Borde redondeado para la imagen */
-  }
+.imagen-vehiculo {
+  width: 150px; /* Ancho deseado para la imagen */
+  margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
+  border-radius: 10px; /* Borde redondeado para la imagen */
+}
 
-  .informacion-vehiculo {
-    flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
-  }
+.informacion-vehiculo {
+  flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
+}
 
-  .carta h2 {
-    font-size: 1.5em; /* Tamaño del título */
-    margin-bottom: 10px; /* Espacio después del título */
-    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-  }
+.carta h2 {
+  font-size: 1.5em; /* Tamaño del título */
+  margin-bottom: 10px; /* Espacio después del título */
+  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+}
 
-  .carta p {
-    font-size: 1em; /* Tamaño del texto */
-    margin-bottom: 5px; /* Espacio después de cada párrafo */
-    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-  }
+.carta p {
+  font-size: 1em; /* Tamaño del texto */
+  margin-bottom: 5px; /* Espacio después de cada párrafo */
+  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+}
 
-  /* Estilos para el botón "En Oficinas" */
-  .btn-en-oficinas {
-    background-color: #000000; /* Color de fondo negro */
-    color: #ffffff; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Espacio alrededor del texto */
-    border-radius: 5px; /* Borde redondeado */
-    cursor: pointer; /* Cursor al pasar sobre el botón */
-  }body {
-    background-color: #f0f0f0; /* Color de fondo general */
-  }
+/* Estilos para el botón "En Oficinas" */
+.btn-en-oficinas {
+  background-color: #000000; /* Color de fondo negro */
+  color: #ffffff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio alrededor del texto */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+}
 
-  .carta {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    margin-top: 50px; /* Espacio en la parte superior */
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto negro */
-    border: 1px solid #000000; /* Borde negro */
-    border-radius: 10px;
-    padding: 20px;
-    width: 600px; /* Ancho máximo de la carta */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Espacio entre las cartas */
-    margin-left: auto; /* Auto para centrar horizontalmente */
-    margin-right: auto; /* Auto para centrar horizontalmente */
-  }
+.btn-en-oficinas:hover {
+  background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
+  color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
+}
+/* Estilos para las cartas del lado derecho */
+.carta-derecha {
+  margin-left: 20px; /* Espacio a la izquierda de cada carta del lado derecho */
+  margin-right: auto; /* Auto para centrar horizontalmente */
+}
 
-  .carta:not(:first-child) {
-    margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
-  }
-
-  .imagen-vehiculo {
-    width: 150px; /* Ancho deseado para la imagen */
-    margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
-    border-radius: 10px; /* Borde redondeado para la imagen */
-  }
-
-  .informacion-vehiculo {
-    flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
-  }
-
-  .carta h2 {
-    font-size: 1.5em; /* Tamaño del título */
-    margin-bottom: 10px; /* Espacio después del título */
-    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-  }
-
-  .carta p {
-    font-size: 1em; /* Tamaño del texto */
-    margin-bottom: 5px; /* Espacio después de cada párrafo */
-    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-  }
-
-  /* Estilos para el botón "En Oficinas" */
-  .btn-en-oficinas {
-    background-color: #000000; /* Color de fondo negro */
-    color: #ffffff; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Espacio alrededor del texto */
-    border-radius: 5px; /* Borde redondeado */
-    cursor: pointer; /* Cursor al pasar sobre el botón */
-  }
-
-  .btn-en-oficinas:hover {
-    background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
-    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
-  }
-
-
-  .btn-en-oficinas:hover {
-    background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
-    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
-  }
-  #carta1 {
-    margin-left: auto; /* Auto para centrar horizontalmente */
-    margin-right: auto; /* Auto para centrar horizontalmente */
-  }
-
-  #carta2 {
-    margin-left: auto; /* Auto para centrar horizontalmente */
-    margin-right: auto; /* Auto para centrar horizontalmente */
-  }
-
-  #carta3 {
-    margin-left: auto; /* Auto para centrar horizontalmente */
-    margin-right: auto; /* Auto para centrar horizontalmente */
-  }
+/* Ajuste de margen superior para las cartas del lado derecho */
+.carta-derecha:not(:first-child) {
+  margin-top: 50px; /* Espacio entre las cartas del lado derecho */
+}
