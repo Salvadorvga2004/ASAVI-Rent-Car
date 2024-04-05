@@ -1,106 +1,136 @@
-.carta {
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  margin-top: 50px; /* Espacio en la parte superior */
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 10px;
-  padding: 20px;
-  width: 600px; /* Ancho máximo de la carta */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px; /* Espacio entre las cartas */
-  margin-left: auto; /* Auto para centrar horizontalmente */
-  margin-right: auto; /* Auto para centrar horizontalmente */
-}
+  body {
+    background-color: #f0f0f0; /* Color de fondo general */
+  }
 
-.carta:not(:first-child) {
-  margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
-}
+  .carta {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-top: 50px; /* Espacio en la parte superior */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    border: 1px solid #000000; /* Borde negro */
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px; /* Ancho máximo de la carta */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Espacio entre las cartas */
+    margin-left: auto; /* Auto para centrar horizontalmente */
+    margin-right: auto; /* Auto para centrar horizontalmente */
+  }
 
-.imagen-vehiculo {
-  width: 150px; /* Ancho deseado para la imagen */
-  margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
-  border-radius: 10px; /* Borde redondeado para la imagen */
-}
+  .carta:not(:first-child) {
+    margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
+  }
 
-.informacion-vehiculo {
-  flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
-}
+  .imagen-vehiculo {
+    width: 150px; /* Ancho deseado para la imagen */
+    margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
+    border-radius: 10px; /* Borde redondeado para la imagen */
+  }
 
-.carta h2 {
-  font-size: 1.5em; /* Tamaño del título */
-  margin-bottom: 10px; /* Espacio después del título */
-  color: #333333;
-  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-}
+  .informacion-vehiculo {
+    flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
+  }
 
-.carta p {
-  font-size: 1em; /* Tamaño del texto */
-  margin-bottom: 5px; /* Espacio después de cada párrafo */
-  color: #666666;
-  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-}
-.carta {
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  margin-top: 50px; /* Espacio en la parte superior */
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 10px;
-  padding: 20px;
-  width: 600px; /* Ancho máximo de la carta */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px; /* Espacio entre las cartas */
-  margin-left: auto; /* Auto para centrar horizontalmente */
-  margin-right: auto; /* Auto para centrar horizontalmente */
-}
+  .carta h2 {
+    font-size: 1.5em; /* Tamaño del título */
+    margin-bottom: 10px; /* Espacio después del título */
+    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+  }
 
-.carta:not(:first-child) {
-  margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
-}
+  .carta p {
+    font-size: 1em; /* Tamaño del texto */
+    margin-bottom: 5px; /* Espacio después de cada párrafo */
+    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+  }
 
-.imagen-vehiculo {
-  width: 150px; /* Ancho deseado para la imagen */
-  margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
-  border-radius: 10px; /* Borde redondeado para la imagen */
-}
+  /* Estilos para el botón "En Oficinas" */
+  .btn-en-oficinas {
+    background-color: #000000; /* Color de fondo negro */
+    color: #ffffff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio alrededor del texto */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+  }body {
+    background-color: #f0f0f0; /* Color de fondo general */
+  }
 
-.informacion-vehiculo {
-  flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
-}
+  .carta {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-top: 50px; /* Espacio en la parte superior */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    border: 1px solid #000000; /* Borde negro */
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px; /* Ancho máximo de la carta */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Espacio entre las cartas */
+    margin-left: auto; /* Auto para centrar horizontalmente */
+    margin-right: auto; /* Auto para centrar horizontalmente */
+  }
 
-.carta h2 {
-  font-size: 1.5em; /* Tamaño del título */
-  margin-bottom: 10px; /* Espacio después del título */
-  color: #333333;
-  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-}
+  .carta:not(:first-child) {
+    margin-left: 20px; /* Espacio a la izquierda de cada carta excepto la primera */
+  }
 
-.carta p {
-  font-size: 1em; /* Tamaño del texto */
-  margin-bottom: 5px; /* Espacio después de cada párrafo */
-  color: #666666;
-  font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
-}
-.carta {
-  /* Estilos anteriores... */
-}
+  .imagen-vehiculo {
+    width: 150px; /* Ancho deseado para la imagen */
+    margin-right: 20px; /* Margen a la derecha para separar la imagen del texto */
+    border-radius: 10px; /* Borde redondeado para la imagen */
+  }
 
-/* Otros estilos... */
+  .informacion-vehiculo {
+    flex: 1; /* La información del vehículo ocupa todo el espacio disponible */
+  }
 
-/* Estilos para el botón "En Oficinas" */
-.btn-en-oficinas {
-  background-color: #060606; /* Color de fondo negro */
-  color: #f6efef; /* Color del texto negro */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espacio alrededor del texto */
-  border-radius: 5px; /* Borde redondeado */
-  cursor: pointer; /* Cursor al pasar sobre el botón */
-}
+  .carta h2 {
+    font-size: 1.5em; /* Tamaño del título */
+    margin-bottom: 10px; /* Espacio después del título */
+    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+  }
 
-.btn-en-oficinas:hover {
-  background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
-  color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
-}
+  .carta p {
+    font-size: 1em; /* Tamaño del texto */
+    margin-bottom: 5px; /* Espacio después de cada párrafo */
+    font-family: "Times New Roman", Times, serif; /* Fuente elegante y formal */
+  }
+
+  /* Estilos para el botón "En Oficinas" */
+  .btn-en-oficinas {
+    background-color: #000000; /* Color de fondo negro */
+    color: #ffffff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio alrededor del texto */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+  }
+
+  .btn-en-oficinas:hover {
+    background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
+    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
+  }
+
+
+  .btn-en-oficinas:hover {
+    background-color: #333333; /* Cambiar el color de fondo al pasar el cursor */
+    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  #carta1 {
+    margin-left: auto; /* Auto para centrar horizontalmente */
+    margin-right: auto; /* Auto para centrar horizontalmente */
+  }
+
+  #carta2 {
+    margin-left: auto; /* Auto para centrar horizontalmente */
+    margin-right: auto; /* Auto para centrar horizontalmente */
+  }
+
+  #carta3 {
+    margin-left: auto; /* Auto para centrar horizontalmente */
+    margin-right: auto; /* Auto para centrar horizontalmente */
+  }
