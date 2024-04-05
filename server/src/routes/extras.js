@@ -24,7 +24,7 @@ router.get('/Extras/:id', (req, res, next) => {
 
 router.post('/Extras', (req, res, next) => {
     const ExtraI = req.body;
-    if (!ExtraI.ClaveExtra || !ExtraI.NomArticulo || !ExtraI.Descripcion || !ExtraI.Precio || !ExtraI.NumDias || !ExtraI.Total || !ExtraI.ClaveReserva) {
+    if (!ExtraI.ClaveExtra || !ExtraI.NomArticulo || !ExtraI.Descripcion || !ExtraI.Precio) {
         res.status(400).json({
             error: 'Datos de extra incompletos :('
         });
@@ -56,7 +56,7 @@ router.delete('/Extras/:id', (req, res, next) => {
 
 router.put('/Extras/:id', (req, res, next) => {
     const ExtraA = req.params.id;
-    const { ClaveExtra, NomArticulo, Descripcion, Precio, NumDias, Total, ClaveReserva } = req.body;
+    const { ClaveExtra, NomArticulo, Descripcion, Precio} = req.body;
 
     if (!ObjectId.isValid(ExtraA)) {
         return res.status(400).json({ error: 'Extra no existente :(' });
@@ -68,10 +68,7 @@ router.put('/Extras/:id', (req, res, next) => {
             ClaveExtra,
             NomArticulo,
             Descripcion,
-            Precio,
-            NumDias,
-            Total,
-            ClaveReserva
+            Precio
         }
     };
 

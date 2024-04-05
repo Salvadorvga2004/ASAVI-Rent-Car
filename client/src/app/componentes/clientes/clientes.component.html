@@ -1,0 +1,186 @@
+<app-navigation></app-navigation>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive" style="max-height: 400px;">
+                <h1>Clientes</h1>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th>País</th>
+                            <th>Estado</th>
+                            <th>Ciudad</th>
+                            <th>Municipio</th>
+                            <th>Colonia</th>
+                            <th>Calle</th>
+                            <th>Número Exterior</th>
+                            <th>Número Licencia</th>
+                            <th>Fecha Vencimiento Licencia</th>
+                            <th>Fecha Emisión Licencia</th>
+                            <th>URL Licencia</th>
+                            <th>Número INE</th>
+                            <th>Fecha Vencimiento INE</th>
+                            <th>Estado Emisión</th>
+                            <th>URL INE</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cliente of clientes">
+                            <td>{{cliente.Nombre}}</td>
+                            <td>{{cliente.ApPaterno}}</td>
+                            <td>{{cliente.ApMaterno}}</td>
+                            <td>{{cliente.Telefono}}</td>
+                            <td>{{cliente.Correo}}</td>
+                            <td>{{cliente.Pais}}</td>
+                            <td>{{cliente.Estados}}</td>
+                            <td>{{cliente.Ciudades}}</td>
+                            <td>{{cliente.Municipio}}</td>
+                            <td>{{cliente.Colonia}}</td>
+                            <td>{{cliente.Calle}}</td>
+                            <td>{{cliente.NumExterior}}</td>
+                            <td>{{cliente.NumLicencia}}</td>
+                            <td>{{cliente.FechaVencimientoLic}}</td>
+                            <td>{{cliente.FechaEmisionLic}}</td>
+                            <td>{{cliente.UrlLicencia}}</td>
+                            <td>{{cliente.NumIne}}</td>
+                            <td>{{cliente.FechaVencimientoIne}}</td>
+                            <td>{{cliente.EstadoEmision}}</td>
+                            <td>{{cliente.UrlIne}}</td>
+                            <td>
+                                <button class="btn btn-success btn-sm" (click)="editarCliente(cliente)">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-danger btn-sm" (click)="deleteCliente(cliente._id)">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="modoEdicionCliente" class="mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Información del cliente</h2>
+                        <form class="form" #adminForm="ngForm" (ngSubmit)="addClientes()">
+                            <input type="hidden" name="id" [(ngModel)]="cliente.id">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre:</label>
+                                        <input type="text" name="Nombre" [(ngModel)]="cliente.Nombre" placeholder="Nombre" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="apellidoPaterno">Apellido Paterno:</label>
+                                        <input type="text" name="ApPaterno" [(ngModel)]="cliente.ApPaterno" placeholder="Apellido Paterno" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="apellidoMaterno">Apellido Materno:</label>
+                                        <input type="text" name="ApMaterno" [(ngModel)]="cliente.ApMaterno" placeholder="Apellido Materno" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefono">Teléfono:</label>
+                                        <input type="text" name="Telefono" [(ngModel)]="cliente.Telefono" placeholder="Teléfono" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="correo">Correo:</label>
+                                        <input type="text" name="Correo" [(ngModel)]="cliente.Correo" placeholder="Correo" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pais">País:</label>
+                                        <input type="text" name="Pais" [(ngModel)]="cliente.Pais" placeholder="País" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="estado">Estado:</label>
+                                        <input type="text" name="Estado" [(ngModel)]="cliente.Estado" placeholder="Estado" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ciudad">Ciudad:</label>
+                                        <input type="text" name="Ciudad" [(ngModel)]="cliente.Ciudad" placeholder="Ciudad" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="municipio">Municipio:</label>
+                                        <input type="text" name="Municipio" [(ngModel)]="cliente.Municipio" placeholder="Municipio" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="colonia">Colonia:</label>
+                                        <input type="text" name="Colonia" [(ngModel)]="cliente.Colonia" placeholder="Colonia" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="calle">Calle:</label>
+                                        <input type="text" name="Calle" [(ngModel)]="cliente.Calle" placeholder="Calle" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label for="numeroExterior">Número Exterior:</label>
+                                        <input type="text" name="NumExterior" [(ngModel)]="cliente.NumExterior" placeholder="Número Exterior" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroLicencia">Número Licencia:</label>
+                                        <input type="text" name="NumLicencia" [(ngModel)]="cliente.NumLicencia" placeholder="Número Licencia" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaVencimientoLicencia">Fecha Vencimiento Licencia:</label>
+                                        <input type="text" name="FechaVencimientoLic" [(ngModel)]="cliente.FechaVencimientoLic" placeholder="Fecha Vencimiento Licencia" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaEmisionLicencia">Fecha Emisión Licencia:</label>
+                                        <input type="text" name="FechaEmisionLic" [(ngModel)]="cliente.FechaEmisionLic" placeholder="Fecha Emisión Licencia" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="urlLicencia">URL Licencia:</label>
+                                        <input type="text" name="UrlLicencia" [(ngModel)]="cliente.UrlLicencia" placeholder="URL Licencia" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroINE">Número INE:</label>
+                                        <input type="text" name="NumIne" [(ngModel)]="cliente.NumIne" placeholder="Número INE" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaVencimientoINE">Fecha Vencimiento INE:</label>
+                                        <input type="text" name="FechaVencimientoIne" [(ngModel)]="cliente.FechaVencimientoIne" placeholder="Fecha Vencimiento INE" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="estadoEmision">Estado Emisión:</label>
+                                        <input type="text" name="EstadoEmision" [(ngModel)]="cliente.EstadoEmision" placeholder="Estado Emisión" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="urlINE">URL INE:</label>
+                                        <input type="text" name="UrlIne" [(ngModel)]="cliente.UrlIne" placeholder="URL INE" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contrasena">Contraseña:</label>
+                                        <input type="text" name="Contrasena" [(ngModel)]="cliente.Contrasena" placeholder="Contraseña" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mt-2 text-center">
+                                    <div class="col">
+                                        <button type="submit" class="btn"  [ngClass]="{'btn-primary': !modoEdicionCliente, 'btn-success': modoEdicionCliente}">
+                                            {{ modoEdicionCliente ? 'Actualizar' : 'Crear' }} Cliente
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-danger" (click)="resetForm()">
+                                            Cancelar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
