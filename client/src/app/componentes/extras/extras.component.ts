@@ -30,7 +30,6 @@ export class ExtrasComponent implements OnInit {
   }
 
   addExtra() {
-    // Verificar si algún campo está vacío
     if (
       !this.extra.ClaveExtra ||
       !this.extra.NomArticulo ||

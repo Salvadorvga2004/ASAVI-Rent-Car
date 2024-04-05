@@ -42,7 +42,8 @@ import { ExtrasComponent } from './componentes/extras/extras.component';
     NavigationComponent,
     AdministracionComponent,
     VehiculosComponent,
-    ReservasComponent
+    ReservasComponent,
+    ExtrasComponent
 
   
 
