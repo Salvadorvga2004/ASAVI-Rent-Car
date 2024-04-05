@@ -39,21 +39,21 @@ export class EstadosComponent implements OnInit {
   }
 
   //Estados
-  cargarEstados() {
+  cargarEstados(filtro: string = '') {
     this.estadosService.getEstados().subscribe(
-        estados => {
-            if (this.filtroEstado.trim() !== '') {
-                estados = estados.filter(estado => estado.Estados.some(subEstado => subEstado.NombreEstado.toLowerCase().includes(this.filtroEstado.toLowerCase())));
-            }
-            
-            this.estados = estados;
-            this.estadosDisponibles = estados.flatMap(estado => estado.Estados.map(subEstado => subEstado.NombreEstado));
-        },
-        error => {
-            console.error('Error al cargar estados:', error);
+      estados => {
+        if (filtro.trim() !== '') {
+          estados = estados.filter(estado => estado.Estados.some(subEstado => subEstado.NombreEstado.toLowerCase().includes(filtro.toLowerCase())));
         }
+        
+        this.estados = estados;
+        this.estadosDisponibles = estados.flatMap(estado => estado.Estados.map(subEstado => subEstado.NombreEstado));
+      },
+      error => {
+        console.error('Error al cargar estados:', error);
+      }
     );
-}
+  }
 
 addEstados() {
   if (this.modoEdicionEstado) {
@@ -135,12 +135,12 @@ addEstados() {
 }
 
   //Ciudades
-  cargarCiudades() {
+  cargarCiudades(filtro: string = '') {
     this.estadosService.getCiudades().subscribe(
       ciudades => {
-        if (this.filtroCiudad.trim() !== '') {
-          ciudades = ciudades.filter(ciudad => ciudad.Ciudades.some(subCiudad => subCiudad.NombreCiudad.toLowerCase().includes(this.filtroCiudad.toLowerCase())) ||
-            (ciudad.Estados && ciudad.Estados.toLowerCase().includes(this.filtroCiudad.toLowerCase()))
+        if (filtro.trim() !== '') {
+          ciudades = ciudades.filter(ciudad => ciudad.Ciudades.some(subCiudad => subCiudad.NombreCiudad.toLowerCase().includes(filtro.toLowerCase())) ||
+            (ciudad.Estados && ciudad.Estados.toLowerCase().includes(filtro.toLowerCase()))
           );
         }
 
@@ -151,7 +151,7 @@ addEstados() {
         console.error('Error al cargar ciudades:', error);
       }
     );
-}
+  }
 
 addCiudades() {
   if (this.modoEdicionCiudad) {
@@ -224,13 +224,13 @@ addCiudades() {
 }
 
   //Sucursales
-  cargarSucursales() {
+  cargarSucursales(filtro: string = '') {
     this.estadosService.getSucursales().subscribe(
       sucursales => {
-        if (this.filtroSucursal.trim() !== '') {
-          sucursales = sucursales.filter(sucursal => sucursal.Sucursales.some(subSucursal => subSucursal.NombreSucursal.toLowerCase().includes(this.filtroSucursal.toLowerCase())) ||
-            (sucursal.Ciudades && sucursal.Ciudades.toLowerCase().includes(this.filtroSucursal.toLowerCase())) ||
-            (sucursal.Estados && sucursal.Estados.toLowerCase().includes(this.filtroSucursal.toLowerCase()))
+        if (filtro.trim() !== '') {
+          sucursales = sucursales.filter(sucursal => sucursal.Sucursales.some(subSucursal => subSucursal.NombreSucursal.toLowerCase().includes(filtro.toLowerCase())) ||
+            (sucursal.Ciudades && sucursal.Ciudades.toLowerCase().includes(filtro.toLowerCase())) ||
+            (sucursal.Estados && sucursal.Estados.toLowerCase().includes(filtro.toLowerCase()))
           );
         }
         this.sucursales = sucursales;

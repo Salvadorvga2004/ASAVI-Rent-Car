@@ -35,7 +35,7 @@ export class ReservasComponent {
     this.cargarModelos();
   }
 
-  //Estados y sucursales
+  //Sucursales
   cargarSucursales() {
     this.estadosService.getSucursales().subscribe(
       sucursales => {
@@ -96,6 +96,19 @@ export class ReservasComponent {
       alert('Por favor, complete todos los campos.');
       return;
     }
+    
+    const fechaActual = new Date();
+    const fechaEntrega = new Date(this.reserva.FechaEntrega);
+
+    if (fechaEntrega <= fechaActual) {
+      alert('No podemos realizar la reserva, el tiempo de entrega es muy corto');
+      return;
+    }
+    
+    if (new Date(this.reserva.FechaRegreso) <= fechaEntrega) {
+      alert('La fecha de regreso debe ser mayor a la fecha de entrega.');
+      return;
+    }
   
     if (this.modoEdicion) {
       this.reservaService.updateReserva(this.reserva).subscribe(() => {
@@ -109,6 +122,8 @@ export class ReservasComponent {
       });
     }
   }
+
+
 
   deleteReserva(_id?: String) {
     const conf = confirm('Estás seguro de eliminar esta reserva?');

@@ -1,0 +1,21 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #007bff; /* Cambia el color de fondo de la barra de navegación */
+  }
+  
+  .navbar-brand {
+    color: #3f3e3e; /* Cambia el color del texto del enlace de la marca */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #6b6969; /* Cambia el color del texto de los enlaces de navegación */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #cccccc; /* Cambia el color del texto de los enlaces de navegación al pasar el mouse sobre ellos */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff; /* Cambia el color del icono del botón de alternancia de la barra de navegación */
+  }
+  
