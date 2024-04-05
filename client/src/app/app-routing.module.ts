@@ -18,7 +18,7 @@ import { ExtrasComponent } from './componentes/extras/extras.component';
 const routes: Routes = [
   {
       path: '',
-      redirectTo:'/Principal',
+      redirectTo:'/principal',
       pathMatch:'full'
   },
   {
