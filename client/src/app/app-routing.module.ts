@@ -6,17 +6,19 @@ import { AutosComponent } from './componentes/autos/autos.component';
 import { EstadosComponent } from './componentes/estados/estados.component';
 import { ModelosComponent } from './componentes/modelos/modelos.component';
 import { LoginComponent } from './componentes/login/login.component';
-
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { ExtrasComponent } from './componentes/extras/extras.component';
+
 
 
 const routes: Routes = [
   {
       path: '',
-      redirectTo:'/login',
+      redirectTo:'/principal',
       pathMatch:'full'
   },
   {
@@ -56,10 +58,19 @@ const routes: Routes = [
   {
     path: 'administracion',
     component:AdministracionComponent
+
+  },{
+    path:'vehiculos',
+    component:VehiculosComponent
+
   },
   {
     path: 'reservas',
     component:ReservasComponent
+  },
+  {
+    path: 'extras',
+    component:ExtrasComponent
   }
 ];
 

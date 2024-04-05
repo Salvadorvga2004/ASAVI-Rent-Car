@@ -1,0 +1,13 @@
+<div *ngFor="let modelo of modelos" class="carta">
+    <img [src]="modelo.UrlImagen" alt="Imagen del vehículo" class="imagen-vehiculo">
+    <div class="informacion-vehiculo">
+        <h2>{{modelo.Modelo}}</h2>
+        <p><strong>Tipo:</strong> {{modelo.Tipo}}</p>
+        <p><strong>Transmisión:</strong> {{modelo.Transmision}}</p>
+        <p><strong>Núm. Pasajeros:</strong> {{modelo.NumPasajeros}}</p>
+        <p><strong>Núm. Maletas:</strong> {{modelo.NumMaletas}}</p>
+        <p><strong>Aire Acondicionado:</strong> {{modelo.AireAcondicionado}}</p>
+        <p><strong>Radio:</strong> {{modelo.Radio}}</p>
+        <p><strong>Pago por Día:</strong> {{modelo.PagoPorDia}}</p>
+    </div>
+</div>

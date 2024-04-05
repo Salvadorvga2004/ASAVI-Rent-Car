@@ -3,12 +3,15 @@
 </div>
 
 <h1>Registro</h1>
+<div class="cuadro">
+    <div class="formulario">
     <form class="row g-3" #clienteForm="ngForm" (ngSubmit)="addClientes()">
         <input type="hidden" name="id" [(ngModel)]="cliente.id">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente.Nombre" required>
         </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="ap_paterno">Apellido Paterno:</label>
             <input type="text" id="ap_paterno" name="ap_paterno" [(ngModel)]="cliente.ApPaterno" required>
@@ -17,10 +20,14 @@
             <label for="ap_materno">Apellido Materno:</label>
             <input type="text" id="ap_materno" name="ap_materno" [(ngModel)]="cliente.ApMaterno" required>
         </div>
+        </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="telefono">Teléfono:</label>
             <input type="tel" id="telefono" name="telefono" [(ngModel)]="cliente.Telefono" required>
         </div>
+        </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="pais">País:</label>
             <select class="form-select" aria-label="Default select example" name="pais" [(ngModel)]="cliente.Pais">
@@ -28,6 +35,8 @@
                 <option value="México">México</option>
             </select>
         </div>
+        </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="estado">Estado:</label>
             <select class="form-select" aria-label="Default select example" name="estado" [(ngModel)]="cliente.Estados">
@@ -35,6 +44,8 @@
                 <option *ngFor="let nombreEstado of estadosDisponibles" [value]="nombreEstado">{{ nombreEstado }}</option>
             </select>
         </div>
+        </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="ciudad">Ciudad:</label>
             <select class="form-select" aria-label="Default select example" name="ciudad" [(ngModel)]="cliente.Ciudades">
@@ -42,6 +53,8 @@
                 <option *ngFor="let nombreCiudad of ciudadesDisponibles" [value]="nombreCiudad">{{ nombreCiudad }}</option>
             </select>
         </div>
+        </div>
+        <div class="formulario">
         <div class="form-group">
             <label for="municipio">Municipio:</label>
             <input type="text" id="municipio" name="municipio" [(ngModel)]="cliente.Municipio" required>
@@ -50,9 +63,12 @@
             <label for="colonia">Colonia:</label>
             <input type="text" id="colonia" name="colonia" [(ngModel)]="cliente.Colonia" required>
         </div>
+    </div>
+    <div class="formulario">
         <div class="form-group">
             <label for="calle">Calle:</label>
             <input type="text" id="calle" name="calle" [(ngModel)]="cliente.Calle" required>
+        </div>
         </div>
         <div class="form-group">
             <label for="num_exterior">Número Exterior:</label>
@@ -108,7 +124,12 @@
             <label for="contrasena">Contraseña:</label>
             <input type="password" id="contrasena" name="contrasena" [(ngModel)]="cliente.Contrasena" required>
         </div>
+        
         <a href="/login">Ya tengo una cuenta...</a>
         <br>
         <button type="submit">Registrarse</button>
     </form>
+
+
+   
+    

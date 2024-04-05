@@ -1,14 +1,44 @@
+.encabezado {
+    position: relative; /* Posición relativa para que el ícono esté posicionado correctamente */
+}
+
+.usuario-icono {
+    position: absolute; /* Posición absoluta para el ícono */
+    top: 10px; /* Ajustar la posición verticalmente */
+    right: 10px; /* Ajustar la posición horizontalmente */
+    color: #fff; /* Color del ícono */
+    font-size: 24px; /* Tamaño del ícono */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+
+
+/* Estilo para el encabezado */
+.encabezado {
+    text-align: center;
+    margin-bottom: 0; /* Eliminar margen inferior para que esté más cerca de la parte de abajo */
+    background-color: #000; /* Cambiar el color de fondo a negro */
+    padding: 10px; /* Reducir el padding del encabezado */
+    position: relative; /* Cambiar a posición relativa para alinear elementos hijos */
+    z-index: 2; /* Asegurar que esté por encima de la parte negra */
+}
+
 /* Estilo para cada parte */
 .partes {
     display: flex;
     justify-content: flex-start; /* Alinear las partes a la izquierda */
-    position: absolute; /* Posición absoluta para colocar en la esquina superior izquierda */
-    top: 0; /* Desde la parte superior */
+    position: absolute; /* Posición absoluta para colocar en el encabezado */
+    top: 100%; /* Desde la parte inferior del encabezado */
     left: 0; /* Desde el lado izquierdo */
-    margin: 20px; /* Agregar un margen para separar de los bordes */
-    z-index: 1; /* Asegurar que esté sobre la imagen */
-    max-width: 60%; /* Ancho máximo de las partes de navegación */
+    margin: 0; /* Eliminar el margen para que se ajuste a la pantalla */
+    z-index: 1; /* Asegurar que esté debajo del encabezado */
+    width: 100%; /* Ajustar el ancho para que ocupe toda la pantalla */
+    background-color: #000; /* Color de fondo negro */
+    padding: 10px; /* Padding interno */
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
 }
+
+
 
 .partes a {
     color: #fff;
@@ -28,7 +58,7 @@
     transform: translateY(-50%);
     width: 10px;
     height: 10px;
-    background-color: white;
+    
 }
 
 .partes a:hover {
@@ -89,7 +119,7 @@ body {
     align-items: center;
     margin-bottom: 10px; /* Ajustar el margen inferior para que sea más largo hacia abajo */
     background-color: #000; /* Cambiar el color de fondo a negro */
-    padding: 15px; /* Reducir el padding del encabezado */
+    padding: 5px; /* Reducir el padding del encabezado */
 }
 
 
@@ -149,4 +179,106 @@ body {
     font-size: 16px; /* Tamaño del texto */
     color: #f7eeee; /* Color del texto */
     line-height: 1.6; /* Altura de línea */
+}
+.usuario-icono {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #000;
+    padding: 5px;
+}
+
+.encabezado h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 25px;
+    margin: 0;
+    line-height: 1;
+}
+.encabezado {
+    display: flex;
+    justify-content: space-between; /* Alinear los elementos al extremo derecho e izquierdo */
+    align-items: center;
+    background-color: #000;
+    padding: 10px;
+}
+
+.encabezado h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.admin-info {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.admin-info p {
+    margin-right: 10px; /* Espacio entre "Admin" y "Administrador" */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #fff;
+    color: #000;
+}
+.contenedor {
+    position: relative;
+}
+
+.admin-info {
+    position: absolute;
+    bottom: 10px; /* Ajustar la distancia desde la parte inferior */
+    right: 10px; /* Ajustar la distancia desde el lado derecho */
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.admin-info p {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #fff;
+    color: #000;
 }
