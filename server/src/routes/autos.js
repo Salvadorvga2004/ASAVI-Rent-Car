@@ -58,7 +58,7 @@ router.delete('/Auto/:id', (req, res, next) => {
 
 router.put('/Auto/:id', (req, res, next) => {
     const AutoI = req.params.id;
-    const { NumSerie, Kilometraje, EstadoCarrocería, Ubicacion, EstatusAuto, ModeloAuto,ClaveReserva} = req.body;
+    const { NumSerie, Kilometraje, EstadoCarroceria, Ubicacion, EstatusAuto, ModeloAuto,ClaveReserva} = req.body;
 
     if (!ObjectId.isValid(AutoI)) {
         return res.status(400).json({ error: 'Auto no existente :(' });
@@ -69,7 +69,7 @@ router.put('/Auto/:id', (req, res, next) => {
         $set: {
             NumSerie,
             Kilometraje,
-            EstadoCarrocería,
+            EstadoCarroceria,
             Ubicacion,
             EstatusAuto,
             ModeloAuto,
