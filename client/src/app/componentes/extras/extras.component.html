@@ -37,7 +37,7 @@
         <input type="text" [(ngModel)]="filtro" (change)="cargarExtras()" placeholder="Buscar por Nombre de articulo" class="form-control">
     </div>
     <div class="table-responsive mt-4">
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped" style="overflow-y: auto;">
             <thead class="custom-thead">
                 <tr>
                     <th class="text-white">Clave Extra</th>
