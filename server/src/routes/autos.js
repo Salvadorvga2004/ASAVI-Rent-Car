@@ -22,14 +22,9 @@ router.get('/Auto/:id',(req ,res ,next) =>{
     });
 });
 
-
-
-
-
-
 router.post('/Auto', (req, res, next) => {
     const AutoA = req.body;
-    if( !AutoA.NumSerie || !AutoA.Kilometraje || !AutoA.EstadoCarroceria || !AutoA.Ubicacion || !AutoA.EstatusAuto || !AutoA.ModeloAuto || !AutoA.ClaveReserva  ){
+    if( !AutoA.NumSerie || !AutoA.Kilometraje || !AutoA.EstadoCarroceria || !AutoA.Ubicacion || !AutoA.EstatusAuto || !AutoA.ModeloAuto){
         res.status(400).json({
             error: 'Auto no insertado :('
         });
@@ -61,7 +56,7 @@ router.delete('/Auto/:id', (req, res, next) => {
 
 router.put('/Auto/:id', (req, res, next) => {
     const AutoI = req.params.id;
-    const { NumSerie, Kilometraje, EstadoCarroceria, Ubicacion, EstatusAuto, ModeloAuto,ClaveReserva} = req.body;
+    const { NumSerie, Kilometraje, EstadoCarroceria, Ubicacion, EstatusAuto, ModeloAuto} = req.body;
 
     if (!ObjectId.isValid(AutoI)) {
         return res.status(400).json({ error: 'Auto no existente :(' });
@@ -75,8 +70,7 @@ router.put('/Auto/:id', (req, res, next) => {
             EstadoCarroceria,
             Ubicacion,
             EstatusAuto,
-            ModeloAuto,
-            ClaveReserva
+            ModeloAuto
         }
     };
 
