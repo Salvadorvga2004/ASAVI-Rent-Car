@@ -230,3 +230,6 @@ body {
     color: #faf3f3; /* Color del texto */
     line-height: 1.6; /* Altura de línea */
 }
+.partes a#asavi {
+    font-size: 24px; /* Ajustar el tamaño de la fuente */
+}

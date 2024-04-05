@@ -1,14 +1,29 @@
+/* Estilo para el encabezado */
+.encabezado {
+    text-align: center;
+    margin-bottom: 0; /* Eliminar margen inferior para que esté más cerca de la parte de abajo */
+    background-color: #000; /* Cambiar el color de fondo a negro */
+    padding: 10px; /* Reducir el padding del encabezado */
+    position: relative; /* Cambiar a posición relativa para alinear elementos hijos */
+    z-index: 2; /* Asegurar que esté por encima de la parte negra */
+}
+
 /* Estilo para cada parte */
 .partes {
     display: flex;
     justify-content: flex-start; /* Alinear las partes a la izquierda */
-    position: absolute; /* Posición absoluta para colocar en la esquina superior izquierda */
-    top: 0; /* Desde la parte superior */
+    position: absolute; /* Posición absoluta para colocar en el encabezado */
+    top: 100%; /* Desde la parte inferior del encabezado */
     left: 0; /* Desde el lado izquierdo */
-    margin: 20px; /* Agregar un margen para separar de los bordes */
-    z-index: 1; /* Asegurar que esté sobre la imagen */
-    max-width: 60%; /* Ancho máximo de las partes de navegación */
+    margin: 0; /* Eliminar el margen para que se ajuste a la pantalla */
+    z-index: 1; /* Asegurar que esté debajo del encabezado */
+    width: 100%; /* Ajustar el ancho para que ocupe toda la pantalla */
+    background-color: #000; /* Color de fondo negro */
+    padding: 10px; /* Padding interno */
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
 }
+
+
 
 .partes a {
     color: #fff;

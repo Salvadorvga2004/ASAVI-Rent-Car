@@ -16,7 +16,7 @@ import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
 const routes: Routes = [
   {
       path: '',
-      redirectTo:'/login',
+      redirectTo:'/Principal',
       pathMatch:'full'
   },
   {
