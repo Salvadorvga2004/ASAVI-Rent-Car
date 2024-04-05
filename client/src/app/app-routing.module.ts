@@ -14,6 +14,7 @@ import { AdministracionComponent } from './componentes/administracion/administra
 import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
 
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { ExtrasComponent } from './componentes/extras/extras.component';
 
 
 
@@ -69,7 +70,10 @@ const routes: Routes = [
   {
     path: 'reservas',
     component:ReservasComponent
-
+  },
+  {
+    path: 'extras',
+    component:ExtrasComponent
   }
 ];
 
