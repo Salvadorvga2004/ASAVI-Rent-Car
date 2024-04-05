@@ -117,3 +117,32 @@ select {
 .btn-primary:hover {
     background-color: #050505;
 }
+.info-box {
+    background-color: #101010; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(248, 246, 246, 0.1); /* Sombra */
+    transition: transform 0.3s ease; /* Transición suave */
+    min-height: 200px; /* Altura mínima para cada info-box */
+    height: 100%; /* Tamaño fijo para cada info-box */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinear el contenido verticalmente */
+    text-align: center; /* Centrar el texto horizontalmente */
+}
+
+.info-box:hover {
+    transform: translateY(-5px); /* Efecto de levantamiento al pasar el ratón */
+}
+
+.info-box h3 {
+    font-size: 24px; /* Tamaño del título */
+    color: #e5dfdf; /* Color del texto */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+.info-box p {
+    font-size: 16px; /* Tamaño del texto */
+    color: #f7eeee; /* Color del texto */
+    line-height: 1.6; /* Altura de línea */
+}
