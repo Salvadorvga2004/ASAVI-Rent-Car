@@ -20,15 +20,6 @@
                     <div class="col-md-6 mb-3">
                         <input type="number" name="Precio" [(ngModel)]="extra.Precio" placeholder="Precio" class="form-control">
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="NumDias" [(ngModel)]="extra.NumDias" placeholder="Número de Días" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="Total" [(ngModel)]="extra.Total" placeholder="Total" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="text" name="ClaveReserva" [(ngModel)]="extra.ClaveReserva" placeholder="Clave de Reserva" class="form-control">
-                    </div>
                     <div class="col-md-12 mb-3">
                         <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-success': modoEdicion}">
                             {{ modoEdicion ? 'Actualizar' : 'Crear' }} Extra
@@ -50,9 +41,6 @@
                     <th class="text-white">Nombre Articulo</th>
                     <th class="text-white">Descripción</th>
                     <th class="text-white">Precio</th>
-                    <th class="text-white">Número de Días</th>
-                    <th class="text-white">Total</th>
-                    <th class="text-white">Clave de Reserva</th>
                     <th class="text-white">Operaciones</th>
                 </tr>
             </thead>
@@ -62,9 +50,6 @@
                     <td>{{ extra.NomArticulo }}</td>
                     <td>{{ extra.Descripcion }}</td>
                     <td>{{ extra.Precio }}</td>
-                    <td>{{ extra.NumDias }}</td>
-                    <td>{{ extra.Total }}</td>
-                    <td>{{ extra.ClaveReserva }}</td>
                     <td class="text-center">
                         <button class="btn btn-success small-btn mr-2" (click)="editarExtra(extra)">
                             <i class="fas fa-pencil-alt"></i>

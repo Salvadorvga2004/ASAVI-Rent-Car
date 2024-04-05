@@ -23,12 +23,10 @@ export class LoginComponent {
             this.resultadoValidacion = resultado;
   
             if (resultado) {
-              if (this.resultadoValidacion.ClaveCliente === 1) {
-                this.router.navigate(['/inicio']);
-              } else if (this.resultadoValidacion.ClaveCliente === 2) {
+              if (this.resultadoValidacion.ClaveCliente === 2) {
                 this.router.navigate(['/administracion']);
               } else {
-                this.errorMensaje = 'Valor de ClaveCliente no reconocido.';
+                this.errorMensaje = 'Acceso denegado';
               }
             } else {
               this.errorMensaje = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
