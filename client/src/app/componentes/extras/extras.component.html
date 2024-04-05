@@ -1,70 +1,68 @@
 <app-navigation></app-navigation>
-<div class="wrapper">
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header bg-dark">
-                <h5 class="text-white">Gestión de Extras</h5>
-            </div>
-            <div class="card-body">
-                <form class="form" #extraForm="ngForm" (ngSubmit)="addExtra()">
-                    <input type="hidden" name="id" [(ngModel)]="extra.id">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="ClaveExtra" [(ngModel)]="extra.ClaveExtra" placeholder="Clave Extra" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="NomArticulo" [(ngModel)]="extra.NomArticulo" placeholder="Nombre Articulo" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="text" name="Descripcion" [(ngModel)]="extra.Descripcion" placeholder="Descripción" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="number" name="Precio" [(ngModel)]="extra.Precio" placeholder="Precio" class="form-control">
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-success': modoEdicion}">
-                                {{ modoEdicion ? 'Actualizar' : 'Crear' }} Extra
-                            </button>
-                            <button type="button" class="btn btn-danger" *ngIf="modoEdicion" (click)="resetForm()">
-                                Cancelar
-                            </button>
-                        </div>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="text-white">Gestión de Extras</h5>
+        </div>
+        <div class="card-body">
+            <form class="form" #extraForm="ngForm" (ngSubmit)="addExtra()">
+                <input type="hidden" name="id" [(ngModel)]="extra.id">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" name="ClaveExtra" [(ngModel)]="extra.ClaveExtra" placeholder="Clave Extra" class="form-control">
                     </div>
-                </form>
-            </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="text" name="NomArticulo" [(ngModel)]="extra.NomArticulo" placeholder="Nombre Articulo" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="text" name="Descripcion" [(ngModel)]="extra.Descripcion" placeholder="Descripción" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="number" name="Precio" [(ngModel)]="extra.Precio" placeholder="Precio" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <button type="submit" class="btn btn-primary mr-2" [ngClass]="{'btn-success': modoEdicion}">
+                            {{ modoEdicion ? 'Actualizar' : 'Crear' }} Extra
+                        </button>
+                        <button type="button" class="btn btn-danger" *ngIf="modoEdicion" (click)="resetForm()">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 
-        <div class="container">
-            <input type="text" [(ngModel)]="filtro" (change)="cargarExtras()" placeholder="Buscar por Nombre de articulo" class="form-control mt-3">
-        </div>
-        <div class="table-responsive mt-4">
-            <table class="table table-bordered table-striped">
-                <thead class="custom-thead">
-                    <tr>
-                        <th class="text-white">Clave Extra</th>
-                        <th class="text-white">Nombre Articulo</th>
-                        <th class="text-white">Descripción</th>
-                        <th class="text-white">Precio</th>
-                        <th class="text-white">Operaciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let extra of extras">
-                        <td>{{ extra.ClaveExtra }}</td>
-                        <td>{{ extra.NomArticulo }}</td>
-                        <td>{{ extra.Descripcion }}</td>
-                        <td>{{ extra.Precio }}</td>
-                        <td class="text-center">
-                            <button class="btn btn-success small-btn mr-2" (click)="editarExtra(extra)">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger small-btn" (click)="deleteExtra(extra._id)">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="input-group mb-3">
+        <input type="text" [(ngModel)]="filtro" (change)="cargarExtras()" placeholder="Buscar por Nombre de articulo" class="form-control">
+    </div>
+    <div class="table-responsive mt-4">
+        <table class="table table-striped" style="overflow-y: auto;">
+            <thead class="custom-thead">
+                <tr>
+                    <th class="text-white">Clave Extra</th>
+                    <th class="text-white">Nombre Articulo</th>
+                    <th class="text-white">Descripción</th>
+                    <th class="text-white">Precio</th>
+                    <th class="text-white">Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let extra of extras">
+                    <td>{{ extra.ClaveExtra }}</td>
+                    <td>{{ extra.NomArticulo }}</td>
+                    <td>{{ extra.Descripcion }}</td>
+                    <td>{{ extra.Precio }}</td>
+                    <td class="text-center">
+                        <button class="btn btn-success small-btn mr-2" (click)="editarExtra(extra)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger small-btn" (click)="deleteExtra(extra._id)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

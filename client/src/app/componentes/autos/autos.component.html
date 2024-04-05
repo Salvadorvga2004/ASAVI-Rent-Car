@@ -1,104 +1,97 @@
 <app-navigation></app-navigation>
-<div class="wrapper">
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header bg-dark text-white">
-                <h2 class="card-title mb-4 text-center"><i class="fas fa-car"></i> Gestión de Autos</h2>
-            </div>
-            <div class="card-body bg-dark text-white">
-                <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addAutos()">
-                    <input type="hidden" name="NumSerie" [(ngModel)]="auto.NumSerie">
-                    <input type="hidden" name="Kilometraje" [(ngModel)]="auto.Kilometraje">
-                    <input type="hidden" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria">
-                    <input type="hidden" name="Ubicacion" [(ngModel)]="auto.Ubicacion">
-                    <input type="hidden" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto">
-                    <input type="hidden" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
-                    <input type="hidden" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva">
+<div class="container">
+    <div  class="mt-5">
+        <h2 class="card-title mb-4">Autos</h2>
+        <form class="row g-3" #usuarioForm="ngForm" (ngSubmit)="addAutos()">
+            <input type="hidden" name="NumSerie" [(ngModel)]="auto.NumSerie">
+            <input type="hidden" name="Kilometraje" [(ngModel)]="auto.Kilometraje">
+            <input type="hidden" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria">
+            <input type="hidden" name="Ubicacion" [(ngModel)]="auto.Ubicacion">
+            <input type="hidden" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto">
+            <input type="hidden" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
 
-                    <div class="col-md-6 mb-3">
-                        <label for="inputNumSerie" class="form-label">Número de Serie</label>
-                        <input type="text" name="NumSerie" [(ngModel)]="auto.NumSerie" placeholder="Número de Serie" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="inputKilometraje" class="form-label">Kilometraje</label>
-                        <input type="text" name="Kilometraje" [(ngModel)]="auto.Kilometraje" placeholder="Kilometraje" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="inputEstadoCarroceria" class="form-label">Estado de Carrocería</label>
-                        <input type="text" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" placeholder="Estado de Carrocería" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="inputUbicacion" class="form-label">Ubicación</label>
-                        <input type="text" name="Ubicacion" [(ngModel)]="auto.Ubicacion" placeholder="Ubicación" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="inputEstatusAuto" class="form-label">Estatus de Auto</label>
-                        <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="Estatus de Auto" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="selectModeloAuto" class="form-label">Modelo de Auto</label>
-                        <select class="form-select" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto">
-                            <option disabled selected>Selecciona el modelo</option>
-                            <option *ngFor="let modeloItem of modelos" [value]="modeloItem.Modelo">{{ modeloItem.Modelo }}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="inputClaveReserva" class="form-label">Clave de Reserva</label>
-                        <input type="text" name="ClaveReserva" [(ngModel)]="auto.ClaveReserva" placeholder="Clave de Reserva" class="form-control">
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionAuto}">
-                            {{ modoEdicionAuto ? 'Actualizar' : 'Agregar' }} Auto <i class="fas fa-plus"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" *ngIf="modoEdicionAuto" (click)="resetAutoForm()">
-                            Cancelar <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </form>
-
-                <div class="container mt-5">
-                    <input type="text" [(ngModel)]="filtroNumSerie" (change)="cargarAutos()" placeholder="Buscar por NumSerie" class="form-control">
-                </div>
-                <h3 class="mt-4 text-white"><i class="fas fa-list"></i> Lista de autos</h3>
-                <div class="overflow-auto">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Número de Serie</th>
-                                <th>Kilometraje</th>
-                                <th>Estado de Carrocería</th>
-                                <th>Ubicación</th>
-                                <th>Estatus de Auto</th>
-                                <th>Modelo de Auto</th>
-                                <th>Clave de Reserva</th>
-                                <th>Operaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let auto of autos">
-                                <td>{{auto.NumSerie}}</td>
-                                <td>{{auto.Kilometraje}}</td>
-                                <td>{{auto.EstadoCarroceria}}</td>
-                                <td>{{auto.Ubicacion}}</td>
-                                <td>{{auto.EstatusAuto}}</td>
-                                <td>{{auto.ModeloAuto}}</td>
-                                <td>{{auto.ClaveReserva}}</td>
-                                <td>
-                                    <button class="btn btn-success me-2" (click)="editarAuto(auto)">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger" (click)="deleteAuto(auto._id)">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col mt-3 text-center">
-                    <button class="btn btn-lg btn-dark" (click)="verAutos(); mostrarBoton()"><i class="fas fa-times"></i> Cerrar</button>
-                </div>
+            <div class="col-md-6">
+                <label for="inputNumSerie" class="form-label visually-hidden">Número de Serie</label>
+                <input type="text" name="NumSerie" [(ngModel)]="auto.NumSerie" placeholder="Número de Serie" class="form-control mb-3">
             </div>
+            <div class="col-md-6">
+                <label for="inputKilometraje" class="form-label visually-hidden">Kilometraje</label>
+                <input type="text" name="Kilometraje" [(ngModel)]="auto.Kilometraje" placeholder="Kilometraje" class="form-control mb-3">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEstadoCarroceria" class="form-label visually-hidden">Estado de Carrocería</label>
+                <input type="text" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" placeholder="Estado de Carrocería" class="form-control mb-3">
+            </div>
+            <div class="col-md-6">
+                <label for="inputUbicacion" class="form-label visually-hidden">Ubicación</label>
+                <input type="text" name="Ubicacion" [(ngModel)]="auto.Ubicacion" placeholder="Ubicación" class="form-control mb-3">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEstatusAuto" class="form-label visually-hidden">Estatus de Auto</label>
+                <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="Estatus de Auto" class="form-control mb-3">
+            </div>
+            <div class="col-md-6">
+                <select class="form-select" aria-label="Default select example" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" aria-placeholder="Modelo" aria-describedby="modelo-help">
+                    <option disabled selected>Selecciona el modelo</option>
+                    <option *ngFor="let modeloItem of modelos" [value]="modeloItem.Modelo">{{ modeloItem.Modelo }}</option>
+                </select>
+                <div id="modelo-help" class="form-text">Selecciona el modelo que deseas.</div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary me-2" [ngClass]="{'btn-success': modoEdicionAuto}">
+                    {{ modoEdicionAuto ? 'Actualizar' : 'Agregar' }} Auto
+                </button>
+                <button type="button" class="btn btn-danger" *ngIf="modoEdicionAuto" (click)="resetAutoForm()">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+
+        
+        <h3 class="mt-4">Lista de autos</h3>
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="filtroNumSerie" (change)="cargarAutos()" placeholder="Buscar por NumSerie" class="form-control">
         </div>
-    </div>
+        <div class="overflow-auto">
+            <table class="table table-striped" style="overflow-y: auto;">
+                <thead>
+                    <tr>
+                        <th>Número de Serie</th>
+                        <th>Kilometraje</th>
+                        <th>Estado de Carrocería</th>
+                        <th>Ubicación</th>
+                        <th>Estatus de Auto</th>
+                        <th>Modelo de Auto</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let auto of autos">
+                        <td>{{auto.NumSerie}}</td>
+                        <td>{{auto.Kilometraje}}</td>
+                        <td>{{auto.EstadoCarroceria}}</td>
+                        <td>{{auto.Ubicacion}}</td>
+                        <td>{{auto.EstatusAuto}}</td>
+                        <td>{{auto.ModeloAuto}}</td>
+                        <td>
+                            <button class="btn btn-success small-btn mr-2" (click)="editarAuto(auto)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="btn btn-danger" (click)="deleteAuto(auto._id)">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="col">
+            <button class="btn btn-lg btn-primary" (click)="verAutos(); mostrarBoton()">Cerrar</button>
+        </div>
+    
+
+    
+   
 </div>
