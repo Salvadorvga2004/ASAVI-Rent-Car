@@ -20,6 +20,7 @@ import { AdministracionComponent } from './componentes/administracion/administra
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { ExtrasComponent } from './componentes/extras/extras.component';
 
 
 
@@ -36,7 +37,8 @@ import { ReservasComponent } from './componentes/reservas/reservas.component';
     LoginComponent,
     NavigationComponent,
     AdministracionComponent,
-    ReservasComponent
+    ReservasComponent,
+    ExtrasComponent
   ],
   imports: [
     BrowserModule,

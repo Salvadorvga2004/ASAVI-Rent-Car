@@ -11,6 +11,7 @@ const SucuR = require('./routes/sucursales');
 const ClieR   = require('./routes/clientes');
 const ResR   = require('./routes/reservas');
 const AutoR   = require('./routes/autos');
+const ExtR = require('./routes/extras');
 
 
 app.set('port',process.env.PORT || 4000);
@@ -30,6 +31,7 @@ app.use('/api',SucuR);
 app.use('/api',ClieR);
 app.use('/api',ResR);
 app.use('/api',AutoR);
+app.use('/api',ExtR);
 
 app.listen(app.get('port'),() => {
     console.log('server on port',app.get('port'));

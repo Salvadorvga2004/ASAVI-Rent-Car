@@ -11,6 +11,7 @@ import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pan
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { ExtrasComponent } from './componentes/extras/extras.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'reservas',
     component:ReservasComponent
+  },
+  {
+    path: 'extras',
+    component:ExtrasComponent
   }
 ];
 
