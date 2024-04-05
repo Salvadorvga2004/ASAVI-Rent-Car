@@ -19,6 +19,7 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
+import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
 
 
 
@@ -34,7 +35,8 @@ import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
     NosotrosComponent,
     LoginComponent,
     NavigationComponent,
-    AdministracionComponent
+    AdministracionComponent,
+    VehiculosComponent
   ],
   imports: [
     BrowserModule,

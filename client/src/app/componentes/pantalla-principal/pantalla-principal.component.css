@@ -89,7 +89,7 @@ body {
     align-items: center;
     margin-bottom: 10px; /* Ajustar el margen inferior para que sea más largo hacia abajo */
     background-color: #000; /* Cambiar el color de fondo a negro */
-    padding: 15px; /* Reducir el padding del encabezado */
+    padding: 5px; /* Reducir el padding del encabezado */
 }
 
 

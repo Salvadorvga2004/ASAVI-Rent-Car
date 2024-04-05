@@ -10,6 +10,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,9 @@ const routes: Routes = [
   {
     path: 'administracion',
     component:AdministracionComponent
+  },{
+    path:'vehiculos',
+    component:VehiculosComponent
   }
 ];
 
