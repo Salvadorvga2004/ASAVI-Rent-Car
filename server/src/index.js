@@ -13,6 +13,7 @@ const ResR   = require('./routes/reservas');
 const AutoR   = require('./routes/autos');
 const ExtR = require('./routes/extras');
 const TAutR = require('./routes/tipoAuto');
+const MarcaR = require('./routes/marcas');
 
 app.set('port',process.env.PORT || 4000);
 app.engine('html', require('ejs').renderFile);
@@ -33,6 +34,8 @@ app.use('/api',ResR);
 app.use('/api',AutoR);
 app.use('/api',ExtR);
 app.use('/api',TAutR);
+app.use('/api',MarcaR);
+
 
 app.listen(app.get('port'),() => {
     console.log('server on port',app.get('port'));

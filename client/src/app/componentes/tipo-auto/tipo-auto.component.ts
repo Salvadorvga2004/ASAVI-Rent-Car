@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { TipoAutos } from '../../modelos/tipoAuto';
 import { TipoAutoService } from '../../service/tipo-auto.service';
+import { Marcas } from '../../modelos/marca';
+import { MarcaService } from '../../service/marca.service';
+
+
 
 @Component({
   selector: 'app-tipo-auto',
@@ -13,11 +17,14 @@ export class TipoAutoComponent {
   tipoAutos: TipoAutos[]=[];
   tipoAuto: TipoAutos | any = {};
 
+  marcas: Marcas[]=[];
+  marca: Marcas | any = {};
   
 
   modoEdicion: boolean = false;
   modoEdicionCliente: boolean = false;
   modoEdicionUsuario: boolean = false;
+  modoEdicionMarca: boolean = false;
   showFormAndTable: boolean = false; 
   showClientes: boolean = false; 
   showButton: boolean = true;
@@ -25,7 +32,7 @@ export class TipoAutoComponent {
 
   filtro: string = '';
   
-  constructor(private tipoAutoService: TipoAutoService){}
+  constructor(private tipoAutoService: TipoAutoService, private marcaService: MarcaService){}
 
   
 
@@ -33,6 +40,7 @@ export class TipoAutoComponent {
   ngOnInit(): void {
     
     this.cargarTipoAuto();
+    this.cargarMarcas();
     
   }
    
@@ -44,24 +52,49 @@ export class TipoAutoComponent {
    
   }
 
+  resetFormMarca() {
+    this.marca = {};
+    this.modoEdicionMarca = false;
+   
+  }
+
   //Usuarios
-  cargarTipoAuto() {
-    this.tipoAutoService.getTipoAutos().subscribe(
-      tipoAutos => {
+  cargarMarcas() {
+    this.marcaService.getMarcas().subscribe(
+      marcas => {
 
         if (this.filtro.trim() !== '') {
-          tipoAutos = tipoAutos.filter(tipoAuto => 
-            tipoAuto.Tipo && tipoAuto.Tipo.toLowerCase().includes(this.filtro.toLowerCase())
+          marcas = marcas.filter(marca => 
+            marca.NomMarca && marca.NomMarca.toLowerCase().includes(this.filtro.toLowerCase())
           );
         }
 
         
-        this.tipoAutos = tipoAutos;
+        this.marcas = marcas;
       },
       error => {
-        console.error('Error al cargar tipo de autos:', error);
+        console.error('Error al cargar marcass:', error);
       }
     );
+}
+
+cargarTipoAuto() {
+  this.tipoAutoService.getTipoAutos().subscribe(
+    tipoAutos => {
+
+      if (this.filtro.trim() !== '') {
+        tipoAutos = tipoAutos.filter(tipoAuto => 
+          tipoAuto.Tipo && tipoAuto.Tipo.toLowerCase().includes(this.filtro.toLowerCase())
+        );
+      }
+
+      
+      this.tipoAutos = tipoAutos;
+    },
+    error => {
+      console.error('Error al cargar tipo de autos:', error);
+    }
+  );
 }
 
 
@@ -86,6 +119,27 @@ export class TipoAutoComponent {
     }
 }
 
+addMarcas() {
+  if (this.modoEdicionMarca) {
+      this.marcaService.updateMarca(this.marca).subscribe(() => {
+          this.resetFormMarca();
+          this.cargarMarcas();
+      });
+  } else{
+    const dataUsu = {
+      
+      NomMarca: this.marca.NomMarca
+      
+    }
+    this.marcaService.addMarca(dataUsu).subscribe(() => {
+      this.resetFormMarca();
+      this.cargarMarcas();
+    });
+    
+     
+  }
+}
+
   deleteTipoAuto(_id?: String) {
     const conf = confirm('Estas seguro de eliminar este tipo de auto?')
     if (conf){
@@ -107,10 +161,39 @@ export class TipoAutoComponent {
     return ;
   }
 
+
+  deleteMarca(_id?: String) {
+    const conf = confirm('Estas seguro de eliminar esta marca?')
+    if (conf){
+      if (_id) {
+        this.marcaService.deleteMarca(_id).subscribe(
+          () => {
+            this.marcas = this.marcas.filter(marca => marca._id !== _id);
+            this.resetFormMarca();
+          },
+          error => {
+            console.error('Error al eliminar marca:', error);
+          }
+        );
+      } else {
+        console.error("El correo del aministrador es inexistente.");
+      }
+    }
+
+    return ;
+  }
+
+
   editarTipoAuto(tipoAuto: TipoAutos) {
 
     this.modoEdicionUsuario = true;
     this.tipoAuto = { ...tipoAuto };
+  }
+
+  editarMarca(marca: Marcas) {
+
+    this.modoEdicionMarca = true;
+    this.marca = { ...marca };
   }
 
 
@@ -120,6 +203,7 @@ export class TipoAutoComponent {
    
   }
 
+  
   verAdmin() {
     this.showFormAndTable = !this.showFormAndTable;
   }
