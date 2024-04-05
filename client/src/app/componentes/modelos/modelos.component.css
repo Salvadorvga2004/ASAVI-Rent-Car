@@ -7,6 +7,10 @@
     height: auto;
     background-color: #f3f3f3; /* Color de fondo para toda la pantalla */
   }
+  .model-image {
+    max-width: 100px; /* Tamaño máximo de la imagen en anchura */
+    max-height: 100px; /* Tamaño máximo de la imagen en altura */
+}
   
   /* Estilo para el contenedor del formulario */
   .container {
