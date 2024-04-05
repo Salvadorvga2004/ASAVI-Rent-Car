@@ -1,19 +1,73 @@
-.img-container {
-    width: 100%;
-    overflow: hidden;
+.card {
+    background-color: #333;
+    border: 1px solid #000;
+    color: #fff;
 }
 
-.model-image {
-    width: 100%;
-    height: auto;
+.card-header {
+    background-color: #343a40;
+    border-bottom: 1px solid #000;
 }
 
-.custom-thead th {
-    font-weight: bold;
-    background-color: #f2f2f2;
+.card-title {
+    color: #fff;
 }
 
-.small-btn {
-    padding: 5px 10px;
-    font-size: 0.8rem;
+.form-label {
+    color: #fff;
+}
+
+.form-control {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-lg {
+    font-size: 1.25rem;
+}
+
+.btn i {
+    color: #fff;
+}
+
+.table {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table th,
+.table td {
+    border-color: #454d55;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #343a40;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #3d444a;
 }
