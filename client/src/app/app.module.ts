@@ -24,6 +24,7 @@ import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
 
 import { ReservasComponent } from './componentes/reservas/reservas.component';
 import { ExtrasComponent } from './componentes/extras/extras.component';
+import { ClientesComponent } from './componentes/clientes/clientes.component';
 
 
 
@@ -43,7 +44,8 @@ import { ExtrasComponent } from './componentes/extras/extras.component';
     AdministracionComponent,
     VehiculosComponent,
     ReservasComponent,
-    ExtrasComponent
+    ExtrasComponent,
+    ClientesComponent
 
   
 
