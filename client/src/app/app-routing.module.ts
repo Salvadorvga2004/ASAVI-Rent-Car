@@ -13,6 +13,7 @@ import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
 import { ReservasComponent } from './componentes/reservas/reservas.component';
 import { ExtrasComponent } from './componentes/extras/extras.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
+import { TipoAutoComponent } from './componentes/tipo-auto/tipo-auto.component';
 
 
 
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'clientes',
     component:ClientesComponent
+  },
+  {
+    path: 'tipoAutos',
+    component:TipoAutoComponent
   }
 ];
 

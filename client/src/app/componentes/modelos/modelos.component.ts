@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelosService } from '../../service/modelos.service';
 import { Modelos } from '../../modelos/modelos';
+import { TipoAutos } from '../../modelos/tipoAuto';
+import { TipoAutoService } from '../../service/tipo-auto.service';
+import { Marcas } from '../../modelos/marca';
+import { MarcaService } from '../../service/marca.service';
 
 @Component({
   selector: 'app-modelos',
@@ -13,11 +17,57 @@ export class ModelosComponent implements OnInit {
   modoEdicion: boolean = false;
   filtro: string = '';
 
-  constructor(private modelosService: ModelosService) {}
+  tipoAutos: TipoAutos[]=[];
+  tipoAuto: TipoAutos | any = {};
+
+  marcas: Marcas[]=[];
+  marca: Marcas | any = {};
+
+  constructor(private modelosService: ModelosService, private tipoAutoService: TipoAutoService, private marcaService: MarcaService) {}
 
   ngOnInit(): void {
     this.cargarModelos();
+    this.cargarTipoAuto();
+    this.cargarMarcas();
   }
+
+  cargarMarcas() {
+    this.marcaService.getMarcas().subscribe(
+      marcas => {
+
+        if (this.filtro.trim() !== '') {
+          marcas = marcas.filter(marca => 
+            marca.NomMarca && marca.NomMarca.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
+
+        
+        this.marcas = marcas;
+      },
+      error => {
+        console.error('Error al cargar marcass:', error);
+      }
+    );
+}
+
+  cargarTipoAuto() {
+    this.tipoAutoService.getTipoAutos().subscribe(
+      tipoAutos => {
+
+        if (this.filtro.trim() !== '') {
+          tipoAutos = tipoAutos.filter(tipoAuto => 
+            tipoAuto.Tipo && tipoAuto.Tipo.toLowerCase().includes(this.filtro.toLowerCase())
+          );
+        }
+
+        
+        this.tipoAutos = tipoAutos;
+      },
+      error => {
+        console.error('Error al cargar tipo de autos:', error);
+      }
+    );
+}
 
   cargarModelos() {
     this.modelosService.getModelos().subscribe(
