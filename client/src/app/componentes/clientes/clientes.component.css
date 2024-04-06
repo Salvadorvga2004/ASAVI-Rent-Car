@@ -1,0 +1,152 @@
+
+
+/* Estilo para el contenedor principal */
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    background-color: #f3f3f3; /* Color de fondo para toda la pantalla */
+  }
+  
+  /* Estilo para el contenedor de la parte izquierda */
+  .container-sm {
+    flex: 1;
+  }
+  
+  /* Estilo para el título dentro de la parte izquierda */
+  .container-sm h1 {
+    margin: 0;
+    color: white;
+    background-color: rgb(10, 10, 10);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #0a0a0a;
+    color: #eeeeee;
+  }
+  /* Estilo para el contenedor principal */
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    background-color: #f3f3f3; /* Color de fondo para toda la pantalla */
+  }
+  
+  /* Estilo para el contenedor de la parte izquierda */
+  .container-sm {
+    flex: 1;
+  }
+  
+  /* Estilo para el título dentro de la parte izquierda */
+  .container-sm h1 {
+    margin: 0;
+    color: white;
+    background-color: rgb(10, 10, 10);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #0a0a0a;
+    color: #eeeeee;
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  /* Estilo para los botones */
+  .btn {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px; /* Forma de botón redondeada */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .btn-primary {
+    background-color: #080808; /* Color de fondo del botón primario */
+    color: #fff; /* Color del texto del botón primario */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Color de fondo del botón de éxito */
+    color: #fff; /* Color del texto del botón de éxito */
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Color de fondo del botón de éxito al pasar el mouse */
+  }
+  
+  /* Estilo para el título de Estados */
+  #estados-title {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  /* Estilo para el título de Ciudades */
+  #ciudades-title {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  /* Estilo para el título de Sucursales */
+  #sucursales-title {
+    font-family: 'EB Garamond', serif; /* Fuente del texto */
+  }
+  
+  .small-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  .container input[type="text"] {
+    width: 50%;
+    padding: 5px;
+    margin-left: auto;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  
