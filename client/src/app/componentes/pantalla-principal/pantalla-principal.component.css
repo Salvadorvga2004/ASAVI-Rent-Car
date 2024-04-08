@@ -93,6 +93,17 @@
     margin: auto; /* Centrar horizontalmente las imágenes */
 }
 
+.imagen-principal {
+    display: none;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .imagen-principal.mostrar {
+    display: block;
+    transform: scale(1.1); /* Cambiar el tamaño de la imagen al 110% */
+  }
+  
+
 
 /* Estilos generales */
 body {

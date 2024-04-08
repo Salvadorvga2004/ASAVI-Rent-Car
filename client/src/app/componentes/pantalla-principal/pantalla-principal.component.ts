@@ -23,9 +23,9 @@ export class PantallaPrincipalComponent implements OnInit {
 
   mostrarSiguienteImagen(): void {
     if (this.imagenes.length > 0) {
-      this.imagenes[this.indiceImagenActual].style.display = 'none';
+      this.imagenes[this.indiceImagenActual].classList.remove('mostrar'); // Quita la clase 'mostrar' de la imagen actual
       this.indiceImagenActual = (this.indiceImagenActual + 1) % this.imagenes.length;
-      this.imagenes[this.indiceImagenActual].style.display = 'block';
+      this.imagenes[this.indiceImagenActual].classList.add('mostrar'); // Agrega la clase 'mostrar' a la siguiente imagen
     }
   }
 
