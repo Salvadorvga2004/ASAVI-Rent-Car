@@ -1,28 +1,24 @@
-/* Estilo para el contenedor principal */
 .wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
     height: auto;
-    background-color: #f3f3f3; /* Color de fondo para toda la pantalla */
+    background-color: #f3f3f3;
   }
   .model-image {
-    max-width: 100px; /* Tamaño máximo de la imagen en anchura */
-    max-height: 100px; /* Tamaño máximo de la imagen en altura */
+    max-width: 100px;
+    max-height: 100px;
 }
   
-  /* Estilo para el contenedor del formulario */
   .container {
     width: 80%;
   }
   
-  /* Estilo para el título dentro del formulario */
   .card-header h2 {
-    font-family: 'EB Garamond', serif; /* Fuente del texto */
+    font-family: 'EB Garamond', serif;
   }
   
-  /* Estilo para la tabla */
   .table {
     width: 100%;
   }

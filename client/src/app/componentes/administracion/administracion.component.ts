@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
 import { UsuariosService } from '../../service/usuarios.service';
 import { Clientes, Usuarios,} from '../../modelos/usuarios';
-import { Modelos } from '../../modelos/modelos';
 
 @Component({
   selector: 'app-administracion',
@@ -39,7 +37,7 @@ export class AdministracionComponent {
     this.cargarUsuarios();
     
   }
-   //Estados
+
    cargarClientes() {
     this.usuarioService.getClientes().subscribe(
       clientes => {
