@@ -11,16 +11,16 @@
                             <label for="Modelo">Modelo:</label>
                             <input type="text" name="Modelo" [(ngModel)]="modelo.Modelo" placeholder="Modelo" class="form-control">
                         </div>
-                        
                         <div class="col-md-6">
+                            <label for="TipoAuto">Tipo Auto:</label>
                             <select class="form-select" aria-label="Default select example" name="TipoAuto" [(ngModel)]="modelo.Tipo" aria-placeholder="Tipo" aria-describedby="modelo-help">
                                 <option disabled selected>Selecciona el Tipo</option>
                                 <option *ngFor="let tipoAuto of tipoAutos" [value]="tipoAuto.Tipo">{{ tipoAuto.Tipo }}</option>
                             </select>
                             <div id="modelo-help" class="form-text">Selecciona el tipo que deseas.</div>
                         </div>
-                        
                         <div class="col-md-6">
+                            <label for="Marca">Marca:</label>
                             <select class="form-select" aria-label="Default select example" name="Marca" [(ngModel)]="modelo.Marca" aria-placeholder="Marca" aria-describedby="modelo-help">
                                 <option disabled selected>Selecciona la marca</option>
                                 <option *ngFor="let marca of marcas" [value]="marca.NomMarca">{{ marca.NomMarca }}</option>
@@ -29,7 +29,12 @@
                         </div>
                         <div class="form-group">
                             <label for="Transmision">Transmisión:</label>
-                            <input type="text" name="Transmision" [(ngModel)]="modelo.Transmision" placeholder="Transmisión" class="form-control">
+                            <select class="form-select" aria-label="Default select example" name="Transmision" [(ngModel)]="modelo.Transmision" aria-placeholder="Transmision" aria-describedby="modelo-help">
+                                <option disabled selected>Selecciona la transmision</option>
+                                <option value ="Estandar">Estandar</option>
+                                <option value ="Automatico">Automatica</option>
+                            </select>
+                            <div id="modelo-help" class="form-text">Selecciona el tipo de transmision</div>
                         </div>
                         <div class="form-group">
                             <label for="NumPasajeros">Número de Pasajeros:</label>
@@ -43,11 +48,17 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="AireAcondicionado">Aire Acondicionado:</label>
-                            <input type="text" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" placeholder="Aire Acondicionado" class="form-control">
+                            <select class="form-select" aria-label="Default select example" name="AireAcondicionado" [(ngModel)]="modelo.AireAcondicionado" aria-placeholder="AireAcondicionado" aria-describedby="modelo-help">
+                                <option value ="Si">Si</option>
+                                <option value ="No">No</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="Radio">Radio:</label>
-                            <input type="text" name="Radio" [(ngModel)]="modelo.Radio" placeholder="Radio" class="form-control">
+                            <select class="form-select" aria-label="Default select example" name="Radio" [(ngModel)]="modelo.Radio" aria-placeholder="Radio" aria-describedby="modelo-help">
+                                <option value ="Si">Si</option>
+                                <option value ="No">No</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="PagoPorDia">Pago Por Día:</label>

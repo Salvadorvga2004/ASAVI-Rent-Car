@@ -19,16 +19,28 @@
                 <input type="text" name="Kilometraje" [(ngModel)]="auto.Kilometraje" placeholder="Kilometraje" class="form-control mb-3">
             </div>
             <div class="col-md-6">
-                <label for="inputEstadoCarroceria" class="form-label visually-hidden">Estado de Carrocería</label>
-                <input type="text" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" placeholder="Estado de Carrocería" class="form-control mb-3">
+                <select class="form-select" aria-label="Default select example" name="EstadoCarroceria" [(ngModel)]="auto.EstadoCarroceria" aria-placeholder="EstadoCarroceria" aria-describedby="modelo-help">
+                    <option disabled selected>Selecciona el estado de carroceria del auto</option>
+                    <option value ="Excelente">Excelente</option>
+                    <option value ="Buena">Buena</option>
+                    <option value ="Mala">Mala</option>
+                </select>
+                <div id="modelo-help" class="form-text">Selecciona el estado de carroceria que deseas.</div>
             </div>
             <div class="col-md-6">
-                <label for="inputUbicacion" class="form-label visually-hidden">Ubicación</label>
-                <input type="text" name="Ubicacion" [(ngModel)]="auto.Ubicacion" placeholder="Ubicación" class="form-control mb-3">
+                <select class="form-select" aria-label="Default select example" name="Ubicación" [(ngModel)]="auto.Ubicacion" aria-placeholder="Ubicación" aria-describedby="modelo-help">
+                    <option disabled selected>Selecciona la ubicación del auto</option>
+                    <option value ="Libre">Libre</option>
+                </select>
+                <div id="modelo-help" class="form-text">Selecciona la ubicación que deseas.</div>
             </div>
             <div class="col-md-6">
-                <label for="inputEstatusAuto" class="form-label visually-hidden">Estatus de Auto</label>
-                <input type="text" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" placeholder="Estatus de Auto" class="form-control mb-3">
+                <select class="form-select" aria-label="Default select example" name="EstatusAuto" [(ngModel)]="auto.EstatusAuto" aria-placeholder="EstatusAuto" aria-describedby="modelo-help">
+                    <option disabled selected>Selecciona el estatus de auto</option>
+                    <option value ="Libre" >Libre</option>
+                    <option value ="Ocupado" >Ocupado</option>
+                </select>
+                <div id="modelo-help" class="form-text">Selecciona el estatus de auto que deseas.</div>
             </div>
             <div class="col-md-6">
                 <select class="form-select" aria-label="Default select example" name="ModeloAuto" [(ngModel)]="auto.ModeloAuto" aria-placeholder="Modelo" aria-describedby="modelo-help">
@@ -87,11 +99,4 @@
             </table>
             
         </div>
-        <div class="col">
-            <button class="btn btn-lg btn-primary" (click)="verAutos(); mostrarBoton()">Cerrar</button>
-        </div>
-    
-
-    
-   
 </div>
